@@ -66,3 +66,26 @@ Then open http://localhost:8080
 - Added French project titles/subtitles and key navigation/static labels.
 - Replaced generic ERP references with SAP S/4HANA where enterprise ERP is shown.
 - Added SAP S/4HANA to relevant technology stacks.
+
+## v8 — CMA CGM E-Commerce × CEVA Logistics
+- New flagship real project: Global E-Commerce & Logistics Platform
+- CMA CGM and CEVA Logistics shown as distinct enterprise domains
+- SAP S/4HANA included in the enterprise backbone
+- Full layers for digital channels, commerce services, API/integration, shipping/logistics domains
+- Security, governance, reliability, observability and data controls
+- Live booking scenario: customer → CMA CGM → SAP S/4HANA → CEVA → event/status → unified tracking
+- Before / architecture / after / contribution views retained
+- Homepage e-commerce spotlight added
+
+## v9 — production editorial audit
+Public-facing copy was reviewed to remove build notes, CV-validation language, disclaimers about representative scenarios, and other meta-commentary. The website now presents projects directly in Chintan's professional voice.
+
+## v10 — researched enterprise structure
+- Restructured all 11 projects by business process, application/integration architecture, data, controls and outcomes.
+- CMA CGM e-commerce architecture now names the confirmed Google Cloud and CMA CGM ecosystem components.
+- Added CMA CGM customer-journey products: My CMA CGM, SpotOn, API Portal, API/Event catalog and EDI.
+- Added CEVA Logistics as a distinct logistics domain.
+- Added GDPR and CNIL-aligned data-protection controls plus auditability/governance.
+- Added Deloitte audit interaction based on project experience.
+- Volvo projects use SAP S/4HANA plus process/data/delivery tooling; unverified cloud products are not attributed.
+- Microsoft internship remains historically framed as Azure AI / ML rather than retroactively naming current 2026 products.
