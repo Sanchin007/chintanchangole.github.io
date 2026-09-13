@@ -1,121 +1,135 @@
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const modal=$("#projectModal"), modalContent=$("#modalContent"), grid=$("#projectGrid");
+let runtimeTimer=null, architectureTimer=null;
 
-let currentLang="en";
-const ui={
- en:{before:"Before",usecase:"Live use case",architecture:"Application architecture",after:"After",delivery:"My contribution & impact",view:"View project",tech:"TECH STACK",run:"Run use case",next:"Next step",reset:"Reset"},
- fr:{before:"Avant",usecase:"Cas d’usage",architecture:"Architecture applicative",after:"Après",delivery:"Ma contribution & impact",view:"Voir le projet",tech:"STACK TECHNIQUE",run:"Lancer le cas",next:"Étape suivante",reset:"Réinitialiser"}
-};
-function applyLanguage(lang){
- currentLang=lang;
- document.documentElement.lang=lang;
- document.querySelectorAll(".lang-btn").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
- document.querySelectorAll("[data-i18n-en]").forEach(el=>el.textContent=el.dataset[lang==="fr"?"i18nFr":"i18nEn"]);
- document.querySelectorAll("[data-project-title]").forEach(el=>{
-   const p=window.PROJECTS.find(x=>x.id===el.dataset.projectTitle); if(p) el.textContent=(lang==="fr"&&p.title_fr)||p.title;
- });
- document.querySelectorAll("[data-project-subtitle]").forEach(el=>{
-   const p=window.PROJECTS.find(x=>x.id===el.dataset.projectSubtitle); if(p) el.textContent=(lang==="fr"&&p.subtitle_fr)||p.subtitle;
- });
- localStorage.setItem("portfolioLang",lang);
+function miniRuntime(p){
+  const pts=(p.cardFlow||p.runtime.map(x=>x[0]).slice(0,5));
+  return `<div class="mini-runtime"><div class="mini-runtime-head"><span>LIVE FLOW</span><span>BEFORE → AFTER CASE STUDY</span></div><div class="mini-runtime-flow">${pts.map((x,i)=>`${i?'<i class="mini-arrow"></i>':''}<div class="mini-node" data-mini="${i}">${esc(x)}</div>`).join("")}</div></div>`;
 }
-document.querySelectorAll(".lang-btn").forEach(b=>b.addEventListener("click",()=>applyLanguage(b.dataset.lang)));
-setTimeout(()=>applyLanguage(localStorage.getItem("portfolioLang")||"en"),0);
+function projectCard(p){return `<article class="project-card reveal ${p.featured?'featured':''} ${p.spotlight?'spotlight':''}" data-id="${p.id}" data-cat="${p.category}">
+  <div class="project-top"><div><div class="project-kicker">${esc(p.kicker)}</div><div class="project-company">${esc(p.company)}</div></div><div class="project-metric"><b>${esc(p.metric)}</b><span>${esc(p.metricLabel)}</span></div></div>
+  <h3>${esc(p.title)}</h3><p>${esc(p.subtitle)}</p>${miniRuntime(p)}
+  <div class="project-focus"><span>${esc(p.tags[0])}</span><span>${esc(p.tags[1])}</span><span>${esc(p.tags[2])}</span></div>
+  <div class="project-bottom"><small>${esc(p.scale||'Process · architecture · controls · outcome')}</small><button class="project-open">Explore case study →</button></div>
+</article>`}
 
-document.getElementById("year").textContent=new Date().getFullYear();
-const sb=document.getElementById("scrollbar");
-addEventListener("scroll",()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;sb.style.width=(m?d.scrollTop/m*100:0)+"%"},{passive:true});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target)}}),{threshold:.08});
-document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
+grid.innerHTML=window.PROJECTS.sort((a,b)=>a.order-b.order).map(projectCard).join("");
 
-const heroSteps=[...document.querySelectorAll(".hero-step")];
-const heroTitle=document.getElementById("hero-live-title"),heroText=document.getElementById("hero-live-text");
-const heroCopy=[
-["Observe the real work","Start with users, handoffs, exceptions and repetitive operational tasks — not with a technology assumption."],
-["Make the process visible","Map steps, systems, owners, data movement and the points where work slows down or breaks."],
-["Turn friction into evidence","Use operational data, SQL/Python analysis and KPI baselines to quantify volume, time, quality and impact."],
-["Translate business into buildable logic","Write functional requirements, business rules, exceptions and acceptance criteria that engineering can implement."],
-["Engineer the right intervention","Use low-code applications, Python, APIs, workflow automation, analytics or AI only where they improve the process."],
-["Validate before scale","Test real operating scenarios through UAT, fix edge cases and prepare users for the release."],
-["Measure adoption and improve","Track usage, adoption, quality and support signals, then feed them into governance and the next backlog."]
-];
-let heroIdx=0;
-function animateHero(){
- if(!heroSteps.length)return;
- heroSteps.forEach((n,i)=>n.classList.toggle("active",i===heroIdx));
- heroTitle.textContent=heroCopy[heroIdx][0];heroText.textContent=heroCopy[heroIdx][1];
- heroIdx=(heroIdx+1)%heroSteps.length;
-}
-animateHero();setInterval(animateHero,2600);
+$$('.project-card').forEach(card=>{
+  let idx=0,timer; const nodes=$$('.mini-node',card);
+  const animate=()=>{nodes.forEach((n,i)=>n.classList.toggle('active',i===idx));idx=(idx+1)%nodes.length};
+  card.addEventListener('mouseenter',()=>{idx=0;animate();timer=setInterval(animate,650)});
+  card.addEventListener('mouseleave',()=>{clearInterval(timer);nodes.forEach(n=>n.classList.remove('active'))});
+});
 
-const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-function card(p){return `<article class="card ${p.theme==="azure"?"azure":""}" data-id="${p.id}" tabindex="0"><div class="card-top"><div><span class="no">PROJECT ${p.order.toString().padStart(2,"0")}</span><h4>${`<span data-project-title="${p.id}">${esc((currentLang==="fr"&&p.title_fr)||p.title)}</span>`}</h4></div><div class="metric"><strong>${esc(p.metric)}</strong><span>${esc(p.metricLabel)}</span></div></div><p>${`<span data-project-subtitle="${p.id}">${esc((currentLang==="fr"&&p.subtitle_fr)||p.subtitle)}</span>`}</p><div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div><div class="stack-preview"><b>TECH</b><span>${(p.techStack||[]).slice(0,6).map(esc).join(" • ")}</span></div><div class="open-row"><span>Open full architecture + live walkthrough</span><i>↗</i></div></article>`}
-document.getElementById("google-projects").innerHTML=PROJECTS.filter(p=>p.theme==="google").map(card).join("");
-document.getElementById("volvo-projects").innerHTML=PROJECTS.filter(p=>p.company==="Volvo Group").map(card).join("");
-document.getElementById("microsoft-projects").innerHTML=PROJECTS.filter(p=>p.company==="Microsoft").map(card).join("");
+$$('#projectFilters button').forEach(btn=>btn.addEventListener('click',()=>{
+  $$('#projectFilters button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  const f=btn.dataset.filter;
+  $$('.project-card').forEach(c=>c.classList.toggle('hidden',f!=='all'&&c.dataset.cat!==f));
+}));
 
-const modal=document.getElementById("modal"), content=document.getElementById("modal-content");
-let walkthroughTimer=null,currentStep=0,currentNodes=[];
-function list(a){return `<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}
-function renderLayers(p){
- return p.layers.map(layer=>`<section class="layer ${layer.color}"><h4><em>${layer.n}</em>${esc(layer.title)}</h4>${layer.items.map((it,idx)=>`<div class="component" data-name="${esc(it[0])}" data-desc="${esc(it[3])}" data-type="${it[2]}"><span class="type"></span><b>${esc(it[0])}</b><span>${esc(it[1])}</span></div>`).join("")}<div class="flow-track"></div></section>`).join("");
-}
-function renderRail(p){return `<aside class="rail"><h4>AUTOMATION / MONITORING CONTROL PLANE</h4>${p.rail.map(x=>`<div class="rail-item" data-name="${esc(x[0])}" data-desc="${esc(x[2])}"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join("")}</aside>`}
-function architecture(p){return `<div class="arch-toolbar"><div class="left"><button class="play" id="play-walkthrough">▶ Start architecture tour</button><button class="speed" id="reset-walkthrough">↺ Reset</button></div><small>Click any component for a live explanation</small></div>
-<div class="enterprise-arch">
- <div class="main-arch">
-  <div class="arch-titlebar"><b>${esc(p.title.toUpperCase())}</b><span>${`<span data-project-subtitle="${p.id}">${esc((currentLang==="fr"&&p.subtitle_fr)||p.subtitle)}</span>`}</span></div>
-  <div class="tech-row">${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
-  <div class="layers">${renderLayers(p)}</div>
-  <div class="foundation"><b>INFRASTRUCTURE • SECURITY • GOVERNANCE FOUNDATION</b>${p.foundation.map(x=>`<span>${esc(x)}</span>`).join("")}</div>
- </div>
- <div>${renderRail(p)}
-  <div class="explain-panel"><small>ARCHITECTURE DETAIL</small><h3 id="explain-title">Architecture overview</h3><p id="explain-text">Select a component to review its role in the end-to-end process, integration model and control framework.</p><div class="stepcount"><span id="step-label">Ready</span><span>${p.layers.reduce((n,l)=>n+l.items.length,0)+p.rail.length} components</span></div><div class="legend-grid"><span><i class="dot human"></i>Human</span><span><i class="dot ai"></i>AI</span><span><i class="dot data"></i>Data</span><span><i class="dot control"></i>Control</span></div></div>
- </div>
+function runtimeHTML(p){return `<div class="runtime-shell">
+  <div class="runtime-toolbar"><span>LIVE TARGET-STATE PROCESS · ${p.runtime.length} STAGES</span><div class="runtime-controls"><button data-runtime="play">▶ Play</button><button data-runtime="pause">Ⅱ Pause</button><button data-runtime="reset">↺ Reset</button></div></div>
+  <div class="runtime-track" style="--runtime-count:${p.runtime.length}"><div class="runtime-line"><i id="runtimeProgress"></i><em id="runtimePacket"></em></div>${p.runtime.map((s,i)=>`<div class="runtime-node ${i===0?'active':''}" data-runtime-node="${i}"><div class="dot"></div><b>${esc(s[0])}</b><small>${esc(s[1])}</small></div>`).join("")}</div>
+  <div class="runtime-detail"><span id="runtimeStep">STEP 01</span><div><b id="runtimeTitle">${esc(p.runtime[0][0])} · ${esc(p.runtime[0][1])}</b><p id="runtimeText">${esc(p.runtime[0][2])}</p></div></div>
 </div>`}
 
-function comparison(p,focusAfter=false){
- const flow=(arr,cls)=>`<div class="app-flow">${arr.map((x,i)=>`${i?'<i class="app-arrow">→</i>':''}<span class="app-node ${cls}">${esc(x)}</span>`).join("")}</div>`;
- return `<div class="compare-wrap"><div class="compare-head"><div><b>APPLICATION / PROCESS — BEFORE vs AFTER</b><span> • animated structural comparison</span></div><button class="compare-play">▶ Review process flow</button></div><div class="compare-canvas"><div class="compare-side before-app"><small>BEFORE — FRAGMENTED / MANUAL</small>${flow(p.usecase.beforeFlow,"old")}</div><div class="compare-side after-app"><small>AFTER — CONTROLLED / INTEGRATED</small>${flow(p.usecase.afterFlow,"new")}</div></div></div>`;
-}
-function liveUseCase(p){
- return `<div class="usecase-intro"><div><small>PROCESS WALKTHROUGH</small><h3>${esc(p.usecase.title)}</h3><p>${esc(p.usecase.input)}</p></div><div class="actor-badge"><b>${esc(p.usecase.actor)}</b><span>process owner / user</span></div></div><div class="sim-shell"><div class="sim-stage"><div class="packet"></div><div class="sim-grid">${p.usecase.steps.map((s,i)=>`<div class="sim-node" data-i="${i}"><em>${String(i+1).padStart(2,"0")}</em><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("")}</div></div><aside class="sim-panel"><small>PROCESS & SYSTEM FLOW</small><h3 id="sim-title">End-to-end flow</h3><p id="sim-text">Follow the transaction through the business process, application services, integrations and control points.</p><div class="sim-progress"><i></i></div><div class="sim-controls"><button class="run" id="sim-run">▶ Start walkthrough</button><button id="sim-next">Next step</button><button id="sim-reset">Reset</button></div><div class="sim-eventlog" id="sim-log"></div></aside></div>`;
-}
-let usecaseTimer=null;
-function bindUseCase(p){
- clearInterval(usecaseTimer);
- const nodes=[...content.querySelectorAll(".sim-node")], packet=content.querySelector(".packet"), title=content.querySelector("#sim-title"), text=content.querySelector("#sim-text"), prog=content.querySelector(".sim-progress i"), log=content.querySelector("#sim-log"); if(!nodes.length)return;
- let step=-1;
- function activate(i){ if(i<0||i>=nodes.length)return; step=i; nodes.forEach((n,j)=>{n.classList.toggle("active",j===i);if(j<i)n.classList.add("done");else if(j>i)n.classList.remove("done")}); const n=nodes[i],stage=content.querySelector(".sim-stage"),nr=n.getBoundingClientRect(),sr=stage.getBoundingClientRect();packet.style.opacity=1;packet.style.left=(nr.left-sr.left+nr.width/2-7)+"px";packet.style.top=(nr.top-sr.top+nr.height/2-7)+"px";packet.classList.add("pulse-ring");title.textContent=p.usecase.steps[i][0];text.textContent=p.usecase.steps[i][1];prog.style.width=((i+1)/nodes.length*100)+"%";log.insertAdjacentHTML("afterbegin",`<div class="sim-event"><b>${String(i+1).padStart(2,"0")}</b> ${esc(p.usecase.steps[i][0])}</div>`)}
- function reset(){clearInterval(usecaseTimer);step=-1;nodes.forEach(n=>n.classList.remove("active","done"));packet.style.opacity=0;prog.style.width="0";title.textContent="End-to-end flow";text.textContent="Follow the transaction through the business process, application services, integrations and control points.";log.innerHTML=""}
- content.querySelector("#sim-run").onclick=()=>{reset();activate(0);usecaseTimer=setInterval(()=>{if(step>=nodes.length-1){clearInterval(usecaseTimer);title.textContent="Process complete";text.textContent="The request has reached the measurable business outcome while preserving controls, auditability and the required human decision points.";return}activate(step+1)},1800)};
- content.querySelector("#sim-next").onclick=()=>{clearInterval(usecaseTimer);if(step<nodes.length-1)activate(step+1)};
- content.querySelector("#sim-reset").onclick=reset;
- nodes.forEach((n,i)=>n.onclick=()=>{clearInterval(usecaseTimer);activate(i)});
-}
-function bindComparison(){
- const wraps=[...content.querySelectorAll(".compare-wrap")];wraps.forEach(w=>{const btn=w.querySelector(".compare-play"),nodes=[...w.querySelectorAll(".app-node")];let timers=[];btn.onclick=()=>{timers.forEach(clearTimeout);nodes.forEach(n=>n.classList.remove("live"));nodes.forEach((n,i)=>timers.push(setTimeout(()=>n.classList.add("live"),i*230)));btn.textContent="↺ Review flow again"}})
-}
+function architectureHTML(p){return `<div class="architecture-shell">
+  <div class="architecture-head"><span>TARGET-STATE SYSTEM ARCHITECTURE</span><div><i></i> ACTIVE FLOW</div></div>
+  <div class="architecture-flow" style="--arch-count:${p.architecture.length}">${p.architecture.map((a,i)=>`${i?'<div class="arch-link"><i></i><i></i></div>':''}<button class="arch-layer ${i===0?'active':''}" data-arch-node="${i}"><small>${esc(a[0])}</small><b>${esc(a[1])}</b><span>${esc(a[2])}</span></button>`).join('')}</div>
+  <div class="architecture-detail"><span id="archStep">LAYER 01</span><div><b id="archTitle">${esc(p.architecture[0][0])} · ${esc(p.architecture[0][1])}</b><p id="archText">${esc(p.architecture[0][2])}</p></div></div>
+</div>`}
 
-function openProject(p){
- clearInterval(walkthroughTimer);currentStep=0;
- content.innerHTML=`<div class="modal-header"><div class="modal-company">${esc(p.company)} • PROJECT ${p.order.toString().padStart(2,"0")}</div><h2 id="modal-title">${`<span data-project-title="${p.id}">${esc((currentLang==="fr"&&p.title_fr)||p.title)}</span>`}</h2><p>${`<span data-project-subtitle="${p.id}">${esc((currentLang==="fr"&&p.subtitle_fr)||p.subtitle)}</span>`}</p><div class="modal-summary"><span class="metric-chip">${esc(p.metric)} — ${esc(p.metricLabel)}</span><span>${esc(p.scale)}</span>${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div><div class="modal-tech"><b>TECH STACK</b><div>${(p.techStack||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div></div></div>
- <div class="view-tabs"><button class="view-tab active" data-view="before">${currentLang==="fr"?"01 Avant":"01 Before"}</button><button class="view-tab" data-view="usecase">${currentLang==="fr"?"02 Cas d’usage":"02 Live use case"}</button><button class="view-tab" data-view="architecture">${currentLang==="fr"?"03 Architecture applicative":"03 Application architecture"}</button><button class="view-tab" data-view="after">${currentLang==="fr"?"04 Après":"04 After"}</button><button class="view-tab" data-view="delivery">${currentLang==="fr"?"05 Ma contribution & impact":"05 My contribution & impact"}</button></div>
- <section class="view active" data-panel="before"><div class="state-grid"><div class="state-card before"><small>BEFORE</small><h3>How the process worked</h3>${list(p.before)}</div><div class="state-card"><small>TRANSFORMATION QUESTION</small><h3>What had to change?</h3><p>${`<span data-project-subtitle="${p.id}">${esc((currentLang==="fr"&&p.subtitle_fr)||p.subtitle)}</span>`}</p><div class="transition-band"><div class="transition-flow"><span>Observe</span><i>→</i><span>Quantify</span><i>→</i><span>Redesign</span><i>→</i><span>Engineer</span><i>→</i><span>Adopt</span></div></div></div></div>${comparison(p)}</section>
- <section class="view" data-panel="usecase">${liveUseCase(p)}</section>
- <section class="view" data-panel="architecture">${architecture(p)}</section>
- <section class="view" data-panel="after"><div class="state-grid"><div class="state-card after"><small>AFTER</small><h3>Target operating model</h3>${list(p.after)}</div><div class="state-card"><small>DESIGN PRINCIPLE</small><h3>End-to-end process ownership</h3><p>I design the process and the supporting system together—connecting users, workflow state, integrations, data, controls, observability, governance and feedback into one operating model.</p></div></div>${comparison(p,true)}</section>
- <section class="view" data-panel="delivery"><div class="delivery-grid"><div class="delivery-card"><h3>My contribution</h3>${list(p.contribution)}</div><div class="delivery-card outcome-card"><h3>Business outcome</h3><strong>${esc(p.metric)}</strong><p>${esc(p.outcome)}</p></div></div></section>`;
- modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
- content.querySelectorAll(".view-tab").forEach(btn=>btn.addEventListener("click",()=>{content.querySelectorAll(".view-tab").forEach(x=>x.classList.remove("active"));content.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));btn.classList.add("active");content.querySelector(`[data-panel="${btn.dataset.view}"]`).classList.add("active"); if(btn.dataset.view==="architecture") setTimeout(bindArchitecture,50); if(btn.dataset.view==="usecase") setTimeout(()=>bindUseCase(p),50); if(btn.dataset.view==="before"||btn.dataset.view==="after") setTimeout(bindComparison,50)}));
+function smallArch(title,items,kind){return `<div class="state-arch ${kind}"><div class="state-arch-head"><span>${esc(title)}</span><b>${kind==='before'?'CURRENT':'TARGET'}</b></div><div class="state-arch-flow">${items.map((x,i)=>`${i?'<i class="state-arrow">→</i>':''}<span>${esc(x)}</span>`).join('')}</div></div>`}
+function transformationHTML(p){return `<div class="transformation-shell">
+  <div class="state-compare">
+    <div class="state-panel before"><small>BEFORE</small><h3>Current-state operating pattern</h3><ul>${p.before.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${smallArch('Current-state architecture',p.beforeArchitecture,'before')}</div>
+    <div class="change-bridge"><span>REDESIGN</span><i></i><b>→</b></div>
+    <div class="state-panel after"><small>AFTER</small><h3>Target-state operating model</h3><ul>${p.after.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${smallArch('Target-state architecture',p.afterArchitecture,'after')}</div>
+  </div>
+  <div class="architecture-change"><span>WHAT CHANGED IN THE ARCHITECTURE</span><div>${p.architectureChange.map((x,i)=>`<article><b>${String(i+1).padStart(2,'0')}</b><p>${esc(x)}</p></article>`).join('')}</div></div>
+</div>`}
+
+function toolingHTML(p){return `<div class="tooling-layout">
+  <div><div class="modal-section-title">TOOLS & TECHNOLOGIES</div><div class="tool-group-grid">${p.toolGroups.map(g=>`<article><small>${esc(g[0])}</small><div>${g[1].map(t=>`<span>${esc(t)}</span>`).join('')}</div></article>`).join('')}</div></div>
+  <div><div class="modal-section-title">DELIVERY ARTIFACTS</div><div class="artifact-grid">${p.artifacts.map((a,i)=>`<span><b>${String(i+1).padStart(2,'0')}</b>${esc(a)}</span>`).join('')}</div></div>
+  <div><div class="modal-section-title">KEY DESIGN / DELIVERY DECISIONS</div><div class="decision-list">${p.decisions.map(d=>`<div><i>✓</i><p>${esc(d)}</p></div>`).join('')}</div></div>
+</div>`}
+
+function overviewHTML(p){return `<div class="executive-grid">
+  <article><small>BUSINESS CHALLENGE</small><p>${esc(p.problem)}</p></article>
+  <article><small>MY RESPONSIBILITY</small><p>${esc(p.roleSummary)}</p></article>
+  <article><small>SCALE / CONTEXT</small><p>${esc(p.scale)}</p></article>
+</div>
+<div class="overview-outcome"><small>OUTCOME</small><b>${esc(p.metric)} · ${esc(p.metricLabel)}</b><p>${esc(p.impact)}</p></div>`}
+
+function openProject(id){
+  clearInterval(runtimeTimer); clearInterval(architectureTimer); runtimeTimer=null; architectureTimer=null;
+  const p=window.PROJECTS.find(x=>x.id===id); if(!p)return;
+  modalContent.innerHTML=`<div class="modal-hero"><div class="modal-kicker">${esc(p.kicker)} · ${esc(p.company)}</div><h2 id="modalTitle">${esc(p.title)}</h2><p>${esc(p.subtitle)}</p><div class="modal-scope"><span>${esc(p.metric)} · ${esc(p.metricLabel)}</span><span>${esc(p.scale)}</span></div><div class="modal-meta">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div></div>
+  <div class="modal-body"><div class="modal-tabs"><button class="active" data-tab="overview">Overview</button><button data-tab="transform">Before → After</button><button data-tab="runtime">Live process</button><button data-tab="architecture">Architecture</button><button data-tab="contribution">My role</button><button data-tab="tooling">Tools & artifacts</button><button data-tab="impact">Business impact</button></div>
+  <div class="tab-panel active" data-panel="overview"><div class="modal-section-title">EXECUTIVE CASE STUDY</div>${overviewHTML(p)}</div>
+  <div class="tab-panel" data-panel="transform"><div class="modal-section-title">TRANSFORMATION — PROCESS + ARCHITECTURE</div>${transformationHTML(p)}</div>
+  <div class="tab-panel" data-panel="runtime"><div class="modal-section-title">HOW THE TARGET PROCESS OPERATES</div>${runtimeHTML(p)}<div class="modal-section-title">CONTROL POINTS</div><div class="control-grid">${p.controls.map(c=>`<span>${esc(c)}</span>`).join('')}</div></div>
+  <div class="tab-panel" data-panel="architecture"><div class="modal-section-title">DETAILED APPLICATION / SYSTEM VIEW</div>${architectureHTML(p)}</div>
+  <div class="tab-panel" data-panel="contribution"><div class="modal-section-title">MY ROLE & CONTRIBUTION</div><div class="contribution-list">${p.contribution.map((c,i)=>`<div><b>${String(i+1).padStart(2,'0')}</b><p>${esc(c)}</p></div>`).join('')}</div></div>
+  <div class="tab-panel" data-panel="tooling">${toolingHTML(p)}</div>
+  <div class="tab-panel" data-panel="impact"><div class="modal-section-title">MEASURABLE OUTCOME</div><div class="impact-panel advanced"><div class="impact-big"><b>${esc(p.metric)}</b><span>${esc(p.metricLabel)}</span></div><p>${esc(p.impact)}</p><div class="impact-scope"><small>SCALE / CONTEXT</small><span>${esc(p.scale)}</span></div></div></div></div>`;
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');
+  setupTabs(p); setupRuntime(p); setupArchitecture(p);
 }
-function bindArchitecture(){
- const nodes=[...content.querySelectorAll(".component"),...content.querySelectorAll(".rail-item")]; if(!nodes.length)return; currentNodes=nodes;
- const title=content.querySelector("#explain-title"), text=content.querySelector("#explain-text"), label=content.querySelector("#step-label");
- const activate=(node,i)=>{nodes.forEach(n=>n.classList.remove("active"));node.classList.add("active");title.textContent=node.dataset.name;text.textContent=node.dataset.desc;label.textContent=`Step ${i+1} of ${nodes.length}`;node.scrollIntoView({behavior:"smooth",block:"nearest",inline:"nearest"})};
- nodes.forEach((n,i)=>n.addEventListener("click",()=>{clearInterval(walkthroughTimer);activate(n,i);currentStep=i}));
- const play=content.querySelector("#play-walkthrough"), reset=content.querySelector("#reset-walkthrough");
- play.onclick=()=>{clearInterval(walkthroughTimer);currentStep=0;activate(nodes[0],0);play.textContent="❚❚ Playing";walkthroughTimer=setInterval(()=>{currentStep++;if(currentStep>=nodes.length){clearInterval(walkthroughTimer);play.textContent="▶ Restart architecture tour";label.textContent="Architecture tour complete";return}activate(nodes[currentStep],currentStep)},2400)};
- reset.onclick=()=>{clearInterval(walkthroughTimer);nodes.forEach(n=>n.classList.remove("active"));title.textContent="Architecture overview";text.textContent="Select a component to review its role in the end-to-end process, integration model and control framework.";label.textContent="Ready";play.textContent="▶ Start architecture tour";currentStep=0};
+function setupTabs(p){
+  $$('.modal-tabs button',modalContent).forEach(b=>b.onclick=()=>{
+    $$('.modal-tabs button',modalContent).forEach(x=>x.classList.remove('active'));b.classList.add('active');
+    $$('.tab-panel',modalContent).forEach(panel=>panel.classList.toggle('active',panel.dataset.panel===b.dataset.tab));
+    clearInterval(runtimeTimer);clearInterval(architectureTimer);runtimeTimer=null;architectureTimer=null;
+    if(b.dataset.tab==='runtime') startRuntime(p);
+    if(b.dataset.tab==='architecture') startArchitecture(p);
+  });
 }
-document.querySelectorAll(".card").forEach(c=>{const go=()=>openProject(PROJECTS.find(p=>p.id===c.dataset.id));c.addEventListener("click",go);c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}})});
-function closeModal(){clearInterval(walkthroughTimer);modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""}
-document.querySelectorAll("[data-close]").forEach(x=>x.onclick=closeModal);addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+function setupRuntime(p){
+  const show=i=>{
+    const nodes=$$('[data-runtime-node]',modalContent); nodes.forEach((n,k)=>{n.classList.toggle('active',k===i);n.classList.toggle('done',k<i)});
+    const s=p.runtime[i]; $('#runtimeStep',modalContent).textContent=`STEP ${String(i+1).padStart(2,'0')}`; $('#runtimeTitle',modalContent).textContent=`${s[0]} · ${s[1]}`; $('#runtimeText',modalContent).textContent=s[2];
+    const progress=p.runtime.length===1?100:(i/(p.runtime.length-1))*100; $('#runtimeProgress',modalContent).style.width=`${progress}%`; const packet=$('#runtimePacket',modalContent); if(packet)packet.style.left=`${progress}%`; modalContent.dataset.runtimeIndex=i;
+  };
+  $$('[data-runtime-node]',modalContent).forEach(n=>n.onclick=()=>{clearInterval(runtimeTimer);runtimeTimer=null;show(+n.dataset.runtimeNode)});
+  $$('[data-runtime]',modalContent).forEach(btn=>btn.onclick=()=>{const a=btn.dataset.runtime;if(a==='play')startRuntime(p);if(a==='pause'){clearInterval(runtimeTimer);runtimeTimer=null}if(a==='reset'){clearInterval(runtimeTimer);runtimeTimer=null;show(0)}});
+  modalContent._showRuntime=show;
+}
+function startRuntime(p){clearInterval(runtimeTimer);let i=+(modalContent.dataset.runtimeIndex||0);modalContent._showRuntime(i);runtimeTimer=setInterval(()=>{i=(i+1)%p.runtime.length;modalContent._showRuntime(i)},1550)}
+
+function setupArchitecture(p){
+  const show=i=>{
+    const nodes=$$('[data-arch-node]',modalContent);nodes.forEach((n,k)=>{n.classList.toggle('active',k===i);n.classList.toggle('passed',k<i)});
+    const a=p.architecture[i]; $('#archStep',modalContent).textContent=`LAYER ${String(i+1).padStart(2,'0')}`;$('#archTitle',modalContent).textContent=`${a[0]} · ${a[1]}`;$('#archText',modalContent).textContent=a[2];modalContent.dataset.archIndex=i;
+  };
+  $$('[data-arch-node]',modalContent).forEach(n=>n.onclick=()=>{clearInterval(architectureTimer);architectureTimer=null;show(+n.dataset.archNode)});modalContent._showArchitecture=show;
+}
+function startArchitecture(p){clearInterval(architectureTimer);let i=+(modalContent.dataset.archIndex||0);modalContent._showArchitecture(i);architectureTimer=setInterval(()=>{i=(i+1)%p.architecture.length;modalContent._showArchitecture(i)},1700)}
+
+grid.addEventListener('click',e=>{const card=e.target.closest('.project-card'); if(card)openProject(card.dataset.id)});
+$$('[data-close-modal]').forEach(el=>el.onclick=()=>{clearInterval(runtimeTimer);clearInterval(architectureTimer);runtimeTimer=null;architectureTimer=null;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))$('[data-close-modal]').click()});
+
+const revealIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealIO.unobserve(e.target)}}),{threshold:.11});
+$$('.reveal').forEach(el=>revealIO.observe(el));
+
+const heroNodes=$$('.sys-node'),heroTitle=$('#heroSystemTitle'),heroText=$('#heroSystemText');
+const heroCopy=[
+  ['Observe the real work','Start with frontline users, handoffs, exceptions and repetitive operational tasks before selecting a solution.'],
+  ['Quantify the friction','Use operational data to establish volume, cycle time, quality and business impact.'],
+  ['Make it buildable','Translate the target process into rules, requirements, controls and acceptance criteria.'],
+  ['Engineer the change','Design the application, workflow, API, data and automation boundaries that remove measured friction.'],
+  ['Validate before handoff','Use UAT, quality checks and real scenarios to prove the solution is operationally fit.'],
+  ['Adopt and improve','Train users, track usage and use support signals as structured input to the next improvement cycle.']
+];
+let heroIdx=0;function showHero(i){heroNodes.forEach((n,k)=>n.classList.toggle('active',k===i));heroTitle.textContent=heroCopy[i][0];heroText.textContent=heroCopy[i][1];heroIdx=i}heroNodes.forEach(n=>n.onclick=()=>showHero(+n.dataset.node));setInterval(()=>showHero((heroIdx+1)%heroNodes.length),2800);
+
+const stages=$$('.process-stage');let stageIdx=0;function stageShow(i){stages.forEach((s,k)=>s.classList.toggle('active',k===i));stageIdx=i}stages.forEach(s=>s.onclick=()=>stageShow(+s.dataset.stage));setInterval(()=>stageShow((stageIdx+1)%stages.length),3200);
+
+let counted=false;const heroProof=$('.hero-proof');const metricIO=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!counted){counted=true;$$('[data-count]').forEach(el=>{const target=parseFloat(el.dataset.count),prefix=el.dataset.prefix||'',suffix=el.dataset.suffix||'',dec=String(target).includes('.')?1:0,start=performance.now(),dur=1100;function tick(now){const p=Math.min(1,(now-start)/dur),v=target*(1-Math.pow(1-p,3));el.textContent=prefix+v.toFixed(dec)+suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)});metricIO.disconnect()}},{threshold:.3});metricIO.observe(heroProof);
+window.addEventListener('scroll',()=>{const d=document.documentElement;$('#scrollProgress').style.width=((d.scrollTop/(d.scrollHeight-d.clientHeight))*100)+'%';$('#topbar').classList.toggle('scrolled',scrollY>30)});
+window.addEventListener('pointermove',e=>{const g=$('.cursor-glow');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+$('#year').textContent=new Date().getFullYear();

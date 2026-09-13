@@ -1,1 +1,561 @@
-window.PROJECTS=[{"id": "cma-ecommerce", "order": 1, "company": "Google Cloud × CMA CGM", "theme": "google", "title": "Global E-Commerce & Logistics Platform", "title_fr": "Plateforme mondiale E-Commerce & Logistique", "subtitle": "CMA CGM × CEVA Logistics • Google Cloud • SAP S/4HANA • API / Event Integration", "subtitle_fr": "CMA CGM × CEVA Logistics • Google Cloud • SAP S/4HANA • Intégration API / événementielle", "metric": "E2E", "metricLabel": "commerce-to-logistics integration", "scale": "CMA CGM + CEVA Logistics", "tags": ["E-Commerce", "Google Cloud", "SAP S/4HANA", "API Integration", "Microservices", "CEVA Logistics"], "techStack": ["My CMA CGM", "SpotOn", "CMA CGM API Portal", "DCSA-aligned APIs", "EDI / EDIFACT", "Apigee", "OAuth 2.0", "Google Kubernetes Engine (GKE)", "Cloud Run", "Pub/Sub", "Dataflow", "BigQuery", "Cloud Storage", "Vertex AI", "Document AI", "Looker", "Power BI", "Cloud Armor", "Security Command Center", "Cloud Monitoring", "SAP S/4HANA", "CEVA Logistics"], "before": ["Customer-facing commerce journeys depended on multiple shipping, logistics and enterprise systems.", "CMA CGM and CEVA Logistics operated across distinct business domains, creating complex cross-system handoffs.", "Quote, booking, shipment, fulfilment and tracking processes required consistent integration and shared operational visibility.", "Enterprise commerce workflows needed a scalable architecture supporting customer, partner and internal operational channels."], "after": ["A unified e-commerce architecture connects digital customer journeys with CMA CGM shipping and CEVA Logistics services.", "API-driven integration separates the customer experience from core enterprise and logistics systems.", "SAP S/4HANA remains part of the enterprise backbone while commerce and logistics services communicate through governed interfaces.", "Operational events and status updates flow back to the customer experience, supporting end-to-end visibility.", "Security, monitoring, governance and data controls span the complete platform."], "layers": [{"n": "1", "title": "USERS & DIGITAL CHANNELS", "color": "blue", "items": [["My CMA CGM", "quote • booking • documents • tracking • invoices", "app", "Customer-facing digital journey for organizing, managing and monitoring shipments."], ["SpotOn & Pricing", "spot offers • quotation conversion", "app", "Digital pricing capability supporting the quote-to-book journey."], ["API Portal & EDI", "DCSA-aligned APIs • events • EDIFACT", "source", "B2B integration channels for customers, partners and connected enterprise systems."], ["Internal Operations", "sales • customer service • shipping • finance", "human", "Operational teams manage exceptions, controls and customer support."]]}, {"n": "2", "title": "E-COMMERCE EXPERIENCE & SERVICES", "color": "blue", "items": [["Search, Schedule & Quote", "routing • schedules • SpotOn pricing", "app", "Supports the commercial discovery and quotation stage."], ["Booking & Transport Execution", "booking • confirmation • VGM • shipping instructions", "app", "Coordinates the digital transport-execution workflow."], ["BL & Document Services", "Bill of Lading • shipment documents", "app", "Manages documentation across the shipment lifecycle."], ["Visibility & Tracking", "equipment • shipment • transport events", "output", "Returns operational milestones and tracking information to users."], ["Invoice & Finance Experience", "invoice visibility • payment context", "app", "Connects the customer journey with financial and enterprise processes."]]}, {"n": "3", "title": "SHARED INTEGRATION PLATFORM", "color": "green", "items": [["Apigee API Management", "API policies • routing • lifecycle • governance", "control", "Governed API boundary between channels, services and enterprise systems."], ["OAuth 2.0 & Identity", "client credentials • access policies", "control", "Secures private transactional API access and service-to-service interactions."], ["Pub/Sub Event Backbone", "shipment • equipment • transport • status events", "process", "Decouples operational event producers from downstream consumers."], ["Dataflow & Service Orchestration", "stream processing • routing • transformation", "process", "Processes and routes data between commerce, shipping, logistics and analytics domains."]]}, {"n": "4", "title": "ENTERPRISE & LOGISTICS DOMAINS", "color": "purple", "items": [["CMA CGM Shipping Domain", "booking • transport • documentation • visibility", "source", "Core maritime and shipping capabilities supporting the commerce journey."], ["CEVA Logistics Domain", "freight • warehousing • fulfilment • logistics execution", "source", "Connected logistics domain supporting end-to-end fulfilment and operational handoffs."], ["SAP S/4HANA", "orders • finance • master data • enterprise transactions", "data", "Enterprise backbone for transactional and financial processes."], ["BigQuery + Cloud Storage", "operational data • journey analytics • telemetry", "data", "Governed analytical layer supporting KPI reporting, insight and optimization."], ["Vertex AI + Document AI", "AI assistance • document extraction • intelligent workflow", "process", "AI services supporting decision assistance and document-centric automation."]]}], "rail": [["Security & Privacy", "Cloud Armor • IAM • OAuth 2.0 • Security Command Center", "Protects customer and enterprise access across the distributed platform."], ["Data Protection", "GDPR • CNIL principles • minimisation • retention • access control", "Embeds European and French data-protection requirements into process and data design."], ["Observability", "Cloud Monitoring • logs • metrics • traces • service health", "Provides end-to-end technical and operational visibility."], ["Audit & Control", "audit trail • evidence • access review • Deloitte audit interaction", "Supports traceability, control evidence and audit-readiness."], ["Data Governance", "ownership • quality • lineage • controlled access", "Maintains accountability and trusted data across business domains."]], "foundation": ["Google Cloud", "SAP S/4HANA", "Apigee & OAuth 2.0", "GKE & Cloud Run", "Pub/Sub & Dataflow", "BigQuery & Cloud Storage", "Vertex AI & Document AI", "Cloud Armor & Security Command Center", "Cloud Monitoring", "GDPR / CNIL data-protection controls"], "contribution": ["Designed e-commerce infrastructure and application architecture within the Google × CMA CGM strategic environment, connecting the digital customer journey with shipping, enterprise and logistics domains.", "Worked across My CMA CGM / digital commerce capabilities, API and event integration, SAP S/4HANA and CEVA Logistics to structure the end-to-end operating flow.", "Connected customer-facing processes—quote, booking, transport execution, documentation, visibility and finance—with the underlying application and data architecture.", "Embedded security, data governance and European/French data-protection requirements into the solution design, with traceability and audit controls supporting governance activities including Deloitte audit interaction."], "outcome": "A unified e-commerce and logistics architecture connecting CMA CGM digital commerce with enterprise shipping and CEVA Logistics operations.", "usecase": {"title": "Customer booking with CMA CGM + CEVA fulfilment", "actor": "Customer / Shipper", "input": "A customer books through the digital e-commerce channel and the fulfilment journey requires coordination between CMA CGM shipping and CEVA Logistics.", "steps": [["Search & quote", "The customer enters shipment requirements and receives the relevant service and commercial options.", "input"], ["Create booking", "The booking service validates the request and creates the digital shipment intent.", "app"], ["API policy & identity", "The integration layer authenticates the request and applies routing and security policies.", "control"], ["CMA CGM orchestration", "Shipping services create the operational shipment workflow and required records.", "process"], ["SAP S/4HANA integration", "Relevant transactional, financial or master-data interactions synchronize with the enterprise backbone.", "data"], ["Determine logistics services", "The workflow determines whether CEVA Logistics capabilities are required for the journey.", "process"], ["CEVA logistics execution", "Freight, warehousing, fulfilment or logistics execution is initiated inside the CEVA domain.", "app"], ["Operational events return", "Shipment and logistics milestones return through the integration layer as status events.", "process"], ["Unified tracking", "The customer receives a consolidated view of shipment and logistics progress.", "output"], ["Measure & improve", "Operational KPIs, platform telemetry and journey data feed continuous improvement.", "data"]], "beforeFlow": ["Customer request", "Multiple system handoffs", "Shipping operations", "Separate logistics process", "Manual status reconciliation", "Customer update"], "afterFlow": ["Digital channel", "Quote / booking", "API & identity", "CMA CGM services", "SAP S/4HANA", "CEVA orchestration", "Logistics execution", "Event updates", "Unified tracking"]}, "governance": {"title": "Data protection, security & audit", "items": ["GDPR-aligned processing: lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality and accountability.", "French data-protection practices aligned with CNIL guidance, including controlled access, retention discipline and security/confidentiality.", "Traceability through access controls, logs, workflow history and evidence for governance and audit review.", "Deloitte audit interaction incorporated into the governance narrative based on project experience."]}}, {"id": "cma-automation", "order": 2, "company": "Google Cloud × CMA CGM", "theme": "google", "title": "Intelligent Workflow & AI Automation Platform", "subtitle": "Rules-first • Human-in-the-loop • Auditable • Measurable", "metric": "€2.3M", "metricLabel": "annual efficiency savings", "scale": "8 business units", "tags": ["Python", "API Connectors", "AI Agents", "Workflow Automation"], "before": ["Documents and operational requests were manually opened, interpreted and routed.", "Users copied extracted information between systems and followed local decision rules.", "Exception handling depended heavily on individual knowledge and repetitive follow-up.", "Time spent on administrative work increased with transaction volume."], "after": ["Inputs enter through validated API/file/event channels and receive a traceable workflow ID.", "Deterministic business rules resolve predictable cases before AI is used.", "AI agents support extraction/classification of unstructured content rather than replacing policy.", "A decision gateway routes low-risk/high-confidence cases to execution and exceptions to human review.", "Execution events, failures, review outcomes and time-saved metrics feed monitoring and continuous improvement."], "layers": [{"n": "1", "title": "BUSINESS INPUTS", "color": "blue", "items": [["Users & Operations", "Frontline portals • forms • manual triggers", "human", "Capture business requests and operational events."], ["Documents", "PDF / DOCX / email attachments • scanned payloads", "source", "Unstructured business content enters the process."]]}, {"n": "2", "title": "INTAKE & EVENTS", "color": "blue", "items": [["API Layer", "REST endpoints • validation • authentication", "app", "Validates inbound requests and normalizes payloads before orchestration."], ["Event / Work Queue", "buffer • retry • replay • correlation ID", "process", "Decouples intake from processing and makes failed work recoverable."]]}, {"n": "3", "title": "DECISION & ORCHESTRATION", "color": "green", "items": [["Workflow Orchestrator", "routing • state • retries • SLA timers", "process", "Maintains workflow state and determines which processing step runs next."], ["Python Processing", "extraction • transformation • business utilities", "app", "Executes reusable deterministic processing modules."], ["Rules Engine", "business rules • decision tables • validation", "control", "Handles predictable policy logic before AI is invoked."], ["AI Agent", "extract • classify • assist", "ai", "Handles unstructured interpretation tasks using controlled prompts."], ["Decision Gateway", "confidence • policy • risk checks", "control", "Combines rule output and AI confidence to choose automated or human execution."]]}, {"n": "4", "title": "EXECUTION & ANALYTICS", "color": "purple", "items": [["Enterprise APIs", "SAP S/4HANA / SaaS sync • outbound actions", "output", "Executes approved transactions in downstream enterprise systems."], ["Human Review", "exceptions • approval • correction", "human", "Keeps people in the loop for uncertain, sensitive or policy-exception cases."], ["Operational Analytics", "workflow KPI • error • time saved • adoption", "data", "Measures performance and demonstrates business value."]]}], "rail": [["Identity & Access", "IAM • least privilege • service access", "Controls access to workflow and data services."], ["Privacy & Data Protection", "GDPR • CNIL • minimisation • retention", "Applies data-protection principles to automated processing."], ["Human Control", "confidence thresholds • exception review • approval", "Keeps uncertain or sensitive decisions under human oversight."], ["Observability", "Cloud Monitoring • logs • workflow metrics", "Tracks failures, latency, exceptions and operational performance."], ["Auditability", "decision trail • workflow history • evidence", "Preserves traceability for operational and audit review."]], "foundation": ["Python", "REST APIs", "Vertex AI", "Document AI", "Pub/Sub", "Cloud Run", "BigQuery", "Cloud Storage", "IAM", "GDPR / CNIL controls", "Audit logging"], "contribution": ["Scripted automated workflows and AI-agent prompts using Python and API connectors.", "Automated document processing, data extraction and operational routing across 8 business units.", "Wrote functional specifications with technology and data teams and supported sprint delivery.", "Measured time saved per automated workflow to connect technical delivery to financial impact."], "outcome": "Automation across 8 business units contributed to €2.3M in annual efficiency savings.", "usecase": {"title": "Invoice / operational document routing", "actor": "Operations user", "input": "A document arrives with business data that must be extracted, validated and routed.", "steps": [["Document arrives", "A user, mailbox or operational channel submits a business document.", "input"], ["Validate request", "The intake layer checks format, required metadata and request validity.", "control"], ["Create work item", "The workflow creates a traceable item with state, retry and correlation information.", "process"], ["Extract fields", "Python processing extracts and normalizes structured information.", "app"], ["Apply business rules", "Deterministic rules resolve known policy and routing conditions first.", "control"], ["AI-assisted interpretation", "AI is used only where unstructured extraction/classification adds value.", "ai"], ["Confidence & policy gate", "The result is checked against confidence, policy and exception criteria.", "control"], ["Route decision", "Eligible cases continue automatically; exceptions are sent to a human reviewer.", "human"], ["Execute & measure", "Approved actions reach enterprise systems; latency, errors and time saved are recorded.", "output"]], "beforeFlow": ["Receive document", "Open manually", "Read & extract", "Check rules", "Re-key data", "Route / email", "Follow up"], "afterFlow": ["Receive", "Validate", "Queue", "Rules", "Python", "AI assist", "Decision gate", "Auto / human", "Execute", "Measure"]}, "techStack": ["Python", "REST APIs", "Vertex AI", "Document AI", "Pub/Sub", "Cloud Run", "BigQuery", "Cloud Storage", "IAM", "Cloud Monitoring", "SAP S/4HANA"], "title_fr": "Automatisation intelligente des workflows et IA", "subtitle_fr": "Python • API • règles métier • IA • contrôle humain", "governance": {"title": "Data protection, security & audit", "items": ["GDPR-aligned processing: lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality and accountability.", "French data-protection practices aligned with CNIL guidance, including controlled access, retention discipline and security/confidentiality.", "Traceability through access controls, logs, workflow history and evidence for governance and audit review.", "Deloitte audit interaction incorporated into the governance narrative based on project experience."]}}, {"id": "cma-data", "order": 3, "company": "Google Cloud × CMA CGM", "theme": "google", "title": "Enterprise Data & Operational Analytics Platform", "subtitle": "Unified • Governed • Observable • Decision-ready", "metric": "35%", "metricLabel": "reduction in data inconsistencies", "scale": "12 countries", "tags": ["SQL", "Power BI", "DataHub", "Data Quality"], "before": ["Operational reporting depended on multiple extracts and local transformations.", "KPI definitions and ownership were not consistently documented.", "Teams repeatedly reconciled data before using it for decisions.", "Platform permissions and governance activities were spread across tools."], "after": ["Operational source data enters a controlled ingestion and validation layer.", "Reusable SQL transformations create governed analytical datasets.", "Data-quality checks and DataHub ownership metadata provide trust and traceability.", "Power BI dashboards consume curated metrics rather than independent local logic.", "Usage, quality and platform signals feed governance and improvement."], "layers": [{"n": "1", "title": "DATA SOURCES", "color": "blue", "items": [["Operational Systems", "SAP S/4HANA • SaaS • operational transactions", "source", "Systems of record generate business transactions and operational status data."], ["Files / Partner Feeds", "structured extracts • operational files", "source", "Controlled file inputs support use cases not exposed through APIs."]]}, {"n": "2", "title": "INGESTION & LANDING", "color": "blue", "items": [["API / Batch Intake", "connectors • schedules • validation", "app", "Moves source data into the analytical environment with schema and completeness checks."], ["Landing / History", "raw history • traceability", "data", "Preserves source-aligned records before transformation."]]}, {"n": "3", "title": "TRANSFORM & GOVERN", "color": "green", "items": [["SQL Transformation", "clean • join • normalize • derive", "app", "Creates reusable business-ready datasets from source-aligned records."], ["Data Quality", "completeness • consistency • exception checks", "control", "Stops low-quality data from silently propagating to reporting."], ["Governed Data Store", "curated operational datasets", "data", "Stores reusable analytical data for reporting and applications."], ["DataHub", "metadata • ownership • documentation", "control", "Makes ownership, context and governance visible."]]}, {"n": "4", "title": "CONSUMPTION", "color": "purple", "items": [["KPI / Semantic Layer", "definitions • business rules • targets", "control", "Centralizes KPI logic so teams use consistent metrics."], ["Power BI", "dashboards • drill-down • operational views", "output", "Delivers decision-ready analytics to business users."], ["Back-Office / APIs", "curated operational data products", "output", "Allows governed data to support operational applications and integrations."]]}], "rail": [["Data Governance", "DataHub • ownership • lineage • stewardship", "Defines ownership and governance around operational data."], ["Data Quality", "validation • reconciliation • completeness", "Prevents unreliable data from propagating into KPIs."], ["Privacy", "GDPR • CNIL • purpose limitation • minimisation", "Controls collection and use of personal data where applicable."], ["Access", "IAM • role-based permissions • least privilege", "Restricts access according to operational need."], ["Monitoring", "pipeline health • freshness • quality alerts", "Maintains trust in the analytical platform."]], "foundation": ["BigQuery", "Cloud Storage", "Dataflow", "Pub/Sub", "SQL", "Python", "Looker", "Power BI", "DataHub", "IAM", "GDPR / CNIL controls"], "contribution": ["Built/configured operational analytics and dashboards using SQL, Python and low-code tooling.", "Tracked weekly active users, adoption rates and platform performance across 12 countries.", "Managed permissions, settings, licence utilization and DataHub governance documentation.", "Reduced data inconsistencies by 35% through platform governance and quality improvements."], "outcome": "Governed operational analytics across 12 countries with a 35% reduction in data inconsistencies.", "usecase": {"title": "Operational KPI from source transaction to dashboard", "actor": "Business / operations analyst", "input": "Operational transactions need to become a trusted KPI used across countries.", "steps": [["Source transaction", "SAP S/4HANA/SaaS systems generate operational records.", "input"], ["Controlled ingestion", "API or batch intake validates and lands source-aligned data.", "app"], ["Preserve history", "The landing layer keeps traceable historical records.", "data"], ["Transform in SQL", "Reusable transformations clean, join and derive business-ready fields.", "app"], ["Run quality controls", "Completeness and consistency checks identify exceptions.", "control"], ["Attach governance", "DataHub metadata documents ownership and business context.", "control"], ["Calculate KPI", "The governed semantic/KPI layer applies a consistent definition.", "data"], ["Publish dashboard", "Power BI exposes the curated KPI with drill-down views.", "output"], ["Observe & improve", "Freshness, quality and usage signals feed governance and backlog.", "process"]], "beforeFlow": ["Extract locally", "Clean manually", "Reconcile", "Rebuild KPI", "Share spreadsheet/report"], "afterFlow": ["Ingest", "Validate", "Transform", "Quality gate", "Govern", "KPI layer", "Power BI", "Monitor"]}, "techStack": ["SQL", "Python", "BigQuery", "Cloud Storage", "Dataflow", "Pub/Sub", "Looker", "Power BI", "DataHub", "IAM", "Cloud Monitoring"], "title_fr": "Plateforme de données et d’analytique opérationnelle", "subtitle_fr": "Données gouvernées • KPI • Analytique opérationnelle", "governance": {"title": "Data protection, security & audit", "items": ["GDPR-aligned processing: lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality and accountability.", "French data-protection practices aligned with CNIL guidance, including controlled access, retention discipline and security/confidentiality.", "Traceability through access controls, logs, workflow history and evidence for governance and audit review.", "Deloitte audit interaction incorporated into the governance narrative based on project experience."]}}, {"id": "cma-backoffice", "order": 4, "company": "Google Cloud × CMA CGM", "theme": "google", "title": "Back-Office Operations Platform", "subtitle": "Guided work • Controlled access • Integrated • Adoption-tracked", "metric": "12", "metricLabel": "countries at scale", "scale": "full adoption", "tags": ["Low-code", "Python", "SQL", "APIs", "RBAC"], "before": ["Users moved between multiple applications and manually re-entered operational information.", "Business validation and exception logic often depended on local knowledge.", "Support teams had limited product telemetry about usage and repeated friction."], "after": ["Users enter through role-based access and receive a guided operational interface.", "Validation and workflow states are encoded in the application rather than left implicit.", "Python/API integrations synchronize enterprise systems without repetitive copy/paste.", "SQL state, audit logs and usage analytics support operations, governance and adoption.", "Support and adoption signals feed the next product backlog."], "layers": [{"n": "1", "title": "USERS & ACCESS", "color": "blue", "items": [["Operations Users", "frontline • admin • super users", "human", "Users interact with one guided operational experience."], ["SSO / RBAC", "identity • roles • permissions", "control", "Controls who can see and execute each function."]]}, {"n": "2", "title": "APPLICATION LAYER", "color": "blue", "items": [["Low-Code UI", "forms • guided tasks • validation", "app", "Provides a task-oriented interface that replaces manual operational steps."], ["Business Validation", "required fields • state checks • guardrails", "control", "Prevents invalid actions before workflow execution."]]}, {"n": "3", "title": "WORKFLOW & INTEGRATION", "color": "green", "items": [["Workflow State", "status • routing • approvals", "process", "Maintains the current business state and next allowed action."], ["Python Logic", "custom business logic • transformations", "app", "Handles reusable processing that does not belong in the UI."], ["API Layer", "integration contracts • validation", "app", "Provides controlled connectivity to downstream systems."], ["SAP S/4HANA / SaaS", "enterprise transaction systems", "source", "Receives approved actions and provides operational state."]]}, {"n": "4", "title": "DATA & ADOPTION", "color": "purple", "items": [["Operational SQL", "application state • history", "data", "Stores operational state required by the back-office workflow."], ["Audit Evidence", "user action • timestamp • change", "control", "Creates traceability for support and governance."], ["Usage KPI", "WAU • adoption • platform performance", "output", "Shows whether the solution is actually being used at scale."]]}], "rail": [["Release Control", "version / configuration changes", "Protects the production experience from uncontrolled changes."], ["Monitoring", "errors • performance • integration health", "Detects operational failures."], ["Support", "tickets • recurring friction • unblock users", "Turns end-user issues into structured signals."], ["Backup", "recovery of operational data/state", "Protects application continuity."]], "foundation": ["Low-code applications", "Python", "SQL", "REST APIs", "SAP S/4HANA", "BigQuery", "IAM / RBAC", "Audit trail", "GDPR / CNIL controls"], "contribution": ["Built and configured production-grade back-office applications and dashboards.", "Used SQL, Python and low-code tooling to replace manual operational processes.", "Tracked weekly active users, adoption rates and platform performance across 12 countries.", "Supported documentation, training, super-user animation and full adoption."], "outcome": "Production back-office applications deployed across 12 countries with adoption and performance tracking.", "usecase": {"title": "Operations user completes a controlled back-office task", "actor": "Frontline operations user", "input": "A user needs to update an operational case without switching repeatedly between systems.", "steps": [["Sign in", "The user enters through SSO and role-based access.", "human"], ["Open guided task", "The low-code UI presents only the fields and actions required for the role.", "app"], ["Validate input", "Business validation blocks incomplete or invalid actions.", "control"], ["Advance workflow", "Workflow state determines the next allowed step and approval path.", "process"], ["Run custom logic", "Python handles transformations or reusable business logic.", "app"], ["Call enterprise API", "The integration layer exchanges approved data with SAP S/4HANA/SaaS systems.", "app"], ["Persist state & audit", "Operational state and user actions are stored for traceability.", "data"], ["Measure adoption", "WAU, adoption and platform-performance signals are updated.", "output"], ["Feed support backlog", "Recurring user friction becomes a product/process improvement item.", "process"]], "beforeFlow": ["Open system A", "Copy data", "Open spreadsheet", "Check rule", "Open system B", "Re-key", "Email confirmation"], "afterFlow": ["SSO", "Guided UI", "Validate", "Workflow", "Python/API", "SAP S/4HANA/SaaS", "Audit", "Adoption", "Feedback"]}, "techStack": ["Low-code", "Python", "SQL", "REST APIs", "SAP S/4HANA", "BigQuery", "IAM", "Cloud Monitoring", "Power BI"], "title_fr": "Plateforme d’opérations Back-Office", "subtitle_fr": "Application interne • workflow • intégrations • adoption", "governance": {"title": "Data protection, security & audit", "items": ["GDPR-aligned processing: lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality and accountability.", "French data-protection practices aligned with CNIL guidance, including controlled access, retention discipline and security/confidentiality.", "Traceability through access controls, logs, workflow history and evidence for governance and audit review.", "Deloitte audit interaction incorporated into the governance narrative based on project experience."]}}, {"id": "cma-process", "order": 5, "company": "Google Cloud × CMA CGM", "theme": "google", "title": "Process Intelligence & Functional Transformation", "subtitle": "Shadow • Quantify • Specify • Deliver • Measure", "metric": "E2E", "metricLabel": "process-engineering lifecycle", "scale": "commercial • compliance • operations", "tags": ["Shadowing", "Deep-Dive Analysis", "Functional Specs", "Sprint Delivery"], "before": ["Operational pain points were distributed across functions and often described qualitatively.", "Manual tasks, exceptions and handoffs were difficult to prioritize without measured impact.", "Technical teams needed requirements tied to real operational scenarios."], "after": ["Frontline shadowing establishes the real current-state process rather than assumed workflows.", "Process drawings and data analysis quantify frequency, cycle time, rework and opportunity size.", "Prioritized friction is translated into functional specifications and acceptance criteria.", "Features are co-designed with engineering teams, tested against real operations and measured after deployment."], "layers": [{"n": "1", "title": "DISCOVER", "color": "blue", "items": [["Frontline Shadowing", "observe work • exceptions • local workarounds", "human", "Captures the real operating process at the point of work."], ["Current-State Map", "steps • systems • handoffs • owners", "process", "Makes process and data dependencies explicit."]]}, {"n": "2", "title": "QUANTIFY", "color": "blue", "items": [["Operational Data", "volume • cycle time • error • rework", "data", "Turns anecdotal pain points into measurable friction."], ["Impact Analysis", "time • cost • frequency • risk", "control", "Sizes the opportunity and provides prioritization evidence."]]}, {"n": "3", "title": "SPECIFY & DELIVER", "color": "green", "items": [["Functional Spec", "requirements • rules • exceptions", "app", "Defines expected system behavior and operational constraints."], ["Acceptance Criteria", "testable outcomes • edge cases", "control", "Creates a common definition of done for business and engineering."], ["Sprint Delivery", "co-design • clarify • coordinate", "process", "Keeps requirements aligned while the solution is being built."], ["Feature Testing", "real scenarios • feedback • correction", "human", "Validates that the feature works under actual operating conditions."]]}, {"n": "4", "title": "ADOPT & IMPROVE", "color": "purple", "items": [["Deployment", "release • communications • training", "output", "Moves the solution into the operating environment."], ["Measure Impact", "usage • time saved • quality • support", "data", "Confirms whether the process transformation delivers the intended outcome."]]}], "rail": [["Decision Log", "scope and design choices", "Preserves why important design decisions were made."], ["Change Control", "spec changes • edge cases", "Keeps evolving requirements traceable."], ["User Feedback", "UAT • super users • support", "Maintains a direct feedback loop from operations."], ["Backlog", "prioritized next improvements", "Turns evidence into the next iteration."]], "foundation": ["Process diagnosis", "Frontline shadowing", "SQL analysis", "Future-state design", "Functional specifications", "API / data-flow mapping", "UAT", "Release & adoption"], "contribution": ["Shadowed frontline operations and audited workflow bottlenecks across commercial, compliance and operations.", "Produced process drawings and deep-dive reports that quantified friction and sized opportunities.", "Wrote detailed functional specifications with technology and data teams.", "Animated sprint delivery and tested features against real operational needs."], "outcome": "A repeatable process from observed friction to validated, deployable transformation.", "usecase": {"title": "From frontline friction to a deployable functional specification", "actor": "Business Process Engineer", "input": "Users report a repetitive operational bottleneck but the root cause and solution are not yet defined.", "steps": [["Shadow work", "Observe the real process, exceptions, workarounds and handoffs.", "human"], ["Map current state", "Document steps, systems, owners and data movement.", "process"], ["Quantify friction", "Use operational evidence to measure volume, time, error and rework.", "data"], ["Size opportunity", "Translate friction into time, cost, quality or risk impact.", "control"], ["Design future state", "Remove unnecessary steps before deciding what to automate.", "process"], ["Write functional spec", "Define requirements, rules, exceptions and system behavior.", "app"], ["Set acceptance criteria", "Turn the desired outcome into testable conditions.", "control"], ["Co-deliver & test", "Clarify during sprint delivery and test against real scenarios.", "human"], ["Deploy & measure", "Train users, observe adoption and compare actual impact to the target.", "output"]], "beforeFlow": ["Pain reported", "Local workaround", "Repeated manual step", "Escalation", "Temporary fix"], "afterFlow": ["Shadow", "Map", "Measure", "Prioritize", "Future state", "Spec", "Build", "UAT", "Adopt", "Measure"]}, "techStack": ["Process Mapping", "SQL", "Python", "Functional Specifications", "API Design", "SAP S/4HANA", "UAT", "Agile / Scrum", "KPI Design", "Power BI"], "title_fr": "Diagnostic de processus → Transformation fonctionnelle", "subtitle_fr": "Observer • mesurer • spécifier • livrer • adopter", "governance": {"title": "Data protection, security & audit", "items": ["GDPR-aligned processing: lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality and accountability.", "French data-protection practices aligned with CNIL guidance, including controlled access, retention discipline and security/confidentiality.", "Traceability through access controls, logs, workflow history and evidence for governance and audit review.", "Deloitte audit interaction incorporated into the governance narrative based on project experience."]}}, {"id": "cma-change", "order": 6, "company": "Google Cloud × CMA CGM", "theme": "google", "title": "Change Management, Adoption & Governance", "subtitle": "Release • Train • Adopt • Govern • Support • Improve", "metric": "800", "metricLabel": "users trained", "scale": "12 countries • full adoption", "tags": ["Training", "Super Users", "Adoption", "SaaS Governance", "Support"], "before": ["Successful deployment depended on local knowledge and inconsistent user enablement.", "Permissions, licences and platform documentation could become disconnected from adoption.", "Support tickets risked being treated as isolated incidents rather than product feedback."], "after": ["UAT confirms operational fit before broad release.", "Role-specific documentation, training and communications prepare each user group.", "A super-user network provides local reinforcement across countries.", "Adoption, permissions, licence usage, support themes and governance documentation are managed together.", "Support signals feed the next backlog and training/configuration changes."], "layers": [{"n": "1", "title": "RELEASE READINESS", "color": "blue", "items": [["UAT", "operational scenarios • validation", "human", "Confirms the release works for real users and process cases."], ["Release Package", "documentation • communication • change notes", "control", "Creates a consistent message and source of truth for rollout."]]}, {"n": "2", "title": "ENABLEMENT", "color": "blue", "items": [["Training", "role-based sessions • practice", "human", "Builds user confidence and process understanding."], ["Super Users", "local champions • escalation path", "human", "Provides distributed support and reinforces adoption."]]}, {"n": "3", "title": "ADOPTION & GOVERNANCE", "color": "green", "items": [["Adoption Analytics", "WAU • adoption rate • platform performance", "data", "Shows whether deployed functionality is reaching intended users."], ["Permissions", "RBAC • access changes", "control", "Keeps access aligned to roles and operational need."], ["Licence Governance", "active • unassigned • utilization", "control", "Improves SaaS visibility and administrative control."], ["DataHub Documentation", "ownership • governance metadata", "data", "Maintains documentation and platform governance context."]]}, {"n": "4", "title": "SUPPORT & FEEDBACK", "color": "purple", "items": [["Support", "tickets • open issues • unblock users", "human", "Resolves short-term friction while capturing recurring themes."], ["Improvement Backlog", "product fix • configuration • retraining", "output", "Converts support and adoption signals into the next improvement cycle."]]}], "rail": [["Communications", "release messages • user updates", "Coordinates change across countries."], ["Adoption Review", "usage • training • support trends", "Combines behavioral and operational evidence."], ["Governance Review", "permissions • licences • documentation", "Maintains platform control."], ["Feedback Loop", "support themes → backlog", "Ensures adoption problems become product/process improvements."]], "foundation": ["UAT", "Release governance", "Training", "800 users", "12 countries", "Super-user network", "Adoption KPIs", "Access governance", "Audit evidence", "GDPR / CNIL"], "contribution": ["Authored user documentation and delivered training tailored to different user profiles.", "Animated the super-user network across 12 countries.", "Managed permissions, tool settings, licence visibility and DataHub governance documentation.", "Used adoption and support signals to reinforce deployed solutions."], "outcome": "Trained 800 users across 12 countries and achieved full adoption of deployed solutions.", "usecase": {"title": "Roll out a new operational capability across countries", "actor": "Product / process transformation team", "input": "A production feature is technically ready but must become a sustainable operating practice.", "steps": [["Validate with UAT", "Selected users validate the release against operational scenarios.", "human"], ["Prepare release", "Documentation, change notes and communications establish one source of truth.", "control"], ["Train users", "Role-specific training explains both the application and the new process.", "human"], ["Activate super users", "Local champions reinforce adoption and provide an escalation path.", "human"], ["Track adoption", "WAU, adoption rate and platform performance show real usage.", "data"], ["Govern access", "Permissions and licence utilization are reviewed as the platform scales.", "control"], ["Support users", "Tickets and operational issues are resolved and categorized.", "human"], ["Identify patterns", "Repeated friction is separated from one-off incidents.", "process"], ["Improve next release", "Support/adoption evidence feeds configuration, training or product backlog.", "output"]], "beforeFlow": ["Release", "Email users", "Ad-hoc questions", "Local workarounds", "Unknown adoption"], "afterFlow": ["UAT", "Docs", "Train", "Super users", "Adoption data", "Govern", "Support", "Backlog", "Improve"]}, "techStack": ["UAT", "Training", "Super-user Network", "Adoption Analytics", "IAM / RBAC", "DataHub", "Power BI", "Cloud Monitoring", "Audit Controls", "GDPR / CNIL"], "title_fr": "Conduite du changement → Adoption → Support", "subtitle_fr": "UAT • formation • super-utilisateurs • adoption • amélioration", "governance": {"title": "Data protection, security & audit", "items": ["GDPR-aligned processing: lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity/confidentiality and accountability.", "French data-protection practices aligned with CNIL guidance, including controlled access, retention discipline and security/confidentiality.", "Traceability through access controls, logs, workflow history and evidence for governance and audit review.", "Deloitte audit interaction incorporated into the governance narrative based on project experience."]}}, {"id": "volvo-inventory", "order": 7, "company": "Volvo Group", "theme": "azure", "title": "Supply Chain Inventory Optimization Platform", "subtitle": "Diagnose • Forecast • Optimize • Planner-controlled", "metric": "15%", "metricLabel": "reduction in excess-stock costs", "scale": "Gothenburg ↔ Bangalore", "tags": ["Python", "SQL", "Forecasting", "Optimization", "Impact Reporting"], "before": ["Supply-chain and procurement friction required deeper visibility into demand, inventory and process performance.", "Planning could become reactive when signals were reviewed separately and manually.", "Operational decisions needed measurable impact evidence and structured requirements."], "after": ["SAP S/4HANA/WMS and relevant operational signals feed a controlled analytical foundation.", "Data-quality checks protect the forecasting layer from unreliable input.", "Forecast output is separated from business constraints and optimization logic.", "Planners remain in the loop for scenario comparison and approval before operational action.", "Actual inventory and cost outcomes feed the next analysis cycle."], "layers": [{"n": "1", "title": "ERP / WMS & SIGNALS", "color": "blue", "items": [["SAP S/4HANA / WMS", "orders • inventory • lead time • movements", "source", "Provides operational facts about demand, supply and inventory position."], ["External / Planning Signals", "seasonality • supplier • business inputs", "source", "Adds planning context where relevant to the decision."]]}, {"n": "2", "title": "DATA FOUNDATION", "color": "blue", "items": [["Ingestion", "scheduled / API movement • validation", "app", "Moves operational data into the analytical environment."], ["Historical Store", "curated history • feature-ready data", "data", "Provides consistent historical inputs for analysis and forecasting."], ["Data Quality", "completeness • anomaly • consistency checks", "control", "Prevents unreliable input from silently affecting recommendations."]]}, {"n": "3", "title": "MODELING & OPTIMIZATION", "color": "green", "items": [["Feature Layer", "demand • lead time • seasonality", "data", "Creates reusable analytical variables from raw operational history."], ["Forecasting", "demand forecast • evaluation", "ai", "Estimates future demand independently of business constraints."], ["Business Rules", "service level • policy • constraints", "control", "Encodes non-ML planning constraints explicitly."], ["Optimization", "inventory target • reorder • allocation", "process", "Combines forecast and constraints into a decision recommendation."]]}, {"n": "4", "title": "PLANNER DECISION", "color": "purple", "items": [["Planner UI", "KPI • scenario • drill-down", "human", "Lets planners inspect drivers and compare scenarios."], ["Scenario Engine", "what-if • override • trade-off", "process", "Allows controlled comparison before committing a plan."], ["SAP S/4HANA Action", "approved planning / replenishment action", "output", "Publishes the approved decision back to the operational process."]]}], "rail": [["Schedule", "data refresh • model runs", "Coordinates recurring analytical processing."], ["Versioning", "model / rule / configuration versions", "Makes decision logic traceable."], ["Monitoring", "data freshness • model performance • failures", "Shows whether the analytical system is healthy."], ["Feedback", "actual inventory / cost outcomes", "Feeds measured results into the next planning cycle."]], "foundation": ["SAP S/4HANA", "SQL", "Python", "Inventory signals", "Demand / supply analysis", "Planner review", "UAT", "KPI monitoring"], "contribution": ["Diagnosed process friction across supply chain and procurement using SQL and Python.", "Produced project impact reports and dashboards.", "Scripted automation solutions supporting data-driven process improvement.", "Translated bottlenecks into structured requirements and supported sprint delivery with Gothenburg and Bangalore teams."], "outcome": "Data-driven process improvements drove a 15% reduction in excess-stock costs.", "usecase": {"title": "Planner reviews an inventory replenishment recommendation", "actor": "Supply-chain planner", "input": "A planner needs a data-driven recommendation while retaining control over the final decision.", "steps": [["Collect operational signals", "SAP S/4HANA/WMS history provides demand, inventory, movements and lead-time evidence.", "input"], ["Validate data", "Completeness, anomaly and consistency checks protect downstream analysis.", "control"], ["Build features", "Demand, lead-time and seasonality signals are prepared for forecasting.", "data"], ["Generate forecast", "The forecasting layer estimates future demand and evaluates model performance.", "ai"], ["Apply constraints", "Service-level and business-policy constraints remain explicit and separate from ML.", "control"], ["Optimize inventory", "Forecast and constraints are combined into inventory/replenishment recommendations.", "process"], ["Review scenario", "The planner inspects KPI drivers, what-if scenarios and trade-offs.", "human"], ["Approve action", "Only the approved recommendation is returned to the operational process.", "output"], ["Measure actuals", "Inventory and cost outcomes feed the next analysis cycle.", "data"]], "beforeFlow": ["Export data", "Reconcile", "Estimate demand", "Apply rules manually", "Decide", "Update SAP S/4HANA"], "afterFlow": ["Ingest", "Quality gate", "Features", "Forecast", "Constraints", "Optimize", "Planner review", "Approve", "Feedback"]}, "techStack": ["SAP S/4HANA", "SQL", "Python", "Pandas", "scikit-learn", "Supply Planning", "Inventory Analytics", "UAT"], "title_fr": "Optimisation des stocks de la chaîne logistique", "subtitle_fr": "Analyse • prévision • optimisation • décision du planificateur"}, {"id": "volvo-procurement", "order": 8, "company": "Volvo Group", "theme": "azure", "title": "Procurement & Operational Process Transformation", "subtitle": "Diagnose • Quantify • Specify • Deliver • Adopt", "metric": "E2E", "metricLabel": "process transformation", "scale": "Gothenburg ↔ Bangalore", "tags": ["Process Diagnosis", "SQL", "Python", "Functional Specs", "Change Management"], "techStack": ["SAP S/4HANA", "Procure-to-Pay", "SQL", "Python", "Process Mapping", "Functional Specifications", "UAT", "Agile Delivery"], "before": ["Supply-chain and procurement bottlenecks were distributed across teams and handoffs.", "Operational issues needed quantitative evidence before prioritization.", "Cross-functional teams required a common functional definition of the target change."], "after": ["SQL/Python analysis quantifies the operational problem and establishes a baseline.", "Process and impact findings are translated into structured functional requirements.", "Cross-functional teams co-deliver the change through sprint coordination and testing.", "Change-management support helps users adopt the new operating process."], "layers": [{"n": "1", "title": "PROCESS DISCOVERY", "color": "blue", "items": [["Operational Teams", "supply chain • procurement • planners", "human", "Provide the real process, exceptions and operational pain points."], ["Process Mapping", "steps • owners • handoffs • bottlenecks", "process", "Makes the current operating model explicit."]]}, {"n": "2", "title": "DATA & IMPACT", "color": "blue", "items": [["SQL / Python Analysis", "performance • volume • cycle time", "app", "Quantifies the scale and pattern of operational friction."], ["Impact Dashboard", "baseline • KPI • opportunity", "data", "Connects the process issue to measurable business impact."]]}, {"n": "3", "title": "SCOPE & DELIVERY", "color": "green", "items": [["Functional Scope", "requirements • target behavior", "app", "Translates operational bottlenecks into structured requirements."], ["Technical Specification", "data • logic • edge cases", "control", "Creates a buildable definition for the delivery team."], ["Sprint Coordination", "clarify • test • iterate", "process", "Keeps business and engineering aligned during implementation."]]}, {"n": "4", "title": "ADOPTION", "color": "purple", "items": [["User Validation", "operational test scenarios", "human", "Checks the solution against real business use."], ["Change Support", "communication • adoption • feedback", "output", "Supports transition into the new process and captures improvement signals."]]}], "rail": [["Project Governance", "scope • dependency • issue tracking", "Maintains delivery visibility across teams."], ["Quality Control", "requirement / test traceability", "Ensures delivered behavior matches the agreed need."], ["Stakeholder Communication", "business ↔ technical bridge", "Keeps decisions and blockers visible."], ["Feedback Loop", "user feedback → backlog", "Feeds real operating experience into the next iteration."]], "foundation": ["SAP S/4HANA", "Supplier / purchasing data", "Process mapping", "SQL analysis", "Functional requirements", "UAT", "Change management"], "contribution": ["Diagnosed operational process friction across supply chain and procurement.", "Deep-dived performance data using SQL and Python and produced impact reports and dashboards.", "Translated bottlenecks into structured requirements and technical specifications.", "Animated sprint delivery and supported change management across Gothenburg and Bangalore."], "outcome": "Created an end-to-end operating model from process diagnosis through functional delivery and adoption.", "usecase": {"title": "Resolve a procurement process bottleneck", "actor": "Business Process / Data Project Manager", "input": "A recurring procurement issue needs to be measured, redesigned and delivered across international teams.", "steps": [["Capture friction", "Collect operational pain points and process evidence from users.", "input"], ["Map current state", "Document steps, systems, handoffs and failure points.", "process"], ["Analyze with SQL/Python", "Measure frequency, performance impact and patterns.", "app"], ["Build impact view", "Turn findings into a KPI baseline and project impact report.", "data"], ["Define future state", "Remove unnecessary process steps and clarify ownership.", "process"], ["Write specification", "Document requirements, behavior and edge cases.", "control"], ["Coordinate sprint", "Clarify requirements with technical teams during implementation.", "human"], ["Validate with users", "Test the delivered change against operational scenarios.", "human"], ["Adopt & improve", "Support adoption and feed issues into the next backlog.", "output"]], "beforeFlow": ["Issue reported", "Manual analysis", "Local fix", "Repeat problem"], "afterFlow": ["Map", "SQL/Python", "Impact", "Future state", "Spec", "Sprint", "Test", "Adopt"]}, "title_fr": "Transformation des processus achats et opérationnels", "subtitle_fr": "Diagnostiquer • quantifier • spécifier • livrer • adopter"}, {"id": "volvo-analytics", "order": 9, "company": "Volvo Group", "theme": "azure", "title": "Supply Chain Performance Analytics & Impact Reporting", "subtitle": "Operational data • KPI • Root cause • Decision support", "metric": "KPI", "metricLabel": "decision-ready analytics", "scale": "supply chain & procurement", "tags": ["SQL", "Python", "Dashboards", "Impact Reports", "Data Analysis"], "techStack": ["SAP S/4HANA", "SQL", "Python", "Power BI", "KPI Design", "Root-Cause Analysis", "Impact Reporting"], "before": ["Performance issues were visible in operations but required deeper analysis to identify root cause.", "Project opportunities were harder to prioritize without a quantified baseline.", "Management needed a clearer connection between operational data and improvement actions."], "after": ["SQL and Python prepare operational performance data for repeatable analysis.", "Dashboards surface KPI movement, segmentation and bottlenecks.", "Project impact reports translate analytical findings into improvement opportunities.", "Decision owners can prioritize initiatives using measurable evidence."], "layers": [{"n": "1", "title": "OPERATIONAL SOURCES", "color": "blue", "items": [["Supply Chain Data", "inventory • orders • supplier • process events", "source", "Provides the operational facts needed for analysis."], ["Procurement Data", "purchasing • workflow • performance records", "source", "Adds procurement-side evidence to the process view."]]}, {"n": "2", "title": "ANALYSIS", "color": "blue", "items": [["SQL Preparation", "filter • join • aggregate", "app", "Builds reusable analytical datasets."], ["Python Analysis", "deep dive • segmentation • automation", "app", "Investigates patterns and supports repeatable analytical workflows."], ["Data Quality", "validity • completeness", "control", "Protects the analysis from unreliable inputs."]]}, {"n": "3", "title": "PERFORMANCE MODEL", "color": "green", "items": [["KPI Layer", "baseline • trend • operational target", "data", "Defines the measurable performance view."], ["Root-Cause Analysis", "bottleneck • variance • exception", "process", "Connects KPI movement to operational causes."], ["Impact Report", "problem • evidence • opportunity", "control", "Packages analysis into a transformation decision artifact."]]}, {"n": "4", "title": "DECISION SUPPORT", "color": "purple", "items": [["Dashboard", "management / operational view", "output", "Makes the analysis consumable for stakeholders."], ["Action Backlog", "owner • priority • expected impact", "human", "Converts findings into owned improvement initiatives."]]}], "rail": [["Refresh Process", "repeatable analytical update", "Keeps management views current."], ["Quality Review", "check analysis reliability", "Maintains trust in reported findings."], ["Stakeholder Review", "business interpretation", "Validates that analytical conclusions match operational reality."], ["Impact Tracking", "baseline vs post-change", "Measures whether the selected improvement delivered value."]], "foundation": ["SAP S/4HANA", "SQL", "Python", "KPI model", "Segmentation", "Root-cause analysis", "Impact reporting", "Operational action"], "contribution": ["Deep-dived performance data using SQL and Python.", "Produced dashboards and project impact reports.", "Used quantitative evidence to diagnose operational friction and size improvement opportunities."], "outcome": "Made supply-chain and procurement improvement opportunities measurable and decision-ready.", "usecase": {"title": "Investigate a supply-chain KPI deterioration", "actor": "Data Project Manager", "input": "A performance KPI worsens and stakeholders need to know where the problem is coming from.", "steps": [["Detect KPI movement", "Identify a material change in operational performance.", "input"], ["Extract relevant data", "Use SQL to pull the affected operational records.", "app"], ["Validate dataset", "Check completeness and consistency before analysis.", "control"], ["Deep-dive in Python", "Segment by supplier, flow, category or operational condition.", "app"], ["Identify bottleneck", "Connect the KPI movement to a repeatable operational pattern.", "process"], ["Create impact report", "Quantify scale, cost or process impact.", "data"], ["Review with stakeholders", "Validate interpretation with process owners.", "human"], ["Prioritize action", "Create an owned improvement item with measurable target.", "output"]], "beforeFlow": ["KPI drops", "Manual investigation", "Opinions", "Delayed action"], "afterFlow": ["SQL", "Validate", "Python", "Root cause", "Impact report", "Review", "Action"]}, "title_fr": "Analytique de performance Supply Chain & reporting d’impact", "subtitle_fr": "Données opérationnelles • KPI • cause racine • aide à la décision"}, {"id": "volvo-delivery", "order": 10, "company": "Volvo Group", "theme": "azure", "title": "Cross-Functional Digital Project Delivery", "subtitle": "Business requirements • Technical specification • Sprint • Adoption", "metric": "2", "metricLabel": "international delivery hubs", "scale": "Gothenburg + Bangalore", "tags": ["Project Management", "Functional Scoping", "Technical Specs", "Sprint Delivery", "Adoption"], "techStack": ["SAP S/4HANA", "Functional Specifications", "Technical Specifications", "Agile / Scrum", "UAT", "Change Management", "Cross-Functional Delivery"], "before": ["Business and technical teams worked across locations and needed a shared definition of scope.", "Operational bottlenecks could be lost in translation between process owners and engineering teams.", "Delivery needed both technical coordination and post-release adoption support."], "after": ["Business problems are converted into structured functional and technical requirements.", "Delivery is coordinated through sprint clarification, testing and stakeholder decisions.", "Release readiness includes operational validation and adoption/change support.", "Post-release feedback is used to refine the process and future backlog."], "layers": [{"n": "1", "title": "BUSINESS NEED", "color": "blue", "items": [["Process Owner", "pain point • expected outcome", "human", "Defines the operational problem and desired business result."], ["Functional Scope", "workflow • rules • user need", "app", "Creates a structured description of the target behavior."]]}, {"n": "2", "title": "TECHNICAL DEFINITION", "color": "blue", "items": [["Technical Specification", "logic • data • integration", "control", "Translates business intent into implementation detail."], ["Data Evidence", "SQL / Python analysis • baseline", "data", "Provides facts for prioritization and acceptance."]]}, {"n": "3", "title": "DELIVERY", "color": "green", "items": [["Sprint Coordination", "clarification • dependency • issue", "process", "Keeps cross-functional delivery aligned."], ["Feature Testing", "scenario • acceptance • defect", "human", "Confirms built functionality solves the operational requirement."]]}, {"n": "4", "title": "RELEASE & ADOPTION", "color": "purple", "items": [["Change Support", "communication • user adoption", "human", "Helps teams transition to the new workflow."], ["Feedback", "usage • issue • improvement", "output", "Feeds post-release learning into future work."]]}], "rail": [["Stakeholder Alignment", "business / technology decisions", "Reduces ambiguity between teams."], ["Scope Control", "change / priority management", "Protects delivery from uncontrolled requirement drift."], ["Testing Evidence", "acceptance outcomes", "Makes release decisions defensible."], ["Delivery Reporting", "status • blocker • impact", "Keeps international teams aligned."]], "foundation": ["Business requirements", "Functional specification", "Technical coordination", "Sprint delivery", "UAT", "Release", "Training & adoption", "Gothenburg ↔ Bangalore"], "contribution": ["Delivered functional scoping and technical specification writing.", "Translated operational bottlenecks into structured requirements.", "Animated sprint delivery across Gothenburg and Bangalore.", "Supported change management and user adoption across international teams."], "outcome": "Created a disciplined bridge between business operations and technical delivery across international teams.", "usecase": {"title": "Deliver a cross-functional process improvement", "actor": "Data Project Manager", "input": "A business process change must move from operational requirement to tested release across Gothenburg and Bangalore.", "steps": [["Clarify business problem", "Confirm the bottleneck, user impact and target outcome.", "input"], ["Define functional scope", "Document workflow, rules and user behavior.", "app"], ["Add technical detail", "Specify logic, data and integration considerations.", "control"], ["Baseline with data", "Use SQL/Python evidence to establish the current state.", "data"], ["Coordinate sprint", "Resolve questions and dependencies with delivery teams.", "process"], ["Test feature", "Validate scenarios and acceptance criteria.", "human"], ["Prepare change", "Support users and stakeholders before release.", "human"], ["Release & gather feedback", "Move to operation and capture issues/improvements.", "output"]], "beforeFlow": ["Request", "Email clarification", "Build", "Late rework", "Release"], "afterFlow": ["Scope", "Spec", "Baseline", "Sprint", "Test", "Change", "Release", "Feedback"]}, "title_fr": "Pilotage de projets digitaux transverses", "subtitle_fr": "Besoins métier • spécifications • sprint • adoption"}, {"id": "microsoft-ai", "order": 11, "company": "Microsoft", "theme": "azure", "title": "Azure AI Classification & Decision Support", "subtitle": "Quality-gated • Confidence-aware • Production-oriented", "metric": "PROD", "metricLabel": "production sign-off", "scale": "Azure AI", "tags": ["Azure AI", "ML Classification", "Data Quality", "Validation"], "before": ["Classification work required repetitive human handling.", "Model performance alone was insufficient for production use without quality and stakeholder controls.", "Uncertain cases needed a clear accountability path."], "after": ["Input data passes quality and preprocessing controls before inference.", "Azure AI classification produces a label and confidence signal.", "Validation evidence is reviewed before production sign-off.", "Uncertain cases can be routed to human review rather than forced into automation.", "Production quality and exception signals support continuous monitoring."], "layers": [{"n": "1", "title": "INPUT & QUALITY", "color": "blue", "items": [["Input Records", "documents / structured records", "source", "Provides the business content to classify."], ["Quality Gate", "validity • completeness • preprocessing", "control", "Ensures the model receives usable data."]]}, {"n": "2", "title": "MODEL LIFECYCLE", "color": "blue", "items": [["Feature / Preprocess", "normalization • model-ready input", "app", "Transforms approved input into the representation expected by the model."], ["Azure AI Classification", "prediction • confidence", "ai", "Performs the core classification task."], ["Validation", "error analysis • quality metrics", "control", "Tests whether performance is acceptable for intended use."]]}, {"n": "3", "title": "DECISION CONTROL", "color": "green", "items": [["Confidence Gate", "threshold • uncertainty handling", "control", "Determines whether a prediction is safe to use automatically."], ["Human Review", "uncertain / exception cases", "human", "Preserves accountability for cases outside automated confidence bounds."]]}, {"n": "4", "title": "PRODUCTION", "color": "purple", "items": [["Decision Output", "approved classification result", "output", "Makes the validated result available to the business process."], ["Monitoring", "quality • exceptions • production behavior", "data", "Tracks whether production behavior remains consistent with expectations."]]}], "rail": [["Model Version", "release identification", "Keeps model behavior traceable."], ["Quality Review", "validation evidence", "Supports production approval."], ["Stakeholder Sign-off", "business communication • acceptance", "Connects technical performance to business trust."], ["Exception Feedback", "reviewed cases", "Provides evidence for future refinement."]], "foundation": ["Azure AI", "Python", "Classification", "Data validation", "Confidence scoring", "Human review", "API integration", "Production sign-off"], "contribution": ["Built ML classification models on Azure AI services.", "Applied data-quality controls.", "Communicated results to non-technical stakeholders through production sign-off."], "outcome": "Production-oriented AI classification with data-quality controls and stakeholder sign-off.", "usecase": {"title": "Classify a record with confidence-aware human review", "actor": "Business reviewer", "input": "A record needs classification, but uncertain predictions must not be treated as certain.", "steps": [["Receive record", "A document or structured record enters the classification process.", "input"], ["Quality gate", "Validity and completeness checks reject unusable input.", "control"], ["Preprocess", "Approved data is normalized into model-ready input.", "app"], ["Classify", "Azure AI produces a predicted class and confidence signal.", "ai"], ["Evaluate confidence", "The decision gate compares confidence to the approved operating threshold.", "control"], ["Route uncertainty", "Low-confidence or exceptional cases go to a human reviewer.", "human"], ["Publish approved result", "Validated classifications become available to the business process.", "output"], ["Monitor exceptions", "Production behavior and reviewed exceptions provide quality evidence.", "data"]], "beforeFlow": ["Receive", "Inspect manually", "Classify", "Record result"], "afterFlow": ["Receive", "Quality gate", "Preprocess", "Azure AI", "Confidence gate", "Human if needed", "Output", "Monitor"]}, "techStack": ["Microsoft Azure", "Azure AI", "Machine Learning", "Python", "Classification Models", "Data Quality Controls", "REST APIs", "Human Review"], "title_fr": "Classification IA et aide à la décision", "subtitle_fr": "Azure AI • qualité des données • validation • contrôle humain"}];
+window.PROJECTS = [
+  {
+    id:"cma-ecommerce", order:1, company:"Google Cloud | Deployed at CMA CGM HQ", category:"ecommerce", featured:true, spotlight:true,
+    kicker:"E-COMMERCE OPERATIONS TRANSFORMATION", title:"CMA CGM E-Commerce Operations & Automation",
+    subtitle:"Process diagnosis · operational analytics · functional design · workflow automation · UAT · adoption",
+    metric:"€2.3M", metricLabel:"annual efficiency savings contribution", scale:"8 business units · 12 countries · 800 users",
+    roleSummary:"Owned the bridge from frontline process diagnosis to buildable requirements, automation, validation and scaled adoption.",
+    impact:"Workflow and process improvements contributed to €2.3M in annual efficiency savings, while the broader rollout trained 800 users across 12 countries and strengthened operational consistency.",
+    tags:["E-Commerce Operations","Process Diagnosis","SQL / Python","Functional Specs","API Connectors","Workflow Automation","AI Agent Prompts","UAT","Adoption"],
+    cardFlow:["Diagnose","Measure","Specify","Automate","Adopt"],
+    problem:"Operational workflows across commercial, compliance and operations contained repetitive administrative work, cross-team handoffs and process friction. The transformation needed to start with the real operating process, quantify the problem, define a controlled target state and automate only the work that created measurable value.",
+    before:[
+      "Frontline process knowledge distributed across users, handoffs and local ways of working.",
+      "Repetitive document, data-extraction and routing tasks created avoidable administrative effort.",
+      "Operational friction was difficult to prioritize without a consistent baseline and impact view.",
+      "Process changes risked becoming technology-led unless requirements and acceptance criteria were defined first."
+    ],
+    after:[
+      "Current-state and target-state workflows made actors, exceptions and ownership explicit.",
+      "SQL / Python deep dives and dashboards established measurable baselines and opportunity sizing.",
+      "Functional specifications translated business friction into rules, controls and testable acceptance criteria.",
+      "Python, API connectors and AI-agent prompts automated document processing, extraction and routing where appropriate.",
+      "UAT, documentation, training, super users and adoption tracking carried the change into operations."
+    ],
+    beforeArchitecture:["Frontline requests","Manual handoffs","Repeated entry / extraction","Fragmented operational tools","Local checks","Limited feedback"],
+    afterArchitecture:["Operational user / request","Guided workflow","Rules + Python automation","AI-assisted extraction / routing","API-connected systems","KPI + adoption + support loop"],
+    architectureChange:[
+      "Control moved from people remembering the process to the workflow making state, ownership and exceptions explicit.",
+      "Automation was introduced after process mapping and measurement, not before.",
+      "System actions moved behind controlled API / workflow boundaries instead of ad-hoc manual updates.",
+      "Usage, support and KPI signals became part of the operating loop rather than post-project reporting."
+    ],
+    contribution:[
+      "Shadowed frontline workflows with functional leads and super users; mapped handoffs, repetitive work, exceptions and failure points.",
+      "Used SQL / Python analysis, deep-dive reports and dashboards to quantify friction and size improvement opportunities.",
+      "Translated bottlenecks into detailed functional specifications, process/data flows, business rules and acceptance criteria with tech and data teams.",
+      "Scripted and coordinated Python/API workflow automation, including AI-agent prompts for document processing, data extraction and operational routing.",
+      "Coordinated feature validation and UAT against real operational scenarios before deployment.",
+      "Delivered documentation, training, communications and super-user enablement; tracked adoption and support signals after release."
+    ],
+    runtime:[
+      ["Discover","Frontline workflow","Observe real operational requests, documentation, handoffs and exceptions before selecting a solution.","human"],
+      ["Quantify","SQL / Python","Measure volume, cycle time, rework, quality issues and repetitive handling to establish a baseline.","data"],
+      ["Specify","Functional design","Convert the target process into business rules, requirements, acceptance criteria and exception paths.","spec"],
+      ["Orchestrate","Workflow state","Route work through explicit states, deterministic rules, ownership and controlled retries.","process"],
+      ["Augment","AI-assisted processing","Use AI-agent prompts for unstructured extraction or routing while keeping business controls explicit.","ai"],
+      ["Execute","API / back-office action","Write approved actions into operational tools through controlled integration boundaries.","system"],
+      ["Validate","UAT + controls","Test end-to-end scenarios, permissions, exceptions and business outcomes before operational sign-off.","quality"],
+      ["Adopt","Training + feedback","Track usage, support demand and KPI movement; feed recurring friction into the next improvement cycle.","outcome"]
+    ],
+    architecture:[
+      ["EXPERIENCE","Operational user / request","Frontline work · guided journey"],
+      ["PROCESS","Target-state workflow","State · ownership · business rules"],
+      ["AUTOMATION","Python + workflow","Deterministic processing · routing"],
+      ["AI ASSIST","AI-agent prompts","Extract · classify · route unstructured input"],
+      ["INTEGRATION","API connectors","Controlled system synchronization"],
+      ["CONTROL","Permissions · validation · audit","Exceptions · evidence · SLA"],
+      ["MEASUREMENT","Dashboard + adoption","Time saved · quality · usage · support"]
+    ],
+    controls:["Process baseline","Acceptance criteria","Validation before action","Retry / exception path","Human review where needed","Permissions","Audit evidence","UAT evidence","Usage + KPI tracking"],
+    toolGroups:[
+      ["Process & analysis",["Process mapping","SQL","Python","Deep-dive reporting","Dashboard analysis"]],
+      ["Automation & integration",["Python","API connectors","Workflow automation","AI-agent prompts","Low-code tooling"]],
+      ["Governance & adoption",["DataHub","User permissions","SaaS administration","Training","Super-user network","Adoption tracking"]],
+      ["Delivery",["Functional specifications","Acceptance criteria","Feature testing","UAT","Cross-functional sprint coordination"]]
+    ],
+    artifacts:["Current-state process drawing","Deep-dive report","Project impact report","Functional specification","Process / data-flow design","UAT evidence","User documentation","Training pack","Adoption / usage dashboard"],
+    decisions:[
+      "Diagnose and baseline the process before selecting automation.",
+      "Keep deterministic business rules explicit; use AI only for unstructured or judgement-heavy steps.",
+      "Validate before enterprise-system actions and preserve an exception path.",
+      "Treat adoption and support data as product signals for the next release."
+    ]
+  },
+  {
+    id:"cma-application", order:2, company:"Google Cloud | Deployed at CMA CGM HQ", category:"architecture", featured:true,
+    kicker:"APPLICATION ARCHITECTURE", title:"Back-Office Operations Application Architecture",
+    subtitle:"Low-code UI · Python · SQL · APIs · identity & access · auditability · adoption telemetry",
+    metric:"12", metricLabel:"countries in scaled operational rollout", scale:"Operational back-office pattern · role-based usage",
+    roleSummary:"Translated operational requirements into a structured application boundary spanning user journey, workflow, integrations, data, controls and telemetry.",
+    impact:"Production-grade back-office applications and dashboards replaced manual operational tasks and made weekly active users, adoption and platform performance measurable across 12 countries.",
+    tags:["Application Architecture","Low-code","Python","SQL","APIs","Identity & Access","Audit","KPI / WAU"],
+    cardFlow:["Access","Work","Validate","Integrate","Observe"],
+    problem:"Frontline teams needed a simpler operational interface over fragmented enterprise tools. The application had to reduce manual handling while protecting permissions, business rules, data quality, traceability and supportability.",
+    before:[
+      "Users navigated multiple operational tools and manual handoffs to complete one business task.",
+      "Workflow state lived partly in user knowledge rather than a recoverable system state.",
+      "Validation and permissions could be applied inconsistently across manual steps.",
+      "Usage, error and support signals were not naturally tied to the application journey."
+    ],
+    after:[
+      "A guided low-code user journey presents a clear work queue and role-specific actions.",
+      "Workflow state and validation are explicit before downstream actions are executed.",
+      "Python / SQL handle custom logic and operational state while APIs isolate enterprise integrations.",
+      "Permissions, audit evidence, usage KPIs and support feedback are built into the operating model."
+    ],
+    beforeArchitecture:["Operations user","Multiple tools","Manual checks","Direct system updates","Local spreadsheets","Reactive support"],
+    afterArchitecture:["Role-based user journey","Low-code UI","Workflow + validation","Python / API boundary","SQL operational state","Audit + KPI + support"],
+    architectureChange:[
+      "The user journey is separated from integration complexity.",
+      "Workflow state becomes explicit and recoverable instead of implicit in manual handoffs.",
+      "Validation and permission checks happen before downstream actions.",
+      "Observability and adoption telemetry become first-class application capabilities."
+    ],
+    contribution:[
+      "Designed the application around the operational journey rather than exposing enterprise-system complexity directly to users.",
+      "Structured guided work queues and explicit workflow states for recoverable operations.",
+      "Combined low-code delivery with Python and SQL for custom logic, data preparation and operational state.",
+      "Kept enterprise integrations behind API boundaries and applied validation before system actions.",
+      "Designed role permissions, audit evidence, usage KPIs and support feedback as platform requirements."
+    ],
+    runtime:[
+      ["Access","Identity & permissions","Resolve the user role before exposing workflow actions or business data.","control"],
+      ["Work","Guided UI","Present a focused work queue and guided operational journey.","human"],
+      ["Validate","Business rules","Check required data, process state and rules before integration calls.","quality"],
+      ["Process","Workflow + Python","Manage state and custom logic in a recoverable execution path.","process"],
+      ["Integrate","API boundary","Read and write enterprise tools through controlled integrations.","system"],
+      ["Persist","SQL + audit","Store operational state and traceable change evidence.","data"],
+      ["Observe","KPI + support","Track WAU, completion, errors and tickets to improve the next release.","outcome"]
+    ],
+    architecture:[
+      ["USER","Operations user","Role-based guided journey"],
+      ["ACCESS","Identity + permissions","Authentication / authorization pattern"],
+      ["APPLICATION","Low-code UI","Work queue · forms · views"],
+      ["WORKFLOW","State + validation","Business rules · recoverability"],
+      ["LOGIC","Python service","Custom processing · enrichment"],
+      ["INTEGRATION","API boundary","Controlled enterprise-system access"],
+      ["DATA","SQL operational store","State · history · reconciliation"],
+      ["OPERATIONS","Audit + KPI + support","Errors · usage · backlog"]
+    ],
+    controls:["Role permissions","Validation","Explicit workflow state","API boundary","Audit evidence","Error handling","Usage KPI","Support-to-backlog"],
+    toolGroups:[
+      ["Application",["Low-code tooling","Python","SQL","Workflow design"]],
+      ["Integration",["API connectors","Enterprise SaaS / operational tools","Validation rules"]],
+      ["Control",["Identity & access","User permissions","Audit evidence","Data quality"]],
+      ["Operations",["Dashboards","Weekly active users","Adoption tracking","Support tickets"]]
+    ],
+    artifacts:["Application flow","Functional specification","Role / permission model","Validation rules","API / data-flow design","UAT scenarios","Usage dashboard","Support backlog"],
+    decisions:[
+      "Design from the user journey outward, not from existing system boundaries inward.",
+      "Keep integration logic behind APIs rather than coupling the UI directly to enterprise systems.",
+      "Make workflow state explicit so failed or interrupted work can be recovered.",
+      "Use production telemetry and support demand to prioritize application improvements."
+    ]
+  },
+  {
+    id:"cma-process-intelligence", order:3, company:"Google Cloud | Deployed at CMA CGM HQ", category:"analytics", featured:true,
+    kicker:"PROCESS INTELLIGENCE + GOVERNANCE", title:"Enterprise Operational Analytics & Process Intelligence",
+    subtitle:"SQL · KPI model · Power BI · DataHub · data quality · root-cause analysis",
+    metric:"35%", metricLabel:"reduction in data inconsistencies", scale:"Governed operational analytics · 12-country rollout",
+    roleSummary:"Connected operational data to governed KPI definitions, process bottlenecks, root-cause analysis and owned improvement actions.",
+    impact:"Platform governance, data-quality controls and governed operational analytics supported a 35% reduction in data inconsistencies across the scaled operating model.",
+    tags:["SQL","Power BI","DataHub","Data Quality","Process Mapping","KPI Governance","Root Cause"],
+    cardFlow:["Source","Model","Detect","Explain","Act"],
+    problem:"Operational teams needed a consistent route from raw system data to trustworthy KPIs, process bottlenecks and quantified improvement opportunities.",
+    before:[
+      "Operational data and local calculations created competing views of performance.",
+      "KPI movement could be visible without a clear link to the process step causing it.",
+      "Data-quality gaps reduced confidence in prioritization and reporting.",
+      "Ownership of definitions and remediation actions was difficult to make explicit."
+    ],
+    after:[
+      "SQL transformations and data-quality checks create a trusted operational foundation.",
+      "Governed KPI definitions give stakeholders one performance language.",
+      "Process mapping links transactions to steps, handoffs, delay and rework.",
+      "Power BI deep dives move from KPI movement to operational cause and owned action.",
+      "DataHub documentation strengthens ownership, context and governance evidence."
+    ],
+    beforeArchitecture:["ERP / SaaS data","Local extracts","Spreadsheet logic","Multiple KPI definitions","Manual root cause","Ad-hoc actions"],
+    afterArchitecture:["Source systems","SQL + data quality","Process model","Governed KPI layer","Power BI deep dive","DataHub + owned actions"],
+    architectureChange:[
+      "Business logic moves from local calculations into a governed transformation / KPI layer.",
+      "Process context is modeled alongside data so a metric can be traced to an operational cause.",
+      "Data-quality checks become a gate before decision-making.",
+      "Insights close with an owner, action and re-measurement loop."
+    ],
+    contribution:[
+      "Connected operational data through SQL transformations and quality controls.",
+      "Defined governed KPI logic and dashboard structures for consistent decision-making.",
+      "Mapped data signals to process steps and handoffs to expose delay, rework and quality friction.",
+      "Built deep-dive patterns that move from KPI movement to operational root cause.",
+      "Used DataHub governance and owned improvement actions to close the loop from insight to accountability."
+    ],
+    runtime:[
+      ["Collect","ERP / SaaS / operational data","Align operational signals from source systems.","input"],
+      ["Transform","SQL + quality","Clean, join and apply business logic with trust checks.","data"],
+      ["Model","Process + KPI","Map data to process stages and governed performance definitions.","model"],
+      ["Detect","Bottleneck logic","Identify delay, rework, quality gaps and SLA exceptions.","control"],
+      ["Investigate","Power BI + deep dive","Drill from KPI movement to the operational cause.","human"],
+      ["Prioritize","Impact report","Convert root causes into owned, quantified actions.","process"],
+      ["Re-measure","Closed loop","Measure the result after the intervention and update governance evidence.","outcome"]
+    ],
+    architecture:[
+      ["SOURCE","ERP · SaaS · operational data","Transactions · events"],
+      ["PREP","SQL + data quality","Business logic · completeness · reconciliation"],
+      ["PROCESS MODEL","Steps + handoffs","Operational context"],
+      ["KPI MODEL","Governed definitions","One metric language"],
+      ["INSIGHT","Power BI","Dashboard · drill-down · deep dive"],
+      ["GOVERNANCE","DataHub","Ownership · documentation"],
+      ["ACTION","Impact + owner","Prioritize · execute · re-measure"]
+    ],
+    controls:["KPI definition","Data quality","Ownership","Baseline","Reconciliation","Root-cause evidence","Action owner","Re-measurement"],
+    toolGroups:[
+      ["Data & analytics",["SQL","Python","Power BI","Dashboard design"]],
+      ["Process intelligence",["Process mapping","KPI modeling","Deep-dive reporting","Impact analysis"]],
+      ["Governance",["DataHub","Data quality","Ownership","Documentation"]]
+    ],
+    artifacts:["KPI dictionary","Dashboard","Deep-dive report","Impact report","Process map","Data-quality checks","DataHub documentation","Action tracker"],
+    decisions:[
+      "Use one governed KPI definition across stakeholders.",
+      "Baseline performance before changing the process.",
+      "Design dashboards to drill from metric to cause, not just display status.",
+      "Every improvement action needs an owner and a re-measurement point."
+    ]
+  },
+  {
+    id:"volvo-optimization", order:4, company:"Volvo Group", category:"volvo", featured:true,
+    kicker:"SUPPLY CHAIN PROCESS IMPROVEMENT", title:"Supply Chain & Inventory Optimization",
+    subtitle:"SQL · Python · operational deep dives · requirements · automation · planning",
+    metric:"15%", metricLabel:"reduction in excess-stock costs", scale:"Supply chain + procurement · Gothenburg / Bengaluru collaboration",
+    roleSummary:"Diagnosed operational friction, converted data into structured requirements and coordinated process improvements across international teams.",
+    impact:"Data-driven process improvements across supply chain and procurement contributed to a 15% reduction in excess-stock costs.",
+    tags:["Volvo Group","SQL","Python","Supply Chain","Procurement","Dashboards","Process Improvement"],
+    cardFlow:["Diagnose","Analyze","Prioritize","Intervene","Measure"],
+    problem:"Complex supply-chain and procurement flows made excess inventory expensive and operational bottlenecks difficult to prioritize. Planning decisions needed clearer data evidence, structured governance and process discipline.",
+    before:[
+      "Supply-chain and procurement friction was distributed across teams and system data.",
+      "Planning decisions could become reactive when bottlenecks were not quantified consistently.",
+      "Excess stock required a clearer view of drivers, ownership and actionable exceptions.",
+      "Cross-functional coordination between Gothenburg and Bengaluru needed structured requirements and delivery cadence."
+    ],
+    after:[
+      "SQL / Python deep dives established baselines and identified operational drivers.",
+      "Dashboards and impact reports made exceptions and priorities visible.",
+      "Bottlenecks were translated into structured functional requirements and improvement actions.",
+      "Process change, automation and governance supported planning and inventory decisions.",
+      "Outcome tracking connected intervention to the 15% reduction in excess-stock costs."
+    ],
+    beforeArchitecture:["ERP / supply-chain data","Manual extracts","Reactive analysis","Unstructured exceptions","Local decisions","Limited outcome feedback"],
+    afterArchitecture:["Operational data","SQL / Python analysis","Exception / KPI layer","Prioritized action","Planner / procurement decision","Measured outcome"],
+    architectureChange:[
+      "Operational data becomes a repeatable analysis layer instead of one-off investigation.",
+      "Exceptions are prioritized by measurable business impact.",
+      "Improvement actions connect to specific planners / procurement decisions.",
+      "Realized outcomes are measured against the original baseline."
+    ],
+    contribution:[
+      "Diagnosed process friction across supply chain and procurement using SQL / Python performance analysis.",
+      "Produced deep-dive reports and dashboards to quantify bottlenecks and improvement opportunities.",
+      "Translated findings into structured requirements and coordinated delivery with Gothenburg and Bengaluru teams.",
+      "Supported data-driven process improvements and automation for planning and inventory decisions.",
+      "Tracked business outcome through the 15% reduction in excess-stock costs."
+    ],
+    runtime:[
+      ["Collect","Supply-chain data","Bring together orders, inventory and procurement performance signals.","input"],
+      ["Analyze","SQL / Python","Segment, join and quantify the operational drivers behind excess stock.","data"],
+      ["Detect","Exceptions","Surface high-impact friction and prioritize by business value.","control"],
+      ["Specify","Requirements","Translate the analysis into process and system changes.","spec"],
+      ["Intervene","Process + automation","Apply standardization, automation and decision-support actions.","process"],
+      ["Decide","Planning / procurement","Support accountable planner and buyer decisions.","human"],
+      ["Measure","Cost outcome","Compare realized outcome against the baseline.","outcome"]
+    ],
+    architecture:[
+      ["SOURCES","Supply chain + procurement","Orders · stock · performance"],
+      ["ANALYSIS","SQL + Python","Clean · join · segment · exception logic"],
+      ["KPI","Dashboard + impact","Baseline · root cause · value"],
+      ["INTERVENTION","Process / automation","Standardize · automate · prioritize"],
+      ["DECISION","Planner / procurement","Review · approve · act"],
+      ["OUTCOME","Cost + service","Measure realized impact"]
+    ],
+    controls:["Baseline","Data quality","Exception logic","Action owner","Cross-functional requirements","KPI cadence","Outcome measurement"],
+    toolGroups:[
+      ["Analysis",["SQL","Python","Dashboards","Deep-dive reporting"]],
+      ["Process",["Process mapping","Functional scoping","LEAN / standardization","Automation"]],
+      ["Delivery",["Cross-functional coordination","Sprint delivery","Impact reporting","Change support"]]
+    ],
+    artifacts:["Process map","Deep-dive report","Dashboard","Project impact report","Functional requirements","Action tracker","Outcome review"],
+    decisions:[
+      "Quantify the stock problem before prescribing a process change.",
+      "Prioritize operational exceptions by business impact, not volume alone.",
+      "Keep planners / procurement owners accountable for final decisions.",
+      "Judge success by realized cost / service outcome, not analytics output alone."
+    ]
+  },
+  {
+    id:"volvo-data-platform", order:5, company:"Volvo Group", category:"volvo", featured:false,
+    kicker:"SUPPLY CHAIN DATA ENGINEERING", title:"Supply Chain ETL & Analytics Platform",
+    subtitle:"Azure Databricks · PySpark · Informatica IICS · Spark MLlib · data quality",
+    metric:"500M+", metricLabel:"rows processed monthly", scale:"Enterprise ETL · supply-chain analytics",
+    roleSummary:"Built scalable data-integration and transformation patterns so planning and analytics teams could work from reliable, reusable supply-chain data.",
+    impact:"The data platform improved the reliability and scalability of downstream demand planning, parts forecasting and inventory analytics.",
+    tags:["Azure Databricks","PySpark","Informatica IICS","Spark MLlib","scikit-learn","Data Quality"],
+    cardFlow:["Ingest","Transform","Validate","Model","Serve"],
+    problem:"Supply-chain analytics depended on large volumes of ERP and operational data that required scalable integration, transformation and quality controls before planning teams could trust downstream output.",
+    before:[
+      "ERP and operational data arrived through multiple enterprise integration paths.",
+      "Large data volumes made repeatable transformation and performance important engineering concerns.",
+      "Analytics and ML use cases depended on consistent data-quality controls upstream.",
+      "Downstream planning needed curated rather than source-specific datasets."
+    ],
+    after:[
+      "Informatica IICS provides governed enterprise ingestion.",
+      "Azure Databricks / PySpark handle large-scale transformation and enrichment.",
+      "Validation and reconciliation act as a trust gate before consumption.",
+      "Curated data supports reporting, planning and ML-oriented features.",
+      "Performance tuning and quality feedback improve the pipeline over time."
+    ],
+    beforeArchitecture:["ERP / operational sources","Multiple ingestion paths","Source-specific transforms","Manual quality investigation","Siloed analytics"],
+    afterArchitecture:["Informatica IICS","Raw / staged layer","Databricks + PySpark","Quality gate","Curated analytics / ML","Planning consumers"],
+    architectureChange:[
+      "Ingestion, transformation and validation become explicit layers with clear responsibilities.",
+      "Distributed processing handles scale while preserving reusable transformation logic.",
+      "Quality controls move before analytics and ML consumption.",
+      "Curated datasets decouple downstream teams from source-system complexity."
+    ],
+    contribution:[
+      "Built and supported enterprise ETL patterns processing 500M+ rows per month on Azure Databricks.",
+      "Used Informatica IICS to connect ERP data with downstream analytical systems.",
+      "Applied PySpark transformations and data-quality controls across supply-chain domains.",
+      "Worked with scikit-learn / Spark MLlib patterns for classification and recommendation-oriented use cases.",
+      "Focused performance optimization on reliable downstream planning, forecasting and inventory use."
+    ],
+    runtime:[
+      ["Ingest","ERP + operational sources","Move enterprise data through governed integration pipelines.","input"],
+      ["Land","Raw / staged data","Preserve source-aligned history for repeatable processing.","data"],
+      ["Transform","Databricks / PySpark","Clean, join, enrich and aggregate at distributed scale.","process"],
+      ["Validate","Data quality","Check completeness, validity and reconciliation before consumption.","quality"],
+      ["Model","Analytics / ML features","Prepare planning, forecasting and classification-ready datasets.","ai"],
+      ["Serve","Analytics systems","Expose curated outputs to reporting and decision workflows.","system"],
+      ["Optimize","Performance loop","Tune transformations and quality checks based on workload behavior.","outcome"]
+    ],
+    architecture:[
+      ["SOURCE","ERP + operational systems","Supply-chain data"],
+      ["INTEGRATION","Informatica IICS","Enterprise ingestion"],
+      ["COMPUTE","Azure Databricks + PySpark","Distributed transformation"],
+      ["QUALITY","Validation + reconciliation","Trust gate"],
+      ["ANALYTICS","Curated datasets","Planning + reporting"],
+      ["ML","Spark MLlib / scikit-learn","Classification / recommendations"],
+      ["OUTCOME","Planning + inventory","Decision support"]
+    ],
+    controls:["Schema / completeness","Reconciliation","Partitioning / performance","Release controls","Downstream validation"],
+    toolGroups:[
+      ["Integration",["Informatica IICS","ERP data integration"]],
+      ["Compute",["Azure Databricks","PySpark"]],
+      ["ML / analytics",["Spark MLlib","scikit-learn","Curated datasets"]],
+      ["Quality",["Validation","Reconciliation","Performance optimization"]]
+    ],
+    artifacts:["ETL design","Transformation jobs","Data-quality checks","Curated datasets","Performance review","ML-ready feature outputs"],
+    decisions:[
+      "Separate ingestion from distributed transformation so each layer can scale independently.",
+      "Block unreliable data before it reaches analytics / ML consumers.",
+      "Keep curated outputs stable even when upstream source structures vary.",
+      "Optimize for production reliability, not only transformation speed."
+    ]
+  },
+  {
+    id:"maia-rag", order:6, company:"Google Cloud | CMA CGM context", category:"ai", featured:false,
+    kicker:"DOCUMENT AI + KNOWLEDGE RETRIEVAL", title:"MAIA AI Platform — NLP, Embeddings & RAG",
+    subtitle:"Document processing · entity extraction · embeddings · semantic retrieval · API serving",
+    metric:"RAG", metricLabel:"enterprise knowledge retrieval pattern", scale:"Contracts · bills of lading · compliance knowledge",
+    roleSummary:"Built the data and retrieval pattern that converts unstructured enterprise documents into searchable, grounded AI context.",
+    impact:"AI-ready document pipelines supported compliance automation and faster access to commercial knowledge.",
+    tags:["NLP","Embeddings","RAG","Vertex AI","Document AI","Vector Search","Cloud Run"],
+    cardFlow:["Ingest","Extract","Embed","Retrieve","Serve"],
+    problem:"Useful commercial and compliance knowledge lived inside unstructured documents that traditional structured analytics could not retrieve effectively.",
+    before:[
+      "Users relied on manual search across long, unstructured enterprise documents.",
+      "Important entities and clauses were not available as reusable structured context.",
+      "Keyword search alone could miss semantically relevant passages.",
+      "Applications had no standardized retrieval service for grounded AI use."
+    ],
+    after:[
+      "Document pipelines extract text, entities and metadata into retrieval-ready chunks.",
+      "Embeddings represent semantic meaning for documents and user queries.",
+      "Vector search retrieves relevant context before generation.",
+      "RAG grounds model output in retrieved enterprise content.",
+      "Cloud Run API serving decouples consuming applications from retrieval internals."
+    ],
+    beforeArchitecture:["Documents","Manual search","Keyword lookup","User interpretation","One-off answers"],
+    afterArchitecture:["Document AI / extraction","Chunk + metadata","Vertex AI embeddings","Vector retrieval","RAG","Cloud Run API"],
+    architectureChange:[
+      "Unstructured documents become a reusable retrieval corpus rather than isolated files.",
+      "Semantic retrieval replaces exact-match-only discovery.",
+      "Generation happens after retrieval so responses can be grounded in enterprise context.",
+      "An API boundary allows multiple applications to consume the same capability."
+    ],
+    contribution:[
+      "Built AI-ready pipelines for document processing and entity extraction.",
+      "Prepared chunked content and embeddings for semantic retrieval.",
+      "Used vector search to retrieve relevant enterprise context for RAG workflows.",
+      "Designed the serving pattern so applications consume the capability through an API boundary."
+    ],
+    runtime:[
+      ["Ingest","Enterprise documents","Receive contracts, bills of lading and compliance content.","input"],
+      ["Extract","Text + entities","Normalize unstructured content into searchable units.","process"],
+      ["Chunk","Context + metadata","Split content into retrieval-ready passages.","data"],
+      ["Embed","Vertex AI","Generate semantic representations for content and queries.","ai"],
+      ["Retrieve","Vector search","Select relevant enterprise context before generation.","control"],
+      ["Generate","RAG","Produce grounded output using retrieved context.","ai"],
+      ["Serve","Cloud Run API","Expose the capability to downstream applications.","system"]
+    ],
+    architecture:[
+      ["DOCUMENTS","Contracts · BoL · compliance","Unstructured content"],
+      ["PREP","Document AI + chunking","Text · entities · metadata"],
+      ["EMBED","Vertex AI embeddings","Semantic vectors"],
+      ["INDEX","Vector search","Retrieval store"],
+      ["QUERY","Semantic retrieval","Relevant context"],
+      ["RAG","Grounded generation","Context + model"],
+      ["SERVE","Cloud Run API","Application access"]
+    ],
+    controls:["Document metadata","Retrieval relevance","Grounded context","API boundary","Latency monitoring","Sensitive-output validation"],
+    toolGroups:[
+      ["Document processing",["Document AI","NLP","Entity extraction","Chunking"]],
+      ["Retrieval",["Vertex AI embeddings","Vector search","Semantic retrieval"]],
+      ["Serving",["RAG","Cloud Run","API serving"]]
+    ],
+    artifacts:["Document-processing pipeline","Entity schema","Chunk / metadata model","Embedding pipeline","Retrieval flow","API serving design"],
+    decisions:[
+      "Retrieve enterprise evidence before generation.",
+      "Keep metadata with chunks so retrieved context remains traceable.",
+      "Separate retrieval from application UI through a service boundary.",
+      "Measure retrieval / serving behavior as production system behavior, not only model output."
+    ]
+  },
+  {
+    id:"microsoft-ai", order:7, company:"Microsoft", category:"ai", featured:false,
+    kicker:"ML CLASSIFICATION + PRODUCTION VALIDATION", title:"Azure AI Classification & Production Sign-Off",
+    subtitle:"Azure AI · data quality · classification · validation · stakeholder sign-off",
+    metric:"PROD", metricLabel:"production-oriented classification", scale:"Machine-learning engineering internship",
+    roleSummary:"Built classification models with data-quality controls and carried results through validation and non-technical stakeholder sign-off.",
+    impact:"The project demonstrated controlled ML delivery where data quality, validation and stakeholder acceptance were part of production readiness.",
+    tags:["Azure AI","Classification","Data Quality","Validation","Production Sign-Off"],
+    cardFlow:["Prepare","Train","Validate","Explain","Sign off"],
+    problem:"A classification model can look strong in experimentation and still fail as a business solution if input quality, validation and stakeholder acceptance are not controlled.",
+    before:[
+      "Classification work depended on manual interpretation and inconsistent repeatability.",
+      "Poor-quality input could undermine model output before the model was even evaluated.",
+      "Technical metrics alone were insufficient for operational acceptance.",
+      "Non-technical stakeholders needed a clear explanation of results before production use."
+    ],
+    after:[
+      "Azure AI classification provides a repeatable prediction workflow.",
+      "Data-quality checks protect model inputs.",
+      "Validation evidence accompanies model performance.",
+      "Results are translated into language non-technical stakeholders can evaluate.",
+      "Production sign-off becomes an explicit delivery gate."
+    ],
+    beforeArchitecture:["Input records","Manual interpretation","Inconsistent checks","Ad-hoc result","Stakeholder review"],
+    afterArchitecture:["Quality gate","Azure AI classifier","Validation metrics","Result explanation","Production sign-off"],
+    architectureChange:[
+      "Input quality becomes a first-class control before model inference.",
+      "Model output is paired with validation evidence rather than presented in isolation.",
+      "Stakeholder communication is part of the production path.",
+      "Release readiness is based on both technical and business acceptance."
+    ],
+    contribution:[
+      "Built ML classification models on Azure AI services.",
+      "Applied data-quality controls before production decisioning.",
+      "Validated model results and communicated findings to non-technical stakeholders.",
+      "Supported the solution through production sign-off."
+    ],
+    runtime:[
+      ["Prepare","Input + quality","Validate data and prepare consistent model input.","quality"],
+      ["Classify","Azure AI","Generate the classification result.","ai"],
+      ["Validate","Metrics + checks","Evaluate output quality and production suitability.","control"],
+      ["Explain","Stakeholder translation","Communicate result, limitations and decision relevance clearly.","human"],
+      ["Approve","Production sign-off","Move forward only after technical and stakeholder acceptance.","outcome"]
+    ],
+    architecture:[
+      ["INPUT","Business records","Classification source"],
+      ["QUALITY","Data checks","Validity · completeness"],
+      ["MODEL","Azure AI","Classification"],
+      ["VALIDATION","Metrics + evidence","Production suitability"],
+      ["COMMUNICATION","Stakeholder review","Explain outcome"],
+      ["SIGN-OFF","Production gate","Approved use"]
+    ],
+    controls:["Input quality","Validation evidence","Model performance","Stakeholder communication","Production sign-off"],
+    toolGroups:[
+      ["ML",["Azure AI","Classification"]],
+      ["Quality",["Data-quality controls","Validation"]],
+      ["Delivery",["Stakeholder communication","Production sign-off"]]
+    ],
+    artifacts:["Model experiment","Data-quality checks","Validation summary","Stakeholder readout","Production sign-off evidence"],
+    decisions:[
+      "Treat data quality as part of model performance.",
+      "Do not stop at technical metrics; translate results into business decision context.",
+      "Use explicit sign-off before production use."
+    ]
+  },
+  {
+    id:"cma-governance", order:8, company:"Google Cloud | Deployed at CMA CGM HQ", category:"governance", featured:false,
+    kicker:"CHANGE + PLATFORM GOVERNANCE", title:"Scaled Adoption, SaaS Governance & Operational Support",
+    subtitle:"Documentation · training · super users · permissions · licences · DataHub · support loop",
+    metric:"800+", metricLabel:"users trained across 12 countries", scale:"Change management · SaaS governance · operational support",
+    roleSummary:"Carried solutions beyond deployment through user enablement, permissions, licence visibility, DataHub documentation and support-to-backlog feedback.",
+    impact:"Structured change management supported full adoption across 12 countries, while governance controls helped reduce data inconsistencies by 35% across deployed platforms.",
+    tags:["Change Management","Training","Super Users","SaaS Admin","DataHub","Permissions","Support"],
+    cardFlow:["Release","Enable","Adopt","Govern","Improve"],
+    problem:"Scaled rollout required more than deployment: users needed role-specific enablement, local support, controlled access, licence visibility, ownership and a structured mechanism for recurring friction.",
+    before:[
+      "Deployment risked being treated as the end of the project rather than the start of operational adoption.",
+      "Permissions, licences, documentation and ownership could become fragmented as usage scaled.",
+      "Users needed local champions and support routes for fast operational unblock.",
+      "Recurring support themes were not useful unless converted into product / process improvements."
+    ],
+    after:[
+      "Role-based documentation and training prepare users before and after release.",
+      "Super-user networks provide local support and reinforce adoption across countries.",
+      "Permissions, tool configuration and active-vs-unassigned licences are governed explicitly.",
+      "DataHub documentation strengthens ownership and platform context.",
+      "Support tickets and open-hour themes feed prioritized backlog improvements."
+    ],
+    beforeArchitecture:["Release","Users self-learn","Scattered permissions","Unclear licence usage","Reactive support","Issues repeat"],
+    afterArchitecture:["Release + UAT","Docs + training","Super users","Permissions + licence governance","DataHub ownership","Support → backlog"],
+    architectureChange:[
+      "Change management becomes part of the release architecture rather than a communication afterthought.",
+      "Access and licence controls are tied to actual usage.",
+      "Governance documentation creates explicit ownership and context.",
+      "Support demand becomes a structured input to continuous improvement."
+    ],
+    contribution:[
+      "Authored user documentation and designed / delivered training for different user profiles.",
+      "Ran communications and supported a super-user network across 12 countries.",
+      "Tracked weekly active users and adoption after deployment.",
+      "Managed user permissions, tool settings and active-versus-unassigned SaaS licences.",
+      "Maintained DataHub governance documentation and converted support themes into improvement priorities."
+    ],
+    runtime:[
+      ["Release","Production","Move the approved solution into the operational environment.","system"],
+      ["Enable","Docs + training","Prepare each user role with practical guidance.","human"],
+      ["Scale","Super users","Create local champions and first-line support.","human"],
+      ["Measure","WAU / adoption","Track whether the system is actually used.","data"],
+      ["Govern","Permissions / licences / DataHub","Maintain access, ownership, configuration and cost discipline.","control"],
+      ["Support","Tickets / open hours","Unblock users and identify recurring process friction.","process"],
+      ["Improve","Backlog","Convert recurring issues into owned product / process changes.","outcome"]
+    ],
+    architecture:[
+      ["RELEASE","Production + UAT","Operational handoff"],
+      ["CHANGE","Documentation + communications","Role-specific enablement"],
+      ["TRAINING","Sessions + super users","Local capability"],
+      ["ADOPTION","WAU / usage","Behavior evidence"],
+      ["GOVERNANCE","Permissions + licences","Access + cost discipline"],
+      ["DATAHUB","Ownership + documentation","Governed context"],
+      ["SUPPORT","Tickets + open hours","Operational friction"],
+      ["BACKLOG","Prioritized improvements","Next release"]
+    ],
+    controls:["Permissions","Licence utilization","Ownership","Role-based guides","Usage tracking","Audit evidence","Support-to-backlog"],
+    toolGroups:[
+      ["Change",["User documentation","Training design","Internal communications","Super-user network"]],
+      ["Governance",["SaaS administration","User permissions","Licence tracking","DataHub"]],
+      ["Operations",["Adoption tracking","Weekly active users","Support tickets","Open hours","Backlog management"]]
+    ],
+    artifacts:["Role-based user guide","Training material","Communications plan","Super-user model","Permission / licence review","DataHub documentation","Adoption dashboard","Support backlog"],
+    decisions:[
+      "Treat deployment and adoption as separate milestones.",
+      "Measure usage instead of assuming rollout equals adoption.",
+      "Review permissions and licences against real activity.",
+      "Convert recurring support demand into prioritized product / process work."
+    ]
+  }
+];

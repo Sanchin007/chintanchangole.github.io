@@ -1,25 +1,27 @@
-# Chintan Changole — Business Process Engineering & Digital Transformation Portfolio
+# Chintan Changole — Professional Transformation Portfolio v13
 
-Professional portfolio covering business process engineering, digital transformation, e-commerce, enterprise applications, data, automation, AI and change management.
+Static GitHub Pages portfolio built for professional hiring-manager walkthroughs.
 
-## Portfolio focus
+## Case-study structure
+Each project includes:
+- Executive overview
+- Before → after process and architecture
+- Animated target-state process
+- Animated detailed architecture
+- Role and contributions
+- Tools / technologies
+- Delivery artifacts
+- Design / delivery decisions
+- Business impact and scale
 
-- Google Cloud × CMA CGM — e-commerce, shipping, logistics and enterprise integration
-- CMA CGM × CEVA Logistics — end-to-end digital commerce and logistics architecture
-- SAP S/4HANA — enterprise process integration
-- Workflow and AI automation
-- Data, analytics and operational KPI platforms
-- Back-office applications and process transformation
-- Change management, adoption and platform governance
-- Volvo Group — supply chain, procurement, analytics and digital delivery
-- Microsoft — Azure AI and machine-learning experience
+## Portfolio emphasis
+- CMA CGM e-commerce operations transformation and workflow automation
+- Back-office application architecture
+- Operational analytics / process intelligence
+- Volvo supply-chain process improvement
+- Volvo data engineering
+- Enterprise AI / RAG
+- Azure AI production validation
+- Change, governance and adoption
 
-## Website
-
-This repository contains the source files for the portfolio website published through GitHub Pages.
-
-## Author
-
-**Chintan Changole**  
-Business Process Engineer & Digital Project Manager  
-Marseille, France
+The site is plain HTML/CSS/JavaScript and can be deployed directly to GitHub Pages.

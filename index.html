@@ -3,163 +3,232 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Chintan Changole — Business Process Engineer & Digital Project Manager specializing in process transformation, e-commerce, enterprise applications, data and automation.">
+<meta name="description" content="Chintan Changole — Business Process Engineer & Digital Consultant. Process diagnosis, operational analytics, workflow automation, AI, application architecture, change management and governance.">
+<meta name="theme-color" content="#07111f">
 <title>Chintan Changole | Business Process Engineering & Digital Transformation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="scrollbar"></div>
-<header class="topbar">
-  <a class="brand" href="#home"><span class="dots"><i></i><i></i><i></i><i></i></span><strong>Chintan Changole</strong></a>
-  <nav><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#method">Method</a><a href="#contact" class="contact-pill">Contact</a></nav><div class="lang-switch" role="group" aria-label="Language"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="fr">FR</button></div>
+<div id="scrollProgress" class="scroll-progress"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="#home" aria-label="Chintan Changole home">
+    <span class="brand-mark">CC</span>
+    <span><b>Chintan Changole</b><small>Business Process Engineer</small></span>
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="#projects">Projects</a>
+    <a href="#process">Process</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#toolkit">Toolkit</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </nav>
 </header>
 
 <main>
-<section id="home" class="hero shell reveal">
-  <div class="hero-copy">
-    <div class="eyebrow">BUSINESS PROCESS ENGINEER • DIGITAL PROJECT MANAGER</div>
-    <h1>I transform operational friction into scalable systems people actually adopt.</h1>
-    <p class="lead">My work connects <b>frontline operations, process engineering, application architecture, data, automation, AI, governance and change management</b>. I start with how people work today, quantify friction, define the target process, translate it into system requirements, and stay through delivery, adoption and continuous improvement.</p>
-    <div class="partner-card">
-      <div class="google-g">G</div>
-      <div><strong>Google Cloud — Business Process Engineer & Digital Project Manager</strong><span>Business Process Engineer & Digital Project Manager with Google Cloud, deployed at CMA CGM HQ in Marseille as part of the Google × CMA CGM strategic partnership. My work included e-commerce platform and infrastructure design connecting CMA CGM digital services with SAP S/4HANA and CEVA Logistics.</span></div>
-    </div>
-    <div class="actions"><a class="btn primary" href="#projects">Explore architecture</a><a class="btn secondary" href="#education">Credentials</a></div>
-    <div class="metrics">
-      <div><b>€2.3M</b><span>annual efficiency savings</span></div><div><b>15%</b><span>excess-stock cost reduction</span></div><div><b>35%</b><span>fewer data inconsistencies</span></div><div><b>800</b><span>users trained</span></div><div><b>12</b><span>countries</span></div>
-    </div>
-    <div class="hero-live-strip" aria-label="Live transformation workflow">
-      <div class="hero-live-head"><span><i class="live-dot"></i> TRANSFORMATION LIFECYCLE</span><small>From operational friction to measurable business outcomes</small></div>
-      <div class="hero-live-track" id="hero-live-track">
-        <div class="hero-step active" data-hero-step="0"><b>01</b><span>Frontline friction</span></div>
-        <i>→</i><div class="hero-step" data-hero-step="1"><b>02</b><span>Process mapping</span></div>
-        <i>→</i><div class="hero-step" data-hero-step="2"><b>03</b><span>Data analysis</span></div>
-        <i>→</i><div class="hero-step" data-hero-step="3"><b>04</b><span>Functional spec</span></div>
-        <i>→</i><div class="hero-step" data-hero-step="4"><b>05</b><span>Build / automate</span></div>
-        <i>→</i><div class="hero-step" data-hero-step="5"><b>06</b><span>UAT & release</span></div>
-        <i>→</i><div class="hero-step" data-hero-step="6"><b>07</b><span>Adoption & KPI</span></div>
+<section id="home" class="hero">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-beam beam-a" aria-hidden="true"></div>
+  <div class="hero-beam beam-b" aria-hidden="true"></div>
+  <div class="shell hero-layout">
+    <div class="hero-copy reveal">
+      <div class="status-pill"><i></i> Business process engineering • digital transformation</div>
+      <p class="eyebrow">PROCESS → DATA → AUTOMATION → ADOPTION</p>
+      <h1>I turn operational friction into <span>systems people actually use.</span></h1>
+      <p class="hero-lead">I diagnose how work happens today, quantify friction with data, translate it into buildable requirements, coordinate delivery, automate where it creates value, and stay through adoption, governance and continuous improvement.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">Explore projects</a>
+        <a class="btn ghost" href="#process">See my delivery model <b>↗</b></a>
       </div>
-      <div class="hero-live-explain"><strong id="hero-live-title">Observe the real work</strong><span id="hero-live-text">Start with users, handoffs, exceptions and repetitive operational tasks — not with a technology assumption.</span></div>
+      <div class="hero-proof">
+        <div><strong data-count="2.3" data-prefix="€" data-suffix="M">€0M</strong><span>annual efficiency savings contribution</span></div>
+        <div><strong data-count="15" data-suffix="%">0%</strong><span>excess-stock cost reduction</span></div>
+        <div><strong data-count="35" data-suffix="%">0%</strong><span>fewer data inconsistencies</span></div>
+        <div><strong data-count="800" data-suffix="+">0</strong><span>users trained</span></div>
+        <div><strong data-count="12">0</strong><span>countries</span></div>
+      </div>
     </div>
 
-  </div>
-  <div class="hero-diagram">
-    <div class="mini-title">HOW I ENGINEER TRANSFORMATION</div>
-    <div class="lifecycle">
-      <div class="life-node blue"><b>01</b><span>Shadow</span></div><i>→</i>
-      <div class="life-node red"><b>02</b><span>Quantify</span></div><i>→</i>
-      <div class="life-node yellow"><b>03</b><span>Specify</span></div>
-      <div class="loop-line"><span></span></div>
-      <div class="life-node green"><b>04</b><span>Engineer</span></div><i>→</i>
-      <div class="life-node purple"><b>05</b><span>Adopt</span></div><i>→</i>
-      <div class="life-node cyan"><b>06</b><span>Improve</span></div>
+    <div class="hero-system reveal" aria-label="Animated process engineering lifecycle">
+      <div class="system-head"><span>OPERATING MODEL</span><b><i></i> LIVE</b></div>
+      <div class="system-canvas" id="heroSystem">
+        <svg class="system-path" viewBox="0 0 620 480" preserveAspectRatio="none" aria-hidden="true">
+          <path id="heroPath" d="M72 76 C190 76 182 160 300 160 S420 244 544 244 S418 340 300 340 S198 416 78 416"/>
+          <circle class="packet packet-one" r="5"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#heroPath"/></animateMotion></circle>
+          <circle class="packet packet-two" r="4"><animateMotion dur="8s" begin="-4s" repeatCount="indefinite"><mpath href="#heroPath"/></animateMotion></circle>
+        </svg>
+        <button class="sys-node n1 active" data-node="0"><small>01</small><b>Observe</b><span>shadow work</span></button>
+        <button class="sys-node n2" data-node="1"><small>02</small><b>Quantify</b><span>SQL / Python</span></button>
+        <button class="sys-node n3" data-node="2"><small>03</small><b>Specify</b><span>functional scope</span></button>
+        <button class="sys-node n4" data-node="3"><small>04</small><b>Engineer</b><span>apps / automation</span></button>
+        <button class="sys-node n5" data-node="4"><small>05</small><b>Validate</b><span>UAT / controls</span></button>
+        <button class="sys-node n6" data-node="5"><small>06</small><b>Adopt</b><span>training / support</span></button>
+        <div class="system-core"><span>BUSINESS OUTCOME</span><b id="heroSystemTitle">Observe the real work</b><p id="heroSystemText">Start with frontline users, handoffs, exceptions and repetitive operational tasks before selecting a solution.</p></div>
+      </div>
+      <div class="system-footer"><span>Feedback loop</span><i></i><span>Usage • quality • tickets • KPI</span></div>
     </div>
-    <div class="hero-core"><b>BUSINESS OUTCOME</b><span>time • cost • quality • adoption • control</span></div>
   </div>
 </section>
 
+<section class="impact-strip">
+  <div class="shell impact-inner reveal">
+    <p>My work sits between <b>business operations</b> and <b>engineering teams</b>.</p>
+    <div class="impact-flow"><span>Diagnose</span><i>→</i><span>Analyze</span><i>→</i><span>Specify</span><i>→</i><span>Build</span><i>→</i><span>Adopt</span><i>↺</i></div>
+  </div>
+</section>
 
-<section class="ecom-spotlight">
+<section class="transformation-lens section">
   <div class="shell">
     <div class="section-head reveal">
-      <div class="eyebrow">E-COMMERCE & LOGISTICS</div>
-      <h2>Designing the operating architecture behind the digital customer journey</h2>
-      <p>I worked on e-commerce infrastructure and application architecture connecting CMA CGM digital services with enterprise systems and CEVA Logistics. The scope extended beyond the customer interface into quote, booking, shipment execution, logistics fulfilment, tracking and operational visibility.</p>
+      <div><p class="eyebrow">TRANSFORMATION LENS</p><h2>Show the change, not just the technology.</h2></div>
+      <p>Every case study starts with how the operation worked before, what was structurally wrong, what changed in the process and architecture, and how the result was measured after adoption.</p>
     </div>
-    <div class="ecom-process-strip reveal">
-      <div><b>01</b><span>Search & Quote</span></div><i>→</i>
-      <div><b>02</b><span>Booking</span></div><i>→</i>
-      <div><b>03</b><span>API & Identity</span></div><i>→</i>
-      <div><b>04</b><span>CMA CGM Shipping</span></div><i>→</i>
-      <div><b>05</b><span>SAP S/4HANA</span></div><i>→</i>
-      <div><b>06</b><span>CEVA Logistics</span></div><i>→</i>
-      <div><b>07</b><span>Tracking & Events</span></div>
+    <div class="lens-grid reveal">
+      <article class="lens-state before"><small>CURRENT STATE</small><h3>Manual, fragmented, hard to measure</h3><div class="lens-chain"><span>Frontline work</span><i>→</i><span>Handoffs</span><i>→</i><span>Manual checks</span><i>→</i><span>Local reporting</span></div><p>Start with the real operating model: actors, handoffs, exceptions, controls, time, quality and support friction.</p></article>
+      <div class="lens-transform"><b>TRANSFORM</b><i></i><span>diagnose · quantify · specify · engineer · validate</span></div>
+      <article class="lens-state after"><small>TARGET STATE</small><h3>Explicit, governed, observable</h3><div class="lens-chain"><span>Guided workflow</span><i>→</i><span>Automation / APIs</span><i>→</i><span>Controls</span><i>→</i><span>KPI + feedback</span></div><p>Finish with an operating system that makes ownership, exceptions, telemetry, adoption and continuous improvement visible.</p></article>
     </div>
   </div>
 </section>
 
-<section id="projects" class="projects-section">
-  <div class="shell section-head reveal">
-    <div class="eyebrow">SELECTED PROJECTS</div>
-    <h2>Process transformation, application architecture and measurable delivery</h2>
-    <p>My projects span e-commerce, logistics, operational platforms, workflow automation, data, AI and change management. I work across the full lifecycle—from understanding operational friction and defining requirements to coordinating delivery, adoption and continuous improvement.</p>
-  </div>
-
-  <div class="company-section">
-    <div class="shell company-head reveal"><div><small>GOOGLE CLOUD × CMA CGM</small><h3>Enterprise transformation & operational platforms</h3></div><div class="co google">G</div></div>
-    <div id="google-projects" class="shell cards"></div>
-  </div>
-  <div class="company-section alt">
-    <div class="shell company-head reveal"><div><small>VOLVO GROUP</small><h3><span data-i18n-en="Supply-chain, procurement, analytics & digital delivery" data-i18n-fr="Supply Chain, achats, analytique et pilotage digital">Supply-chain, procurement, analytics & digital delivery</span></h3></div><div class="co volvo">V</div></div>
-    <div id="volvo-projects" class="shell cards"></div>
-  </div>
-  <div class="company-section">
-    <div class="shell company-head reveal"><div><small>MICROSOFT</small><h3>Azure AI & production decision support</h3></div><div class="ms"><i></i><i></i><i></i><i></i></div></div>
-    <div id="microsoft-projects" class="shell cards"></div>
-  </div>
-</section>
-
-
-<section class="tech-stack-section">
+<section id="projects" class="projects section">
   <div class="shell">
     <div class="section-head reveal">
-      <div class="eyebrow">TECH STACK</div>
-      <h2><span data-i18n-en="Tools I use to connect process, data and delivery" data-i18n-fr="Les technologies que j’utilise pour relier processus, données et delivery">Tools I use to connect process, data and delivery</span></h2>
-      <p>My toolkit combines process engineering, e-commerce, enterprise architecture, data, automation and delivery. I design for operational performance as well as security, governance, auditability and European data-protection requirements.</p>
+      <div><p class="eyebrow">SELECTED PROJECTS</p><h2>Selected systems across e-commerce operations, application architecture, automation, data and supply chain.</h2></div>
+      <p>Each case study is structured like a professional transformation review: current state → target state → live process → system architecture → role → tools / deliverables → measurable outcome.</p>
     </div>
-    <div class="tech-stack-grid reveal">
-      <article><small>AUTOMATION & APPLICATIONS</small><h3>SAP S/4HANA • Python • SQL • API Connectors • Low-code</h3><p>Workflow automation, business logic, back-office applications, data extraction, routing and systems integration.</p></article>
-      <article><small>AI & ENGINEERING</small><h3>AI Agent Prompts • Claude Code • Gemini • Azure AI</h3><p>AI-assisted workflow design, classification, prompt-based automation and engineering productivity.</p></article>
-      <article><small>ANALYTICS & GOVERNANCE</small><h3>Power BI • DataHub • Data Quality • KPI Design</h3><p>Operational analytics, dashboards, governance documentation, ownership, quality controls and adoption measurement.</p></article>
-      <article><small>DELIVERY & PROCESS</small><h3>Functional Specs • Process Mapping • UAT • Agile Delivery</h3><p>Business-to-technology translation, sprint coordination, testing, training, governance and change management.</p></article>
+    <div class="project-filters reveal" id="projectFilters">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="ecommerce">E-commerce</button>
+      <button data-filter="architecture">Application architecture</button>
+      <button data-filter="analytics">Data & process intelligence</button>
+      <button data-filter="volvo">Volvo</button>
+      <button data-filter="ai">AI / ML</button>
+      <button data-filter="governance">Change & governance</button>
+    </div>
+    <div id="projectGrid" class="project-grid"></div>
+  </div>
+</section>
+
+<section id="process" class="process-section section dark">
+  <div class="shell">
+    <div class="section-head inverse reveal">
+      <div><p class="eyebrow">DELIVERY MODEL</p><h2>A repeatable operating model from frontline observation to measurable adoption.</h2></div>
+      <p>The sequence matters. I avoid automating a broken process by diagnosing and measuring first, then designing controls, validating the solution and using adoption/support data as the next improvement signal.</p>
+    </div>
+
+    <div class="process-engine reveal" id="processEngine">
+      <div class="process-track" aria-hidden="true"><i></i></div>
+      <article class="process-stage active" data-stage="0"><span>01</span><div><small>DISCOVER</small><h3>Shadow & map</h3><p>Observe real workflows, handoffs, exceptions and repetitive work with functional leads and super users.</p></div></article>
+      <article class="process-stage" data-stage="1"><span>02</span><div><small>QUANTIFY</small><h3>Measure friction</h3><p>Use SQL, Python, deep-dive reports and dashboards to establish baseline volume, time, quality and operational impact.</p></div></article>
+      <article class="process-stage" data-stage="2"><span>03</span><div><small>SPECIFY</small><h3>Translate to requirements</h3><p>Convert bottlenecks into functional specifications, rules, controls and acceptance criteria that engineering teams can build.</p></div></article>
+      <article class="process-stage" data-stage="3"><span>04</span><div><small>ENGINEER</small><h3>Build / automate</h3><p>Configure back-office applications and workflow automation using Python, SQL, APIs, low-code and AI-assisted steps where appropriate.</p></div></article>
+      <article class="process-stage" data-stage="4"><span>05</span><div><small>VALIDATE</small><h3>Test & release</h3><p>Coordinate feature testing, UAT, exception handling, controls and production readiness before operational handoff.</p></div></article>
+      <article class="process-stage" data-stage="5"><span>06</span><div><small>ADOPT</small><h3>Train & improve</h3><p>Deliver documentation, training and support; track usage, quality and tickets; feed recurring friction back into the backlog.</p></div></article>
+    </div>
+
+    <div class="governance-rail reveal"><span>PLATFORM GOVERNANCE</span><b>Permissions</b><b>SaaS licences</b><b>DataHub</b><b>Data quality</b><b>Audit evidence</b><b>Support</b></div>
+    <div class="delivery-artifacts reveal">
+      <div><small>DISCOVER</small><b>Process drawing</b></div>
+      <div><small>QUANTIFY</small><b>Deep-dive / impact report</b></div>
+      <div><small>SPECIFY</small><b>Functional specification</b></div>
+      <div><small>VALIDATE</small><b>UAT / feature evidence</b></div>
+      <div><small>ADOPT</small><b>Training + adoption KPI</b></div>
+      <div><small>IMPROVE</small><b>Support → backlog</b></div>
     </div>
   </div>
 </section>
 
-<section id="experience" class="shell profile-section">
- <div class="section-head reveal"><div class="eyebrow">EXPERIENCE</div><h2>From machine learning to end-to-end process engineering</h2></div>
- <div class="timeline reveal">
-  <article><div class="year">2023–2026</div><div><h3>Google Cloud</h3><b>Business Process Engineer & Digital Project Manager</b><p>Deployed at CMA CGM HQ in Marseille within the Google × CMA CGM Strategic Partnership. Process diagnosis, workflow and AI automation, functional specifications, back-office applications, operational analytics, governance, change management and user adoption.</p></div></article>
-  <article><div class="year">2019–2022</div><div><h3>Volvo Group</h3><b>Machine Learning Engineer & Data Project Manager</b><p>Supply-chain and procurement process diagnosis, SQL/Python analysis, automation, impact reporting, functional scoping, sprint coordination and change support across Gothenburg and Bangalore.</p></div></article>
-  <article><div class="year">2018</div><div><h3>Microsoft</h3><b>Machine Learning Engineer Intern</b><p>ML classification models on Azure AI services, data-quality controls and stakeholder communication through production sign-off.</p></div></article>
- </div>
-</section>
-
-<section id="education" class="education">
- <div class="shell">
-  <div class="section-head reveal"><div class="eyebrow">EDUCATION & CREDENTIALS</div><h2>Business, engineering and delivery</h2></div>
-  <div class="education-grid reveal">
-   <article><small>MASTER'S</small><h3>MSc Project & Programme Management and Business Development</h3><b>SKEMA Business School • 2022–2023</b><p>Data Analytics • Digital Transformation • BI • Project & Programme Management • Product Management • Innovation • Strategy • Operations</p></article>
-   <article><small>ENGINEERING</small><h3>B.E. Mechanical Engineering — Robotics & Automation</h3><b>Chandigarh University • 2017–2021</b><p>Robotics • Control Systems • Systems Design • Programming • DSA • AI • ML • Computer Vision • Industrial Automation</p></article>
-   <article><small>CERTIFICATION</small><h3>Google Cloud Professional Data Engineer</h3><b>Google Cloud • 2024</b><p>Professional data engineering credential.</p></article>
-   <article><small>DELIVERY</small><h3>GPM-B (PMP) + Agile PM Foundation</h3><b>PMI / APMG International • 2022</b><p>Structured programme delivery, agile execution and cross-functional coordination.</p></article>
+<section id="capabilities" class="section capabilities">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">CAPABILITY MAP</p><h2>Business-process depth with enough technical fluency to drive delivery.</h2></div>
+      <p>My role is not to replace every specialist. It is to create a shared operating model across business, product, data and engineering so the solution is useful, measurable and adopted.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="cap-card reveal"><span>01</span><small>PROCESS</small><h3>Diagnosis & shadowing</h3><p>Process maps, workflow friction, current-state / target-state design.</p></article>
+      <article class="cap-card reveal"><span>02</span><small>ANALYTICS</small><h3>SQL & Python deep dives</h3><p>Operational baselines, root-cause analysis, dashboards and impact reports.</p></article>
+      <article class="cap-card reveal"><span>03</span><small>FUNCTIONAL DESIGN</small><h3>Specifications</h3><p>Business rules, acceptance criteria, API / data flow requirements and scope control.</p></article>
+      <article class="cap-card reveal"><span>04</span><small>AUTOMATION</small><h3>Workflow & AI</h3><p>Python, API connectors, AI-agent prompts, deterministic rules and human review.</p></article>
+      <article class="cap-card reveal"><span>05</span><small>APPLICATION ARCHITECTURE</small><h3>Back-office systems</h3><p>Low-code UI, workflow state, APIs, Python/SQL logic, SSO/RBAC, auditability, observability and adoption telemetry.</p></article>
+      <article class="cap-card reveal"><span>06</span><small>DELIVERY</small><h3>Tech-team coordination</h3><p>Sprint clarification, testing, UAT, release readiness and cross-functional decisions.</p></article>
+      <article class="cap-card reveal"><span>07</span><small>CHANGE</small><h3>Adoption</h3><p>Documentation, training, communications, super-user networks and usage tracking.</p></article>
+      <article class="cap-card reveal"><span>08</span><small>GOVERNANCE</small><h3>SaaS & data controls</h3><p>Permissions, licences, DataHub, quality rules, ownership and auditability.</p></article>
+      <article class="cap-card reveal"><span>09</span><small>SUPPORT</small><h3>Continuous improvement</h3><p>User unblock, ticket themes, recurring friction and feedback-to-backlog loops.</p></article>
+    </div>
   </div>
- </div>
 </section>
 
-<section id="method" class="shell method">
- <div class="section-head reveal"><div class="eyebrow">MY PROCESS</div><h2>One operating model, nine responsibilities</h2></div>
- <div class="method-grid reveal">
-  <article><b>01</b><h3>Diagnose</h3><p>Shadow frontline work and identify friction.</p></article><article><b>02</b><h3>Analyze</h3><p>Quantify process and operational impact.</p></article><article><b>03</b><h3>Scope</h3><p>Translate pain points into functional requirements.</p></article>
-  <article><b>04</b><h3>Build</h3><p>Configure apps, automation and data products.</p></article><article><b>05</b><h3>Coordinate</h3><p>Animate tech teams through delivery and testing.</p></article><article><b>06</b><h3>Adopt</h3><p>Documentation, training and super-user animation.</p></article>
-  <article><b>07</b><h3>Govern</h3><p>Permissions, settings, licences and documentation.</p></article><article><b>08</b><h3>Support</h3><p>Unblock users and capture recurring friction.</p></article><article><b>09</b><h3>Improve</h3><p>Feed usage, quality and support signals into backlog.</p></article>
- </div>
+<section id="toolkit" class="section toolkit-section">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">TECHNICAL TOOLKIT</p><h2>Enough technical depth to structure the solution and challenge the implementation.</h2></div>
+      <p>The toolkit changes by use case. The constant is the ability to connect process, data, application logic, automation, governance and adoption into one controlled operating model.</p>
+    </div>
+    <div class="toolkit-grid">
+      <article class="toolkit-card reveal"><small>PROCESS & ANALYSIS</small><h3>Diagnose and quantify</h3><div><span>Process mapping</span><span>SQL</span><span>Python</span><span>KPI models</span><span>Power BI</span><span>Impact reports</span></div></article>
+      <article class="toolkit-card reveal"><small>APPLICATION & AUTOMATION</small><h3>Engineer the workflow</h3><div><span>Low-code</span><span>Python</span><span>API connectors</span><span>Workflow automation</span><span>Back-office apps</span><span>AI-agent prompts</span></div></article>
+      <article class="toolkit-card reveal"><small>DATA & AI</small><h3>Build reliable decision systems</h3><div><span>Azure Databricks</span><span>PySpark</span><span>Informatica IICS</span><span>Vertex AI</span><span>Document AI</span><span>RAG</span></div></article>
+      <article class="toolkit-card reveal"><small>GOVERNANCE & DELIVERY</small><h3>Make the change stick</h3><div><span>DataHub</span><span>Data quality</span><span>SaaS admin</span><span>Functional specs</span><span>UAT</span><span>Training / adoption</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section experience-section">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">EXPERIENCE</p><h2>Cross-functional delivery across global technology and operations environments.</h2></div>
+    </div>
+    <div class="timeline">
+      <article class="timeline-item reveal"><div class="time">JUN 2023 — JUN 2026</div><div class="role"><small>GOOGLE CLOUD · DEPLOYED AT CMA CGM HQ</small><h3>Business Process Engineer & Digital Consultant</h3></div><div class="desc"><p>Diagnosed frontline workflow friction, quantified operational problems with SQL / Python, wrote functional specifications, built workflow and AI automation, configured back-office applications and dashboards, coordinated UAT, and carried solutions through training, SaaS governance and adoption across 12 countries.</p></div></article>
+      <article class="timeline-item reveal"><div class="time">MAY 2019 — OCT 2022</div><div class="role"><small>VOLVO GROUP · BENGALURU</small><h3>Machine Learning Engineer & Data Project Manager</h3></div><div class="desc"><p>Diagnosed supply-chain and procurement friction using SQL / Python, produced dashboards and impact reports, translated bottlenecks into structured requirements, coordinated international delivery and supported process improvements that contributed to a 15% reduction in excess-stock costs.</p></div></article>
+      <article class="timeline-item reveal"><div class="time">JAN 2018 — JUN 2018</div><div class="role"><small>MICROSOFT · HYDERABAD</small><h3>Machine Learning Engineer Intern</h3></div><div class="desc"><p>Built classification models on Azure AI services, applied data-quality controls and translated technical results for non-technical stakeholders through production sign-off.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section credentials-section">
+  <div class="shell credentials-grid">
+    <div class="credential-copy reveal"><p class="eyebrow">EDUCATION & CREDENTIALS</p><h2>Engineering + business + delivery.</h2><p>Technical grounding combined with programme management and business development gives me the range to move from system details to executive outcomes.</p></div>
+    <div class="credential-cards">
+      <article class="credential reveal"><small>MASTER'S</small><h3>MSc Project & Programme Management and Business Development</h3><p>SKEMA Business School · 2022–2023</p></article>
+      <article class="credential reveal"><small>ENGINEERING</small><h3>B.E. Mechanical Engineering — Robotics & Automation</h3><p>Chandigarh University · 2017–2021</p></article>
+      <article class="credential reveal"><small>CREDENTIALS</small><h3>GPM-B (PMP) · Agile PM Foundation · Google Cloud Professional Data Engineer</h3><p>PMI · APMG International · Google Cloud</p></article>
+    </div>
+  </div>
 </section>
 
 <section id="contact" class="contact-section">
- <div class="shell contact reveal"><div><div class="eyebrow">CONTACT</div><h2>I engineer the process, not just the application.</h2><p>Process • Data • Automation • AI • Architecture • Governance • Adoption</p></div><div class="contact-card"><h3>Chintan Changole</h3><p>Business Process Engineer & Digital Project Manager</p><a href="mailto:chintanchangole@gmail.com">chintanchangole@gmail.com</a><span>Marseille, France</span></div></div>
+  <div class="contact-grid-art" aria-hidden="true"></div>
+  <div class="shell contact-layout">
+    <div class="reveal"><p class="eyebrow light">CONTACT</p><h2>Make the process measurable. Make the system usable. Make the change stick.</h2></div>
+    <div class="contact-card reveal">
+      <small>CHINTAN CHANGOLE</small>
+      <h3>Business Process Engineer & Digital Consultant</h3>
+      <a href="mailto:chintanchangole@gmail.com">chintanchangole@gmail.com</a>
+      <a href="tel:+33651816749">+33 6 51 81 67 49</a>
+      <span>Marseille, France · EU authorised</span>
+    </div>
+  </div>
 </section>
 </main>
 
-<div id="modal" class="modal" aria-hidden="true">
- <div class="backdrop" data-close></div>
- <div class="modal-panel">
-  <button class="close" data-close>×</button>
-  <div id="modal-content"></div>
- </div>
+<footer><div class="shell"><span>© <span id="year"></span> Chintan Changole</span><span>Process · Data · Automation · AI · Governance · Adoption</span></div></footer>
+
+<div class="project-modal" id="projectModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" data-close-modal aria-label="Close project">×</button>
+    <div id="modalContent"></div>
+  </section>
 </div>
 
-<footer><span>© <span id="year"></span> Chintan Changole</span><span>Business Process Engineering • Digital Transformation • Enterprise Systems</span></footer>
-<script src="projects.js"></script><script src="script.js"></script>
+<script src="projects.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
