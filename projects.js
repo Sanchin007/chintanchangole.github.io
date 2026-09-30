@@ -1,75 +1,75 @@
 window.PROJECTS = [
   {
-    id:"cma-ecommerce", order:1, company:"Google Cloud | Deployed at CMA CGM HQ", category:"ecommerce", featured:true, spotlight:true,
-    kicker:"E-COMMERCE OPERATIONS TRANSFORMATION", title:"CMA CGM E-Commerce Operations & Automation",
-    subtitle:"Process diagnosis · operational analytics · functional design · workflow automation · UAT · adoption",
-    metric:"€2.3M", metricLabel:"annual efficiency savings contribution", scale:"8 business units · 12 countries · 800 users",
-    roleSummary:"Owned the bridge from frontline process diagnosis to buildable requirements, automation, validation and scaled adoption.",
-    impact:"Workflow and process improvements contributed to €2.3M in annual efficiency savings, while the broader rollout trained 800 users across 12 countries and strengthened operational consistency.",
-    tags:["E-Commerce Operations","Process Diagnosis","SQL / Python","Functional Specs","API Connectors","Workflow Automation","AI Agent Prompts","UAT","Adoption"],
-    cardFlow:["Diagnose","Measure","Specify","Automate","Adopt"],
-    problem:"Operational workflows across commercial, compliance and operations contained repetitive administrative work, cross-team handoffs and process friction. The transformation needed to start with the real operating process, quantify the problem, define a controlled target state and automate only the work that created measurable value.",
+    id:"cma-ecommerce", order:1, company:"Google Cloud | CMA CGM HQ · Lines & Pricing Transformation", category:"ecommerce", featured:true, spotlight:true,
+    kicker:"DIRECT E-COMMERCE DESIGN SCOPE", title:"SpotOn Pricing & Digital Booking Transformation",
+    subtitle:"Business problem → quote-to-book journey → functional design → integration → validation → measurable digital funnel",
+    metric:"2", metricLabel:"core e-commerce journeys designed", scale:"SpotOn pricing + digital booking · commercial-to-operational boundary",
+    roleSummary:"Designed and transformed the SpotOn pricing and digital booking journeys within Lines & Pricing Transformation, connecting customer needs, commercial rules, allocation context and operational booking requirements.",
+    impact:"The transformation focused on reducing friction between a customer's shipping need, a commercially usable quotation and an operationally executable booking. Success is measured through quote speed, conversion, booking completion, rework, straight-through processing and digital adoption rather than architecture delivery alone.",
+    tags:["SpotOn Pricing","Digital Booking","Business Process Design","Functional Specs","Quote-to-Book","API / Integration","UAT","E-Commerce"],
+    cardFlow:["Problem","SpotOn","Allocation","Booking","Measure"],
+    problem:"The core business problem was not simply 'build an e-commerce screen'. Customers needed to move from origin/destination, date, equipment and commodity requirements to a valid price and then into an executable booking without avoidable handoffs, repeated information or unclear exception handling. The process had to feel simple to the customer while preserving pricing, capacity, cargo, equipment and operational controls behind the journey.",
     before:[
-      "Frontline process knowledge distributed across users, handoffs and local ways of working.",
-      "Repetitive document, data-extraction and routing tasks created avoidable administrative effort.",
-      "Operational friction was difficult to prioritize without a consistent baseline and impact view.",
-      "Process changes risked becoming technology-led unless requirements and acceptance criteria were defined first."
+      "The customer intent had to cross several commercial and operational decisions before becoming executable work.",
+      "Pricing, routing, capacity and booking rules could create clarification loops or assisted-channel dependency when the digital journey was not explicit enough.",
+      "Booking contains conditional complexity across parties, cargo, equipment, inland transport, value-added services and exceptions.",
+      "A technically complete journey could still fail commercially if quote speed, conversion, completion and rework were not measurable."
     ],
     after:[
-      "Current-state and target-state workflows made actors, exceptions and ownership explicit.",
-      "SQL / Python deep dives and dashboards established measurable baselines and opportunity sizing.",
-      "Functional specifications translated business friction into rules, controls and testable acceptance criteria.",
-      "Python, API connectors and AI-agent prompts automated document processing, extraction and routing where appropriate.",
-      "UAT, documentation, training, super users and adoption tracking carried the change into operations."
+      "SpotOn turns shipment context into a guided digital pricing journey with routing, offer and quotation continuity.",
+      "The quote-to-book boundary preserves the commercial context while moving the customer into operational booking requirements.",
+      "Digital booking structures required data, conditional rules, validation and exception paths before confirmation.",
+      "The journey is treated as a measurable funnel: quote response, conversion, completion, rework, straight-through processing and support demand."
     ],
-    beforeArchitecture:["Frontline requests","Manual handoffs","Repeated entry / extraction","Fragmented operational tools","Local checks","Limited feedback"],
-    afterArchitecture:["Operational user / request","Guided workflow","Rules + Python automation","AI-assisted extraction / routing","API-connected systems","KPI + adoption + support loop"],
+    beforeArchitecture:["Customer need","Rate / route clarification","Commercial handoffs","Booking complexity","Repeated validation","Assisted exception handling"],
+    afterArchitecture:["Route / schedule context","SpotOn pricing","Quotation","Allocation context","Guided booking","Validation + confirmation"],
     architectureChange:[
-      "Control moved from people remembering the process to the workflow making state, ownership and exceptions explicit.",
-      "Automation was introduced after process mapping and measurement, not before.",
-      "System actions moved behind controlled API / workflow boundaries instead of ad-hoc manual updates.",
-      "Usage, support and KPI signals became part of the operating loop rather than post-project reporting."
+      "The process is designed around one customer journey from shipping need to executable booking rather than disconnected functional screens.",
+      "Commercial decisions such as pricing and quotation are explicitly connected to operational decisions such as capacity, cargo, equipment and booking validation.",
+      "Conditional business rules are surfaced in the journey so complexity is controlled by the system instead of pushed onto the customer.",
+      "Funnel and exception telemetry make the process measurable after release, allowing support and conversion friction to feed the next iteration."
     ],
     contribution:[
-      "Shadowed frontline workflows with functional leads and super users; mapped handoffs, repetitive work, exceptions and failure points.",
-      "Used SQL / Python analysis, deep-dive reports and dashboards to quantify friction and size improvement opportunities.",
-      "Translated bottlenecks into detailed functional specifications, process/data flows, business rules and acceptance criteria with tech and data teams.",
-      "Scripted and coordinated Python/API workflow automation, including AI-agent prompts for document processing, data extraction and operational routing.",
-      "Coordinated feature validation and UAT against real operational scenarios before deployment.",
-      "Delivered documentation, training, communications and super-user enablement; tracked adoption and support signals after release."
+      "Worked in Lines & Pricing Transformation and designed the SpotOn pricing and digital booking journeys from a business-process perspective.",
+      "Mapped the customer and operational problem behind quote-to-book, including business decisions, handoffs, data requirements and exception paths.",
+      "Translated pricing and booking needs into functional specifications, process/data flows, business rules and testable acceptance criteria.",
+      "Connected SpotOn and Booking to the surrounding e-commerce capability landscape: routing/schedules, quotation, allocation, shipment and downstream execution.",
+      "Coordinated business/technical clarification, feature validation and UAT against realistic booking scenarios and exceptions.",
+      "Defined success around business outcomes such as quote speed, digital conversion, booking completion, rework, support demand and adoption."
     ],
     runtime:[
-      ["Discover","Frontline workflow","Observe real operational requests, documentation, handoffs and exceptions before selecting a solution.","human"],
-      ["Quantify","SQL / Python","Measure volume, cycle time, rework, quality issues and repetitive handling to establish a baseline.","data"],
-      ["Specify","Functional design","Convert the target process into business rules, requirements, acceptance criteria and exception paths.","spec"],
-      ["Orchestrate","Workflow state","Route work through explicit states, deterministic rules, ownership and controlled retries.","process"],
-      ["Augment","AI-assisted processing","Use AI-agent prompts for unstructured extraction or routing while keeping business controls explicit.","ai"],
-      ["Execute","API / back-office action","Write approved actions into operational tools through controlled integration boundaries.","system"],
-      ["Validate","UAT + controls","Test end-to-end scenarios, permissions, exceptions and business outcomes before operational sign-off.","quality"],
-      ["Adopt","Training + feedback","Track usage, support demand and KPI movement; feed recurring friction into the next improvement cycle.","outcome"]
+      ["Need","Shipment intent","Capture origin, destination, date, equipment and commodity context — the customer's actual transport need.","human"],
+      ["Route","Routing / schedule","Identify viable shipping solutions before pricing a journey that cannot be executed.","process"],
+      ["Price","SpotOn","Apply pricing context and return a digital spot offer / quotation path.","data"],
+      ["Capacity","Allocation context","Check the operational feasibility around space / allocation before booking commitment.","control"],
+      ["Book","Digital booking","Capture parties, cargo, equipment, inland / haulage and value-added service requirements through a guided flow.","spec"],
+      ["Validate","Rules + exceptions","Apply conditional fields, validation and exception handling before submission / confirmation.","quality"],
+      ["Confirm","Executable demand","Convert the commercial intent into structured operational demand that downstream shipment processes can use.","system"],
+      ["Measure","Digital funnel","Track quote speed, conversion, completion, rework, straight-through processing and support signals.","outcome"]
     ],
     architecture:[
-      ["EXPERIENCE","Operational user / request","Frontline work · guided journey"],
-      ["PROCESS","Target-state workflow","State · ownership · business rules"],
-      ["AUTOMATION","Python + workflow","Deterministic processing · routing"],
-      ["AI ASSIST","AI-agent prompts","Extract · classify · route unstructured input"],
-      ["INTEGRATION","API connectors","Controlled system synchronization"],
-      ["CONTROL","Permissions · validation · audit","Exceptions · evidence · SLA"],
-      ["MEASUREMENT","Dashboard + adoption","Time saved · quality · usage · support"]
+      ["CHANNEL","My CMA CGM / digital channels","Web · mobile · API / EDI context"],
+      ["ROUTING","Schedules / routing","POL · POD · dates · route options"],
+      ["PRICING","SpotOn pricing — direct scope","Offer · quotation · commercial rules"],
+      ["CAPACITY","Allocation context","Space / operational feasibility"],
+      ["BOOKING","Digital booking — direct scope","Parties · cargo · equipment · inland · VAS"],
+      ["VALIDATION","Business rules + exceptions","Conditional logic · completeness · eligibility"],
+      ["INTEGRATION","APIs / events / EDI","Controlled handoff to shipment execution"],
+      ["MEASUREMENT","Funnel + support telemetry","Conversion · completion · rework · adoption"]
     ],
-    controls:["Process baseline","Acceptance criteria","Validation before action","Retry / exception path","Human review where needed","Permissions","Audit evidence","UAT evidence","Usage + KPI tracking"],
+    controls:["Quote validity","Commercial rules","Allocation context","Conditional fields","Required-data validation","Exception path","Acceptance criteria","UAT evidence","Funnel telemetry"],
     toolGroups:[
-      ["Process & analysis",["Process mapping","SQL","Python","Deep-dive reporting","Dashboard analysis"]],
-      ["Automation & integration",["Python","API connectors","Workflow automation","AI-agent prompts","Low-code tooling"]],
-      ["Governance & adoption",["DataHub","User permissions","SaaS administration","Training","Super-user network","Adoption tracking"]],
-      ["Delivery",["Functional specifications","Acceptance criteria","Feature testing","UAT","Cross-functional sprint coordination"]]
+      ["Business & process design",["Customer journey mapping","Process mapping","Business problem framing","Functional specifications","Acceptance criteria"]],
+      ["E-commerce capabilities",["Routing / Schedules","SpotOn Pricing","Quotation","Allocation","Digital Booking","Shipment context"]],
+      ["Integration patterns",["REST APIs","EDI","Events","API keys / OAuth2","Process / data flows"]],
+      ["Delivery & measurement",["SQL / Python analysis","UAT","Feature validation","Funnel KPIs","Support / feedback analysis"]]
     ],
-    artifacts:["Current-state process drawing","Deep-dive report","Project impact report","Functional specification","Process / data-flow design","UAT evidence","User documentation","Training pack","Adoption / usage dashboard"],
+    artifacts:["Business problem statement","Current / target journey","SpotOn functional flow","Booking functional flow","Business-rule matrix","Process / data-flow design","Acceptance criteria","UAT scenarios","Funnel KPI framework"],
     decisions:[
-      "Diagnose and baseline the process before selecting automation.",
-      "Keep deterministic business rules explicit; use AI only for unstructured or judgement-heavy steps.",
-      "Validate before enterprise-system actions and preserve an exception path.",
-      "Treat adoption and support data as product signals for the next release."
+      "Start with the customer and business problem, then expose only the complexity required to make a valid commercial and operational decision.",
+      "Treat SpotOn and Booking as one quote-to-book transformation, not isolated pages.",
+      "Keep pricing, capacity and booking rules explicit and testable; hide complexity from the customer, not from the controls.",
+      "Measure the digital funnel after release so conversion, rework and support demand drive the next backlog."
     ]
   },
   {

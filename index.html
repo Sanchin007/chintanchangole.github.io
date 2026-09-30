@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body>
 <div id="scrollProgress" class="scroll-progress"></div>
@@ -21,6 +21,8 @@
     <span><b>Chintan Changole</b><small>Business Process Engineer</small></span>
   </a>
   <nav aria-label="Primary navigation">
+    <a href="#ecommerce-dashboard">E-Commerce Dashboard</a>
+    <a href="#commerce-ops-lab">Operations Lab</a>
     <a href="#projects">Projects</a>
     <a href="#process">Process</a>
     <a href="#capabilities">Capabilities</a>
@@ -42,7 +44,7 @@
       <h1>I turn operational friction into <span>systems people actually use.</span></h1>
       <p class="hero-lead">I diagnose how work happens today, quantify friction with data, translate it into buildable requirements, coordinate delivery, automate where it creates value, and stay through adoption, governance and continuous improvement.</p>
       <div class="hero-actions">
-        <a class="btn primary" href="#projects">Explore projects</a>
+        <a class="btn primary" href="#ecommerce-dashboard">Open E-Commerce dashboard</a>
         <a class="btn ghost" href="#process">See my delivery model <b>↗</b></a>
       </div>
       <div class="hero-proof">
@@ -79,6 +81,362 @@
   <div class="shell impact-inner reveal">
     <p>My work sits between <b>business operations</b> and <b>engineering teams</b>.</p>
     <div class="impact-flow"><span>Diagnose</span><i>→</i><span>Analyze</span><i>→</i><span>Specify</span><i>→</i><span>Build</span><i>→</i><span>Adopt</span><i>↺</i></div>
+  </div>
+</section>
+
+
+<section id="ecommerce-dashboard" class="commerce-dashboard section">
+  <div class="commerce-grid-bg" aria-hidden="true"></div>
+  <div class="shell commerce-shell">
+    <div class="commerce-head reveal">
+      <div>
+        <p class="eyebrow light">FLAGSHIP CASE STUDY · LINES & PRICING TRANSFORMATION</p>
+        <h2>CMA CGM E-Commerce Transformation Dashboard</h2>
+        <p class="commerce-lead">A business-first view of the shipping journey, with my direct design scope highlighted around <b>SpotOn pricing</b> and <b>digital booking</b>, then connected to the wider shipment lifecycle.</p>
+      </div>
+      <div class="commerce-scope-card">
+        <span>DIRECT DESIGN SCOPE</span>
+        <b>SpotOn + Booking</b>
+        <small>Pricing journey · quote-to-book · business rules · functional design · process / system integration</small>
+        <button id="commercePresent" class="commerce-present">Presentation mode ↗</button>
+      </div>
+    </div>
+
+    <div class="commerce-exec reveal">
+      <article><small>BUSINESS PROBLEM</small><b>Too much friction between shipping need, price and executable booking</b><p>Customers need a fast, understandable path from route requirement to a commercially valid offer and an operationally valid booking.</p></article>
+      <article><small>BUSINESS CONSEQUENCE</small><b>Delay · rework · uncertainty · support load</b><p>Every manual handoff, repeated field, unclear rule or exception adds time and can weaken digital conversion and operational quality.</p></article>
+      <article><small>TRANSFORMATION GOAL</small><b>Make quote-to-book digital, controlled and measurable</b><p>Reduce avoidable interaction while preserving pricing, allocation, cargo, equipment, compliance and operational rules.</p></article>
+      <article><small>DESIGN PRINCIPLE</small><b>Hide complexity from the customer — not from the controls</b><p>The experience should feel simple while business rules, validation, exceptions, traceability and downstream integration remain explicit.</p></article>
+    </div>
+
+    <div class="commerce-console reveal" id="commerceConsole">
+      <div class="commerce-console-bar">
+        <div><i></i><span>E-COMMERCE TRANSFORMATION VIEW</span></div>
+        <nav id="commerceTabs" aria-label="E-commerce dashboard views">
+          <button class="active" data-commerce-view="business">Business problem</button>
+          <button data-commerce-view="journey">Customer journey</button>
+          <button data-commerce-view="simulation">Simulation</button>
+          <button data-commerce-view="architecture">Architecture</button>
+          <button data-commerce-view="kpis">KPIs & controls</button>
+        </nav>
+      </div>
+
+      <div class="commerce-view active" data-commerce-panel="business">
+        <div class="commerce-business-grid">
+          <section class="commerce-problem-chain">
+            <div class="commerce-label">PROBLEM PATTERN ADDRESSED</div>
+            <div class="problem-steps">
+              <article><span>01</span><b>Shipping need</b><small>Route · date · equipment · commodity</small></article><i>→</i>
+              <article class="friction"><span>02</span><b>Pricing uncertainty</b><small>Rate / rules / routing / availability</small></article><i>→</i>
+              <article class="friction"><span>03</span><b>Commercial handoffs</b><small>Clarification · validation · exceptions</small></article><i>→</i>
+              <article class="friction"><span>04</span><b>Booking complexity</b><small>Parties · cargo · equipment · inland · VAS</small></article><i>→</i>
+              <article class="friction"><span>05</span><b>Operational rework</b><small>Missing / inconsistent information</small></article>
+            </div>
+          </section>
+
+          <section class="commerce-before-after">
+            <article class="commerce-state before">
+              <small>BEFORE / FRICTION</small><h3>Customer intent had to cross multiple decisions before becoming executable work.</h3>
+              <div><span>Rate discovery</span><span>Routing clarification</span><span>Capacity uncertainty</span><span>Repeated information</span><span>Manual exception handling</span></div>
+            </article>
+            <div class="commerce-transform-arrow"><b>REDESIGN</b><i></i><span>business rules → digital flow</span></div>
+            <article class="commerce-state after">
+              <small>TARGET DIGITAL JOURNEY</small><h3>A guided quote-to-book path with structured rules, validation and downstream continuity.</h3>
+              <div><span>Route-aware pricing</span><span>SpotOn offer</span><span>Allocation context</span><span>Guided booking</span><span>Validation + confirmation</span></div>
+            </article>
+          </section>
+
+          <section class="commerce-solve-grid">
+            <article><small>SPOTON SOLVES</small><h3>“Can I get a usable price now?”</h3><p>Turn origin, destination, date, equipment and commodity context into an offer/quotation that can continue into booking.</p></article>
+            <article><small>BOOKING SOLVES</small><h3>“Can this commercial intent become an executable shipment?”</h3><p>Capture operationally required information, apply conditional rules and validations, manage exceptions and create a confirmed booking path.</p></article>
+            <article><small>BUSINESS VALUE</small><h3>Faster self-service with stronger process control</h3><p>Reduce avoidable manual handling while improving consistency, visibility and the quality of information handed to downstream operations.</p></article>
+          </section>
+        </div>
+      </div>
+
+      <div class="commerce-view" data-commerce-panel="journey">
+        <div class="journey-legend"><span class="direct">Direct design scope</span><span class="connected">Connected e-commerce capability</span><span class="public">Public ecosystem context</span></div>
+        <div class="journey-track-wrap">
+          <div class="journey-line"><i id="journeyProgress"></i><em id="journeyPacket"></em></div>
+          <div id="commerceJourney" class="commerce-journey"></div>
+        </div>
+        <div class="journey-detail">
+          <div class="journey-detail-no" id="journeyNo">01</div>
+          <div class="journey-detail-main"><small id="journeyScope">CONNECTED CAPABILITY</small><h3 id="journeyTitle">Find route</h3><p id="journeyQuestion">Which viable route can move this cargo from origin to destination?</p><button id="journeyLaunch" class="journey-launch" hidden>Open simulation</button></div>
+          <div class="journey-detail-grid"><div><small>BUSINESS CAPABILITY</small><p id="journeyCapability"></p></div><div><small>KEY DATA / RULES</small><p id="journeyData"></p></div><div><small>BUSINESS VALUE</small><p id="journeyValue"></p></div></div>
+        </div>
+      </div>
+
+      <div class="commerce-view" data-commerce-panel="simulation">
+        <div class="sim-shell">
+          <aside class="sim-sidebar">
+            <div class="sim-intro">
+              <small>INTERACTIVE WALKTHROUGH</small>
+              <h3 id="simTitle">Booking simulation</h3>
+              <p id="simSubtitle">Show the business logic, runtime flow and application architecture behind SpotOn and Booking.</p>
+            </div>
+            <div class="sim-switch" id="simScenarioSwitch">
+              <button class="active" data-sim-scenario="spoton">SpotOn</button>
+              <button data-sim-scenario="booking">Booking</button>
+            </div>
+            <div class="sim-mode-list" id="simModeList"></div>
+            <div class="sim-control-bar">
+              <button data-sim-control="play">▶ Play</button>
+              <button data-sim-control="pause">Ⅱ Pause</button>
+              <button data-sim-control="next">Next step</button>
+              <button data-sim-control="reset">↺ Reset</button>
+            </div>
+            <div class="sim-summary-cards">
+              <article><small>BUSINESS PROBLEM</small><p id="simSummaryProblem"></p></article>
+              <article><small>WHAT CHANGED</small><p id="simSummaryChange"></p></article>
+              <article><small>WHY IT MATTERS</small><p id="simSummaryValue"></p></article>
+            </div>
+          </aside>
+
+          <section class="sim-main">
+            <div class="sim-stage-banner">
+              <div class="sim-step-current"><small>ACTIVE STEP</small><b id="simStepNo">STEP 01</b><p id="simStepName">Shipping need captured</p></div>
+              <div class="sim-step-narrative"><small>BUSINESS EXPLANATION</small><p id="simStepBusiness">Start from the operational need and progressively turn it into a digital commercial flow.</p></div>
+            </div>
+
+            <div class="sim-timeline-wrap">
+              <div class="sim-timeline-line"><i id="simProgress"></i><em id="simPacket"></em></div>
+              <div id="simTimeline" class="sim-timeline"></div>
+            </div>
+
+            <div class="sim-detail-grid">
+              <article><small>INPUTS / DATA</small><p id="simData"></p></article>
+              <article><small>ACTIVATED SYSTEMS</small><div id="simSystems" class="sim-tag-grid"></div></article>
+              <article><small>CONTROL / RULE</small><p id="simControl"></p></article>
+              <article><small>STEP OUTCOME</small><p id="simOutcome"></p></article>
+            </div>
+
+            <div class="sim-architecture">
+              <div class="sim-arch-head"><span>LIVE APPLICATION ARCHITECTURE</span><b id="simArchCaption">Customer touchpoint to downstream execution</b></div>
+              <div id="simArchitecture" class="sim-arch-grid"></div>
+            </div>
+          </section>
+
+          <aside class="sim-aside">
+            <div class="sim-compare">
+              <div class="sim-compare-head">
+                <button class="active" data-sim-compare="before">Before</button>
+                <button data-sim-compare="after">After</button>
+              </div>
+              <div class="sim-compare-panel active" data-sim-compare-panel="before">
+                <h4>Before</h4>
+                <ul id="simBeforeList"></ul>
+              </div>
+              <div class="sim-compare-panel" data-sim-compare-panel="after">
+                <h4>After</h4>
+                <ul id="simAfterList"></ul>
+              </div>
+            </div>
+            <div class="sim-kpis">
+              <small>BUSINESS OUTCOME TRACKERS</small>
+              <div id="simKpiList" class="sim-kpi-list"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="commerce-view" data-commerce-panel="architecture">
+        <div class="commerce-architecture">
+          <div class="arch-row channels"><div class="arch-row-title">CHANNELS</div><div class="arch-boxes"><span>My CMA CGM Web</span><span>Mobile</span><span>Customer ERP / TMS</span><span>API</span><span>EDI</span></div></div>
+          <div class="arch-down">↓</div>
+          <div class="arch-row domains"><div class="arch-row-title">E-COMMERCE BUSINESS DOMAINS</div><div class="arch-boxes domains-grid"><span>Routing / Schedules</span><span class="direct-scope">SpotOn Pricing <b>MY SCOPE</b></span><span>Allocation</span><span class="direct-scope">Booking <b>MY SCOPE</b></span><span>Shipment</span><span>Shipping Instructions / VGM</span><span>Bill of Lading</span><span>Tracking / Visibility</span><span>Invoice / Payment</span><span>Release / Delivery Order</span></div></div>
+          <div class="arch-down">↓</div>
+          <div class="arch-row integration"><div class="arch-row-title">INTEGRATION & EVENT LAYER</div><div class="arch-boxes"><span>REST APIs</span><span>API Keys / OAuth2</span><span>EDI</span><span>DCSA-aligned APIs</span><span>Shipment / Transport Events</span><span>Validation / Exceptions</span></div></div>
+          <div class="arch-down">↓</div>
+          <div class="arch-row operations"><div class="arch-row-title">OPERATIONAL / ENTERPRISE DOMAINS</div><div class="arch-boxes"><span>Pricing / Contract Rules</span><span>Vessel / Capacity</span><span>Equipment</span><span>Inland / Haulage</span><span>Documents</span><span>Customs / Compliance</span><span>Finance</span><span>Customer Service</span></div></div>
+          <div class="arch-down">↓</div>
+          <div class="arch-row controls"><div class="arch-row-title">DATA, CONTROL & OPERATIONS</div><div class="arch-boxes"><span>Operational Data</span><span>KPI / Funnel</span><span>Audit Trail</span><span>Monitoring</span><span>Data Quality</span><span>RBAC / Authorization</span><span>Support</span><span>Continuous Improvement</span></div></div>
+          <svg class="commerce-arch-flow" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true"><path id="commerceArchPath" d="M95 90 C260 90 260 205 450 205 S730 205 910 205 S760 340 575 340 S390 470 520 470 S735 560 905 560"/><circle r="5"><animateMotion dur="8s" repeatCount="indefinite"><mpath href="#commerceArchPath"/></animateMotion></circle></svg>
+        </div>
+        <div class="architecture-caption"><b>What this demonstrates</b><span>The customer journey is one experience, but the business logic spans pricing, capacity, booking, shipment execution, documents, visibility and finance. My direct design scope sits at the critical commercial-to-operational boundary: <strong>SpotOn → Booking</strong>.</span></div>
+      </div>
+
+      <div class="commerce-view" data-commerce-panel="kpis">
+        <div class="kpi-note"><b>KPI framework — not claimed historical results</b><span>These are the measures I would use to prove whether the redesigned quote-to-book process is actually better.</span></div>
+        <div class="commerce-kpi-grid">
+          <article><small>SPEED</small><b>Quote response time</b><p>How quickly can a valid offer be returned?</p></article>
+          <article><small>FUNNEL</small><b>Quote → booking conversion</b><p>How much commercial intent becomes executable demand?</p></article>
+          <article><small>QUALITY</small><b>Booking completion rate</b><p>How many journeys complete without clarification or rework?</p></article>
+          <article><small>AUTOMATION</small><b>Straight-through processing</b><p>What share completes without manual intervention?</p></article>
+          <article><small>EXCEPTIONS</small><b>Validation / rework rate</b><p>Where do business rules or data quality block the journey?</p></article>
+          <article><small>CAPACITY</small><b>Cancellation / no-show signal</b><p>Does demand remain aligned with booked capacity?</p></article>
+          <article><small>ADOPTION</small><b>Digital self-service</b><p>Are customers using the digital journey rather than assisted channels?</p></article>
+          <article><small>SUPPORT</small><b>Support demand</b><p>Which recurring issues should become the next backlog items?</p></article>
+        </div>
+        <div class="commerce-control-rail"><span>CONTROL POINTS</span><b>Pricing validity</b><b>Commercial rules</b><b>Allocation context</b><b>Conditional fields</b><b>Data validation</b><b>Exception path</b><b>Auditability</b><b>UAT</b><b>Funnel telemetry</b></div>
+      </div>
+    </div>
+
+    <div class="commerce-role-tech reveal">
+      <article><small>MY BUSINESS / FUNCTIONAL ROLE</small><h3>From problem to buildable journey</h3><div><span>Customer journey mapping</span><span>Business problem framing</span><span>Pricing / booking rules</span><span>Functional specifications</span><span>Process & data flows</span><span>Acceptance criteria</span><span>UAT / feature validation</span><span>Cross-functional coordination</span></div></article>
+      <article><small>TECHNOLOGY / INTEGRATION LANDSCAPE</small><h3>Capabilities behind the experience</h3><div><span>Routing / Schedules</span><span>SpotOn Pricing</span><span>Quotation</span><span>Allocation</span><span>Booking</span><span>REST APIs</span><span>EDI</span><span>Events</span><span>OAuth2 / API keys</span><span>Operational analytics</span></div></article>
+      <article><small>PORTFOLIO EVIDENCE</small><h3>Delivery beyond the screen</h3><div><span>SQL / Python analysis</span><span>Process diagnosis</span><span>Automation</span><span>Back-office applications</span><span>Change management</span><span>Governance</span><span>Training</span><span>Adoption tracking</span></div></article>
+    </div>
+
+    <div class="commerce-source-note reveal"><span><b>Scope clarity:</b> SpotOn and Booking are presented as my direct design/transformation experience in Lines & Pricing Transformation. The wider end-to-end lifecycle is shown as connected CMA CGM e-commerce context.</span><div><a href="https://www.cma-cgm.com/my-cma-cgm" target="_blank" rel="noreferrer">My CMA CGM ↗</a><a href="https://api-portal.cma-cgm.com/products/pricingApi" target="_blank" rel="noreferrer">Pricing / SpotOn APIs ↗</a><a href="https://api-portal.cma-cgm.com/products/schedules" target="_blank" rel="noreferrer">Schedules / API catalog ↗</a></div></div>
+  </div>
+</section>
+
+
+<section id="commerce-ops-lab" class="ops-lab section">
+  <div class="ops-grid-bg" aria-hidden="true"></div>
+  <div class="shell">
+    <div class="section-head ops-head reveal">
+      <div>
+        <p class="eyebrow">COMMERCE OPERATIONS LAB · REFERENCE SIMULATION</p>
+        <h2>From operational exception to governed, scalable workflow.</h2>
+      </div>
+      <p>This lab demonstrates how I structure a business-process engineering problem across process diagnosis, functional specification, low-code operations, workflow automation, sprint delivery, adoption and platform governance. It is a reusable reference pattern, not a claim of delivery for a specific retailer.</p>
+    </div>
+
+    <div class="ops-lab-shell reveal" id="opsLab">
+      <div class="ops-lab-topbar">
+        <div class="ops-console-brand"><span class="g-dot b"></span><span class="g-dot r"></span><span class="g-dot y"></span><span class="g-dot g"></span><b>Commerce Operations Console</b><small>REFERENCE ENVIRONMENT</small></div>
+        <div class="ops-status"><i></i><span>Workflow healthy</span><b id="opsClock">LIVE</b></div>
+      </div>
+
+      <div class="ops-tabs" id="opsTabs" role="tablist" aria-label="Commerce operations lab views">
+        <button class="active" data-ops-view="exception">Exception workflow</button>
+        <button data-ops-view="spec">Functional spec</button>
+        <button data-ops-view="automation">Automation studio</button>
+        <button data-ops-view="delivery">Delivery board</button>
+        <button data-ops-view="adoption">Adoption & governance</button>
+        <button data-ops-view="architecture">Architecture</button>
+      </div>
+
+      <div class="ops-view active" data-ops-panel="exception">
+        <div class="ops-scenario-head">
+          <div><small>SCENARIO</small><h3>Inventory mismatch blocks a marketplace order</h3><p>A representative exception where channel inventory, order orchestration and warehouse availability disagree. The goal is to resolve the customer-impacting issue without hiding the underlying control problem.</p></div>
+          <div class="ops-scenario-metrics"><article><small>PRIORITY</small><b>P1</b><span>customer-impacting</span></article><article><small>SLA</small><b>15 min</b><span>triage target</span></article><article><small>OWNER</small><b>Ops</b><span>with tech escalation</span></article></div>
+        </div>
+        <div class="ops-exception-layout">
+          <aside class="ops-ticket">
+            <div class="ticket-head"><span>EXC-2418</span><b>Open</b></div>
+            <h4>Stock available online, unavailable at fulfilment node</h4>
+            <dl><div><dt>Channel</dt><dd>Marketplace</dd></div><div><dt>Order</dt><dd>ORD-584291</dd></div><div><dt>SKU</dt><dd>SKU-TRAIL-42</dd></div><div><dt>Promised</dt><dd>Next-day</dd></div><div><dt>Node</dt><dd>LIL-03</dd></div></dl>
+            <div class="ticket-note"><small>OBSERVED FRICTION</small><p>Agent checks three systems, copies identifiers manually and waits for stock confirmation before deciding whether to re-route, cancel or escalate.</p></div>
+          </aside>
+          <div class="ops-workflow">
+            <div class="workflow-progress"><i id="opsWorkflowProgress"></i></div>
+            <div class="workflow-steps" id="opsWorkflowSteps">
+              <button class="active" data-ops-step="0"><span>01</span><b>Detect</b><small>exception created</small></button>
+              <button data-ops-step="1"><span>02</span><b>Enrich</b><small>fetch context</small></button>
+              <button data-ops-step="2"><span>03</span><b>Validate</b><small>apply rules</small></button>
+              <button data-ops-step="3"><span>04</span><b>Route</b><small>human / automation</small></button>
+              <button data-ops-step="4"><span>05</span><b>Resolve</b><small>sync systems</small></button>
+              <button data-ops-step="5"><span>06</span><b>Learn</b><small>feed backlog</small></button>
+            </div>
+            <div class="ops-step-detail">
+              <div><small id="opsStepKicker">PROCESS DIAGNOSIS</small><h4 id="opsStepTitle">Detect the exception at the point of failure</h4><p id="opsStepText">Create a structured exception when the order cannot reserve stock. Preserve the original order, inventory snapshot and fulfilment response so the issue is diagnosable rather than becoming an email thread.</p></div>
+              <div class="ops-step-data"><small>DATA / CONTROL</small><div id="opsStepTags"><span>order_id</span><span>sku</span><span>node</span><span>ATP snapshot</span><span>reason code</span></div></div>
+            </div>
+            <div class="ops-actions"><button id="opsPrev">← Previous</button><button id="opsPlay" class="primary">Run workflow</button><button id="opsNext">Next →</button></div>
+          </div>
+        </div>
+        <div class="ops-before-after">
+          <article><small>BEFORE</small><h4>Manual exception chasing</h4><p>Agent opens channel portal → OMS → inventory tool → copies IDs → asks warehouse → decides manually → updates channel.</p><div><span>Slow triage</span><span>Repeated data entry</span><span>Weak audit trail</span><span>Inconsistent decisions</span></div></article>
+          <article><small>AFTER</small><h4>Guided, observable resolution</h4><p>Exception is enriched automatically → rules validate options → human reviews only ambiguous cases → systems sync → telemetry feeds continuous improvement.</p><div><span>Structured queue</span><span>API enrichment</span><span>Rules + human review</span><span>Measured SLA</span></div></article>
+        </div>
+      </div>
+
+      <div class="ops-view" data-ops-panel="spec">
+        <div class="spec-grid">
+          <article class="spec-doc">
+            <div class="spec-doc-head"><div><small>FUNCTIONAL SPECIFICATION</small><h3>Inventory Exception Resolution</h3></div><span>v1.4 · Ready for build</span></div>
+            <section><small>1 · BUSINESS PROBLEM</small><p>Orders can fail after customer confirmation when marketplace stock, OMS availability and fulfilment-node inventory are not synchronized closely enough.</p></section>
+            <section><small>2 · USER STORY</small><p><b>As an operations agent</b>, I need a single exception view with trusted order and inventory context so I can resolve or escalate a blocked order without switching between systems.</p></section>
+            <section><small>3 · BUSINESS RULES</small><ul><li>If alternate node has ATP and promise remains valid → propose re-route.</li><li>If no ATP but replenishment ETA is within tolerance → hold with customer communication.</li><li>If source data conflicts → route to human review, never auto-cancel.</li><li>Every decision writes reason code, actor and timestamp to the audit trail.</li></ul></section>
+            <section><small>4 · ACCEPTANCE CRITERIA</small><ul><li>Order, SKU, inventory and promise context visible on one screen.</li><li>Eligible resolution options calculated in under agreed response threshold.</li><li>Manual override requires reason and is auditable.</li><li>Successful action synchronizes OMS and channel status.</li><li>Telemetry captures resolution time, automation rate and reopen rate.</li></ul></section>
+          </article>
+          <aside class="spec-side">
+            <article><small>INPUTS</small><div><span>Order event</span><span>Inventory snapshot</span><span>ATP by node</span><span>Promise date</span><span>Channel status</span></div></article>
+            <article><small>DEPENDENCIES</small><div><span>OMS API</span><span>Inventory service</span><span>Marketplace connector</span><span>Identity / RBAC</span><span>Notification service</span></div></article>
+            <article><small>NON-FUNCTIONAL</small><div><span>Auditability</span><span>RBAC</span><span>Idempotency</span><span>Retry policy</span><span>Observability</span></div></article>
+            <article><small>UAT EVIDENCE</small><div><span>Happy path</span><span>No-stock path</span><span>API timeout</span><span>Conflicting data</span><span>Manual override</span></div></article>
+          </aside>
+        </div>
+      </div>
+
+      <div class="ops-view" data-ops-panel="automation">
+        <div class="automation-studio">
+          <div class="automation-palette"><small>BUILDING BLOCKS</small><span>Trigger</span><span>API fetch</span><span>SQL check</span><span>Business rule</span><span>AI assist</span><span>Human review</span><span>Write-back</span><span>Notification</span><span>Telemetry</span></div>
+          <div class="automation-canvas">
+            <div class="auto-flow" id="autoFlow">
+              <article class="auto-node active" data-auto-node="0"><small>01 · TRIGGER</small><b>Reservation failed</b><p>Order event creates exception.</p></article><i>→</i>
+              <article class="auto-node" data-auto-node="1"><small>02 · ENRICH</small><b>Fetch context</b><p>OMS + inventory + promise.</p></article><i>→</i>
+              <article class="auto-node" data-auto-node="2"><small>03 · RULES</small><b>Evaluate options</b><p>Re-route / hold / review.</p></article><i>→</i>
+              <article class="auto-node" data-auto-node="3"><small>04 · REVIEW</small><b>Human gate</b><p>Only when confidence is low.</p></article><i>→</i>
+              <article class="auto-node" data-auto-node="4"><small>05 · ACTION</small><b>Write back</b><p>Update OMS and channel.</p></article><i>→</i>
+              <article class="auto-node" data-auto-node="5"><small>06 · OBSERVE</small><b>Telemetry</b><p>SLA, errors, adoption.</p></article>
+            </div>
+            <div class="auto-runtime"><span>RUNTIME EVENT</span><b id="autoRuntimeTitle">Reservation failure received</b><p id="autoRuntimeText">Capture an immutable event and correlation ID before attempting any automated resolution.</p><div class="runtime-log" id="autoRuntimeLog"><code>09:41:12  event.order.reservation_failed</code><code>09:41:12  correlation_id=cor_8f2a</code></div></div>
+            <div class="ops-actions"><button id="autoReset">Reset</button><button id="autoRun" class="primary">Run automation</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ops-view" data-ops-panel="delivery">
+        <div class="delivery-console">
+          <div class="delivery-summary"><article><small>SPRINT</small><b>24.18</b><span>10 working days</span></article><article><small>FEATURES</small><b>7</b><span>3 in validation</span></article><article><small>UAT PASS</small><b>92%</b><span>current cycle</span></article><article><small>SPEC CHURN</small><b>8%</b><span>after build start</span></article></div>
+          <div class="kanban" id="opsKanban">
+            <section><header><span>READY</span><b>2</b></header><article><small>OPS-184</small><b>Alternate-node recommendation</b><p>Acceptance criteria approved.</p><i>Spec ready</i></article><article><small>OPS-191</small><b>Reason-code taxonomy</b><p>Business ownership confirmed.</p><i>Ready</i></article></section>
+            <section><header><span>BUILD</span><b>2</b></header><article><small>OPS-176</small><b>Inventory API enrichment</b><p>Retry and timeout handling.</p><i>Engineering</i></article><article><small>OPS-180</small><b>Low-code exception panel</b><p>RBAC + audit components.</p><i>Engineering</i></article></section>
+            <section><header><span>UAT</span><b>2</b></header><article><small>OPS-169</small><b>Marketplace status sync</b><p>3 / 4 scenarios passed.</p><i>UAT</i></article><article><small>OPS-171</small><b>Manual override control</b><p>Evidence pending from super user.</p><i>UAT</i></article></section>
+            <section><header><span>RELEASE</span><b>1</b></header><article><small>OPS-158</small><b>Structured exception intake</b><p>Production monitoring active.</p><i>Live</i></article></section>
+          </div>
+          <div class="delivery-footer"><div><small>MY ROLE</small><span>Clarify requirements</span><span>Write / refine spec</span><span>Resolve business-rule ambiguity</span><span>Coordinate feature testing</span><span>Drive UAT sign-off</span></div><div><small>CONTROL</small><span>No build starts without acceptance criteria</span><span>Mid-build changes go through impact review</span><span>Release requires evidence, owner and rollback path</span></div></div>
+        </div>
+      </div>
+
+      <div class="ops-view" data-ops-panel="adoption">
+        <div class="adoption-grid">
+          <div class="adoption-main">
+            <div class="adoption-cards"><article><small>TRAINED USERS</small><b>800+</b><span>across transformation programmes</span></article><article><small>COUNTRIES</small><b>12</b><span>multi-country adoption</span></article><article><small>QUALITY</small><b>-35%</b><span>data inconsistencies</span></article><article><small>VALUE</small><b>€2.3M</b><span>annual efficiency contribution</span></article></div>
+            <div class="adoption-chart"><div class="chart-head"><div><small>ADOPTION MODEL</small><h4>Usage is a product signal, not the end of the project.</h4></div><span>illustrative operating view</span></div><div class="bars"><div><span>Training completion</span><i style="--w:94%"></i><b>94%</b></div><div><span>Weekly active use</span><i style="--w:82%"></i><b>82%</b></div><div><span>Self-service resolution</span><i style="--w:76%"></i><b>76%</b></div><div><span>Documentation coverage</span><i style="--w:91%"></i><b>91%</b></div></div></div>
+            <div class="feedback-loop"><small>CONTINUOUS IMPROVEMENT LOOP</small><div><span>Usage telemetry</span><i>→</i><span>Support tickets</span><i>→</i><span>Root cause</span><i>→</i><span>Backlog</span><i>→</i><span>Release</span><i>↺</i></div></div>
+          </div>
+          <aside class="governance-console"><article><small>ACCESS & RBAC</small><b>Least privilege by role</b><p>Operations, super-user, product, support and admin capabilities separated.</p></article><article><small>SAAS LICENSING</small><b>Active vs unassigned</b><p>Track paid seats, inactive accounts, renewals and configuration ownership.</p></article><article><small>DOCUMENTATION</small><b>Runbook + user guide</b><p>Business rules, known exceptions, support path and release notes stay current.</p></article><article><small>SUPPORT</small><b>Ticket themes → backlog</b><p>Recurring friction is quantified rather than repeatedly solved one user at a time.</p></article></aside>
+        </div>
+      </div>
+
+      <div class="ops-view" data-ops-panel="architecture">
+        <div class="reference-arch">
+          <div class="reference-arch-head"><div><small>REFERENCE ARCHITECTURE</small><h3>Commerce operations + back-office application architecture</h3></div><p>Business-process layer above source-system complexity; APIs, workflow state, controls and telemetry make the process operable.</p></div>
+          <div class="arch-layers">
+            <div class="arch-layer"><b>CHANNELS</b><div><span>Web / App</span><span>Marketplace</span><span>Customer Care</span><span>Store / Assisted</span></div></div>
+            <i>↓</i>
+            <div class="arch-layer"><b>COMMERCE CAPABILITIES</b><div><span>Catalog / PIM</span><span>Pricing & Promotions</span><span>OMS</span><span>Inventory / ATP</span><span>Seller Ops</span><span>Payments</span><span>Fulfilment</span><span>Returns</span></div></div>
+            <i>↓</i>
+            <div class="arch-layer emphasis"><b>PROCESS ENGINEERING LAYER</b><div><span>Low-code Operations UI</span><span>Workflow Orchestrator</span><span>Business Rules</span><span>Human Review Queue</span><span>Exception State</span><span>Audit Trail</span></div></div>
+            <i>↓</i>
+            <div class="arch-layer"><b>INTEGRATION & DATA</b><div><span>API Gateway</span><span>Events</span><span>Python / SQL</span><span>Data Products</span><span>Operational Analytics</span><span>AI Assist</span></div></div>
+            <i>↓</i>
+            <div class="arch-layer"><b>CONTROL PLANE</b><div><span>SSO / RBAC</span><span>Observability</span><span>Data Quality</span><span>Secrets</span><span>SaaS Admin</span><span>Usage Telemetry</span></div></div>
+          </div>
+          <div class="arch-principles"><article><small>01</small><b>One operational view</b><p>Reduce context switching without pretending source systems disappear.</p></article><article><small>02</small><b>Rules before AI</b><p>Use deterministic controls for clear policy; AI assists ambiguous or unstructured work.</p></article><article><small>03</small><b>Human-in-the-loop</b><p>Low-confidence or high-impact decisions stay reviewable.</p></article><article><small>04</small><b>Telemetry by design</b><p>Every workflow exposes SLA, quality, adoption and error signals.</p></article></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role-coverage reveal">
+      <div class="role-coverage-head"><div><p class="eyebrow">END-TO-END ROLE COVERAGE</p><h3>Nine responsibilities connected as one operating system.</h3></div><p>These are the recurring capabilities I use to move from frontline friction to a measurable, supported and governed solution.</p></div>
+      <div class="role-coverage-grid">
+        <article><span>01</span><b>Process diagnosis</b><small>Shadowing · process drawings</small></article>
+        <article><span>02</span><b>Operational analysis</b><small>SQL · deep dives · impact</small></article>
+        <article><span>03</span><b>Functional scoping</b><small>Specs · rules · acceptance</small></article>
+        <article><span>04</span><b>Low-code application</b><small>Back-office UI · workflow state</small></article>
+        <article><span>05</span><b>Workflow & AI automation</b><small>Triggers · APIs · agents · review</small></article>
+        <article><span>06</span><b>Tech-team animation</b><small>Sprint · testing · UAT</small></article>
+        <article><span>07</span><b>Change management</b><small>Docs · training · super users</small></article>
+        <article><span>08</span><b>Platform governance</b><small>RBAC · licences · settings</small></article>
+        <article><span>09</span><b>End-user support</b><small>Tickets · open hours · backlog</small></article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -228,7 +586,7 @@
   </section>
 </div>
 
-<script src="projects.js"></script>
-<script src="script.js"></script>
+<script src="projects.js?v=16"></script>
+<script src="script.js?v=16"></script>
 </body>
 </html>
